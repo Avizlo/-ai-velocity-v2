@@ -20,3 +20,5 @@ When modifying or creating new UI components in this project, strictly adhere to
 ## 3. Typography Hierarchy
 - **Primary Headings (H1/H2):** Use the bespoke `font-serif italic` variables mapped to the `AgenticTimes` / Source Serif 4 stack.
 - **Scale Markers:** Standardize primary typography at large scales (e.g., `text-5xl md:text-6xl` or `text-6xl md:text-8xl`). Avoid arbitrary custom sizing buckets like `text-[3.5rem]` when modifying core layout strings.
+
+Alway write HTML and React with the absolute highest standards for SEO and LLM readability. Always use semantic HTML, visually hidden text rather than unmounting content, and comprehensive ARIA attributes to ensure machine interpretability.

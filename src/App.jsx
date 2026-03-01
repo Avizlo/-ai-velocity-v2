@@ -9,6 +9,7 @@ import { Strategy } from './pages/Strategy';
 import { AgenticPhotoshoots } from './pages/AgenticPhotoshoots';
 import Sandbox from './pages/Sandbox';
 import Sandbox2 from './pages/Sandbox2';
+import Sandbox4 from './pages/Sandbox4';
 
 export default function App() {
   return (
@@ -28,6 +29,7 @@ export default function App() {
         {/* Hidden Development Routes */}
         <Route path="/sandbox" element={<Sandbox />} />
         <Route path="/sandbox-2" element={<Sandbox2 />} />
+        <Route path="/sandbox-4" element={<Sandbox4 />} />
       </Routes>
     </div>
   );

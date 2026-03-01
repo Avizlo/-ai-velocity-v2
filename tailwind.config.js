@@ -3,7 +3,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      colors: { 'cloud-dancer': '#F0F0EC', 'dew-mint': '#dff4e7', 'electric-mint': '#97d5ae', 'charcoal': '#1A1A1A' },
+      colors: { 'cloud-dancer': '#F0F0EC', 'dew-mint': '#dff4e7', 'electric-mint': '#97d5ae', 'charcoal': '#1A1A1A', 'steel': '#6B6B6B' },
       fontFamily: { sans: ['"Instrument Sans"', 'sans-serif'], serif: ['"AgenticTimes"', '"Times"', '"Times New Roman"', 'ui-serif', 'Georgia', 'serif'] },
       spacing: { 'section-desktop': '120px', 'section-mobile': '80px' },
       borderRadius: { 'card': '10px' },

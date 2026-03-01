@@ -16,7 +16,7 @@ export const Hero = () => {
     }, []);
 
     return (
-        <section ref={containerRef} className="relative min-h-[100svh] w-full flex flex-col justify-end pb-32 md:pb-52 overflow-hidden bg-charcoal">
+        <section ref={containerRef} data-nav-theme="dark" className="relative min-h-[100svh] w-full flex flex-col justify-end pb-32 md:pb-52 overflow-hidden bg-charcoal">
             <img
                 src="images/agentic-agent-hero.jpg"
                 alt="Background"

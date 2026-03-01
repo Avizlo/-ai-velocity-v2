@@ -1,5 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import { Hero } from '../components/sections/Hero';
+import { InfluencerCarousel } from '../components/sections/InfluencerCarousel';
 
 export const Home = () => {
     const schema = {
@@ -28,19 +29,7 @@ export const Home = () => {
                 <script type="application/ld+json">{JSON.stringify(schema)}</script>
             </Helmet>
             <Hero />
-
-            {/* Spacer for scroll testing */}
-            <section className="h-screen flex items-center justify-center border-t border-white/5">
-                <p className="font-mono text-charcoal/30 text-sm">Scroll Area 1: Slide Up Navbar</p>
-            </section>
-
-            <section className="h-screen flex items-center justify-center bg-cloud-dancer-light/20">
-                <p className="font-mono text-charcoal/30 text-sm">Scroll Area 2: Slide Down Navbar</p>
-            </section>
-
-            <section className="h-screen flex items-center justify-center">
-                <p className="font-mono text-charcoal/30 text-sm">Scroll Area 3: Glassmorphism Test</p>
-            </section>
+            <InfluencerCarousel />
         </main>
     );
 };
