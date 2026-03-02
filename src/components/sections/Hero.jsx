@@ -20,6 +20,7 @@ export const Hero = () => {
             <img
                 src="images/agentic-agent-hero.jpg"
                 alt="Background"
+                fetchpriority="high"
                 className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
             />
 

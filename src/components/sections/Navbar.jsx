@@ -2,12 +2,13 @@ import { useRef, useState, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { MagneticButton } from '../ui/MagneticButton';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const Navbar = () => {
+    const location = useLocation();
     const navRef = useRef(null);
     const dropdownRef = useRef(null);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -100,7 +101,7 @@ export const Navbar = () => {
 
         themedSections.forEach((el) => observer.observe(el));
         return () => observer.disconnect();
-    }, []);
+    }, [location.pathname]);
 
     const categories = [
         { name: 'Agentic Commerce', path: '/agentic-commerce' },
@@ -118,9 +119,9 @@ export const Navbar = () => {
                 className={`fixed top-0 left-0 right-0 z-50 px-6 py-6 flex flex-col items-center transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] font-sans ${isVisible ? 'translate-y-0' : '-translate-y-full'
                     } ${isScrolled || isMobileMenuOpen || activeDropdown
                         ? 'bg-white backdrop-blur-md border-b border-charcoal/10 text-charcoal/75'
-                        : navTheme === 'light'
-                            ? 'bg-white border-b border-charcoal/10 text-charcoal/80'
-                            : 'bg-transparent border-b border-transparent text-white'
+                        : location.pathname === '/'
+                            ? 'bg-transparent border-b border-transparent text-white'
+                            : 'bg-white border-b border-charcoal/10 text-charcoal/80'
                     }`}
             >
                 <div className="flex items-center justify-between w-full max-w-screen-2xl px-6 md:px-12 relative">

@@ -69,6 +69,7 @@ export const BentoGrid2 = ({ data = defaultBentoData }) => {
                         <img
                             src={data.images.center}
                             alt="Center featured"
+                            loading="lazy"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
@@ -78,6 +79,7 @@ export const BentoGrid2 = ({ data = defaultBentoData }) => {
                         <img
                             src={data.images.brand}
                             alt="Brand campaign"
+                            loading="lazy"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
@@ -87,6 +89,7 @@ export const BentoGrid2 = ({ data = defaultBentoData }) => {
                         <img
                             src={data.images.bottomLeft}
                             alt="Bottom left model"
+                            loading="lazy"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
