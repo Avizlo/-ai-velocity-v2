@@ -119,10 +119,10 @@ export const Navbar = () => {
                 onMouseLeave={() => setActiveDropdown(null)}
                 className={`fixed top-0 left-0 right-0 z-50 px-6 py-6 flex flex-col items-center transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] font-sans ${isVisible ? 'translate-y-0' : '-translate-y-full'
                     } ${isScrolled || isMobileMenuOpen || activeDropdown
-                        ? 'bg-white backdrop-blur-md border-b border-charcoal/10 text-charcoal/75'
-                        : pathname === '/'
+                        ? 'bg-white/80 backdrop-blur-xl border-b border-charcoal/10 text-charcoal/75 shadow-[0_1px_0_0_rgba(192,233,203,0.3)]'
+                        : navTheme === 'dark'
                             ? 'bg-transparent border-b border-transparent text-white'
-                            : 'bg-white border-b border-charcoal/10 text-charcoal/80'
+                            : 'bg-transparent border-b border-transparent text-charcoal/80'
                     }`}
             >
                 <div className="flex items-center justify-between w-full max-w-screen-2xl px-6 md:px-12 relative">
@@ -149,8 +149,12 @@ export const Navbar = () => {
                                         onMouseEnter={() => handleMouseEnter(cat.name)}
                                     >
                                         {cat.name}
-                                        {/* Center-out underline */}
+                                        {/* Center-out underline on hover */}
                                         <span className="absolute -bottom-1 left-1/2 h-[1px] w-0 bg-current -translate-x-1/2 transition-all duration-300 group-hover:w-full"></span>
+                                        {/* Active page dot indicator */}
+                                        {pathname === cat.path && (
+                                            <span className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-electric-mint"></span>
+                                        )}
                                     </Link>
                                 </MagneticButton>
                             ))}
