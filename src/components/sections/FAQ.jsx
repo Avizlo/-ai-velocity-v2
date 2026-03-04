@@ -132,24 +132,17 @@ export const FAQ = ({ title = "FAQ's", label, faqs = defaultFaqs, bgClass = "bg-
     }, []);
 
     return (
-        <section ref={containerRef} className="relative py-24 bg-cloud-dancer overflow-hidden">
-            {/* Subtle graduated green fade */}
+        <section ref={containerRef} className="relative py-24 bg-electric-mint overflow-hidden">
+            {/* Graduated fade for depth — lighter center, softer edges */}
             <div
                 className="absolute inset-0 pointer-events-none z-0"
                 style={{
                     background: `
-                        linear-gradient(180deg, rgba(192,233,203,0.08) 0%, rgba(223,244,231,0.15) 30%, rgba(223,244,231,0.12) 70%, rgba(192,233,203,0.06) 100%),
-                        radial-gradient(ellipse at 30% 50%, rgba(192,233,203,0.1) 0%, transparent 60%),
-                        radial-gradient(ellipse at 70% 30%, rgba(223,244,231,0.08) 0%, transparent 50%)
+                        radial-gradient(ellipse at 50% 40%, rgba(255,255,255,0.25) 0%, transparent 65%),
+                        linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.04) 100%)
                     `
                 }}
             />
-            {/* INSIGHTS Watermark */}
-            <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[5%] pointer-events-none z-0 select-none">
-                <span className="font-serif italic text-[14vw] leading-none block tracking-tighter opacity-[0.04] text-charcoal">
-                    INSIGHTS
-                </span>
-            </div>
 
             <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-16 lg:gap-24">
