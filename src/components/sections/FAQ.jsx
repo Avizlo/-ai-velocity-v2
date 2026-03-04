@@ -51,14 +51,14 @@ const FAQItem = ({ faq, isOpen, onToggle, index }) => {
             >
                 <h3
                     className="font-sans text-lg font-medium tracking-tight transition-colors duration-300"
-                    style={{ color: isOpen ? '#1A1A1A' : '#6B6B6B' }}
+                    style={{ color: isOpen ? '#1A1A1A' : '#1A1A1A' }}
                 >
                     {faq.question}
                 </h3>
 
                 <span
                     className="shrink-0 flex items-center justify-center transition-all duration-300"
-                    style={{ color: isOpen ? '#1A1A1A' : '#6B6B6B' }}
+                    style={{ color: isOpen ? '#1A1A1A' : '#1A1A1A' }}
                 >
                     <span
                         className="inline-block transition-transform duration-400 ease-[cubic-bezier(0.25,1,0.5,1)]"
@@ -99,6 +99,7 @@ export const FAQ = ({ title = "FAQ's", label, faqs = defaultFaqs, bgClass = "bg-
     const [openIndex, setOpenIndex] = useState(0);
     const containerRef = useRef(null);
     const titleRef = useRef(null);
+    const glowRef = useRef(null);
 
     const toggle = (index) => {
         setOpenIndex(prev => (prev === index ? null : index));
@@ -128,19 +129,66 @@ export const FAQ = ({ title = "FAQ's", label, faqs = defaultFaqs, bgClass = "bg-
                 );
         }, containerRef);
 
-        return () => ctx.revert();
+        // Cursor-following glow
+        const section = containerRef.current;
+        const glow = glowRef.current;
+
+        const handleMouseMove = (e) => {
+            const rect = section.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            gsap.to(glow, {
+                left: x,
+                top: y,
+                duration: 0.6,
+                ease: 'power2.out',
+                overwrite: 'auto'
+            });
+        };
+
+        const handleMouseEnter = () => {
+            gsap.to(glow, { opacity: 1, duration: 0.4 });
+        };
+
+        const handleMouseLeave = () => {
+            gsap.to(glow, { opacity: 0, duration: 0.4 });
+        };
+
+        section.addEventListener('mousemove', handleMouseMove);
+        section.addEventListener('mouseenter', handleMouseEnter);
+        section.addEventListener('mouseleave', handleMouseLeave);
+
+        return () => {
+            ctx.revert();
+            section.removeEventListener('mousemove', handleMouseMove);
+            section.removeEventListener('mouseenter', handleMouseEnter);
+            section.removeEventListener('mouseleave', handleMouseLeave);
+        };
     }, []);
 
     return (
         <section ref={containerRef} className="relative py-24 bg-electric-mint overflow-hidden">
-            {/* Graduated fade for depth — lighter center, softer edges */}
+            {/* Stronger graduated fade */}
             <div
                 className="absolute inset-0 pointer-events-none z-0"
                 style={{
                     background: `
-                        radial-gradient(ellipse at 50% 40%, rgba(255,255,255,0.25) 0%, transparent 65%),
-                        linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 25%, transparent 75%, rgba(0,0,0,0.04) 100%)
+                        radial-gradient(ellipse at 50% 40%, rgba(255,255,255,0.4) 0%, transparent 60%),
+                        linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.08) 100%)
                     `
+                }}
+            />
+
+            {/* Cursor-following radial glow */}
+            <div
+                ref={glowRef}
+                className="absolute w-[500px] h-[500px] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[1] opacity-0"
+                style={{
+                    background: 'radial-gradient(circle, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.1) 35%, transparent 65%)',
+                    borderRadius: '50%',
+                    filter: 'blur(20px)',
+                    willChange: 'left, top'
                 }}
             />
 
@@ -150,11 +198,11 @@ export const FAQ = ({ title = "FAQ's", label, faqs = defaultFaqs, bgClass = "bg-
                     {/* Left: Title */}
                     <div ref={titleRef} className="lg:pt-2 flex flex-col items-start opacity-0 translate-y-4">
                         {label && (
-                            <span className="block font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 mb-4">
+                            <span className="block font-mono text-[10px] tracking-[0.25em] uppercase text-[#1a1a1a]/50 mb-4">
                                 {label}
                             </span>
                         )}
-                        <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif italic text-charcoal tracking-tight">
+                        <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif italic text-[#1a1a1a] tracking-tight">
                             {title}
                         </h2>
                     </div>
