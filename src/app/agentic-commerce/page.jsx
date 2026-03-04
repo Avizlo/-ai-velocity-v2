@@ -385,8 +385,8 @@ const BentoGrid2 = ({ data }) => {
     return (
         <section className="relative py-20 bg-cloud-dancer overflow-hidden">
             {/* Section Watermark */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none z-0 select-none">
-                <span className="font-serif italic text-[12vw] leading-none whitespace-nowrap block tracking-tighter opacity-[0.03] text-charcoal">
+            <div className="absolute top-[18%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none z-[1] select-none">
+                <span className="font-serif italic text-[12vw] leading-none whitespace-nowrap block tracking-tighter opacity-[0.05] text-charcoal">
                     COMMERCE
                 </span>
             </div>
