@@ -1,4 +1,7 @@
+"use client";
+
 import { useEffect, useRef } from 'react';
+import Image from 'next/image';
 import gsap from 'gsap';
 
 export const Hero = () => {
@@ -17,11 +20,12 @@ export const Hero = () => {
 
     return (
         <section ref={containerRef} data-nav-theme="dark" className="relative min-h-[100svh] w-full flex flex-col justify-end pb-32 md:pb-52 overflow-hidden bg-charcoal">
-            <img
-                src="images/agentic-agent-hero.jpg"
+            <Image
+                src="/images/agentic-agent-hero.jpg"
                 alt="Background"
-                fetchpriority="high"
-                className="absolute inset-0 w-full h-full object-cover opacity-60 z-0"
+                priority
+                fill
+                className="object-cover opacity-60 z-0"
             />
 
             <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-12">

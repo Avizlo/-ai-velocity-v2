@@ -1,3 +1,5 @@
+"use client";
+
 import { useRef } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
@@ -47,7 +49,7 @@ export const InfluencerCarousel = () => {
             >
                 {/* Image 1 */}
                 <div className="relative aspect-[4/3] w-[85vw] md:w-[45vw] lg:w-[28vw] shrink-0 snap-start rounded-card overflow-hidden bg-charcoal/5">
-                    <img
+                    <img loading="lazy" decoding="async"
                         src="/images/ai-model-1.webp"
                         alt="AI Influencer Model 1"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 cursor-pointer"
@@ -55,7 +57,7 @@ export const InfluencerCarousel = () => {
                 </div>
                 {/* Image 2 */}
                 <div className="relative aspect-[4/3] w-[85vw] md:w-[45vw] lg:w-[28vw] shrink-0 snap-start rounded-card overflow-hidden bg-charcoal/5">
-                    <img
+                    <img loading="lazy" decoding="async"
                         src="/images/ai-model-2.webp"
                         alt="AI Influencer Model 2"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 cursor-pointer"
@@ -63,7 +65,7 @@ export const InfluencerCarousel = () => {
                 </div>
                 {/* Image 3 */}
                 <div className="relative aspect-[4/3] w-[85vw] md:w-[45vw] lg:w-[28vw] shrink-0 snap-start rounded-card overflow-hidden bg-charcoal/5">
-                    <img
+                    <img loading="lazy" decoding="async"
                         src="/images/ai-model-3.webp"
                         alt="AI Influencer Model 3"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 cursor-pointer"
@@ -71,7 +73,7 @@ export const InfluencerCarousel = () => {
                 </div>
                 {/* Image 4 */}
                 <div className="relative aspect-[4/3] w-[85vw] md:w-[45vw] lg:w-[28vw] shrink-0 snap-start rounded-card overflow-hidden bg-charcoal/5">
-                    <img
+                    <img loading="lazy" decoding="async"
                         src="/images/ai-model-4.webp"
                         alt="AI Influencer Model 4"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 cursor-pointer"
@@ -79,7 +81,7 @@ export const InfluencerCarousel = () => {
                 </div>
                 {/* Image 5 */}
                 <div className="relative aspect-[4/3] w-[85vw] md:w-[45vw] lg:w-[28vw] shrink-0 snap-start rounded-card overflow-hidden bg-charcoal/5">
-                    <img
+                    <img loading="lazy" decoding="async"
                         src="/images/ai-model-5.webp"
                         alt="AI Influencer Model 5"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105 cursor-pointer"

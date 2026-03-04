@@ -31,7 +31,7 @@ export const FeatureShowcase2 = () => {
 
                     {/* ── Item 2 ── */}
                     <div className="group rounded-2xl overflow-hidden min-h-[240px]">
-                        <img
+                        <img loading="lazy" decoding="async"
                             src="/images/ai-model-5.webp"
                             alt="AI influencer model"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -40,7 +40,7 @@ export const FeatureShowcase2 = () => {
 
                     {/* ── Item 3 ── */}
                     <div className="group rounded-2xl overflow-hidden min-h-[240px]">
-                        <img
+                        <img loading="lazy" decoding="async"
                             src="/images/antesta-ai-model.jpg"
                             alt="Antesta AI model"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -59,7 +59,7 @@ export const FeatureShowcase2 = () => {
 
                     {/* ── Item 5 ── */}
                     <div className="group relative rounded-2xl overflow-hidden min-h-[240px]">
-                        <img
+                        <img loading="lazy" decoding="async"
                             src="/images/good-univerce-ai.jpg"
                             alt="Good Universe AI campaign"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -73,7 +73,7 @@ export const FeatureShowcase2 = () => {
 
                     {/* ── Item 6 ── */}
                     <div className="group rounded-2xl overflow-hidden min-h-[240px]">
-                        <img
+                        <img loading="lazy" decoding="async"
                             src="/images/ai-model-3.webp"
                             alt="AI model"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -82,7 +82,7 @@ export const FeatureShowcase2 = () => {
 
                     {/* ── Item 7 ── */}
                     <div className="group rounded-2xl overflow-hidden min-h-[240px]">
-                        <img
+                        <img loading="lazy" decoding="async"
                             src="/images/agentic-agent-hero.webp"
                             alt="Agentic AI hero"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"

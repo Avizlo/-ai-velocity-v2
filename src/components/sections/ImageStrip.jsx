@@ -53,7 +53,7 @@ export const ImageStrip = () => {
                         className="relative shrink-0 snap-start rounded-card overflow-hidden bg-charcoal/5"
                         style={{ width: 'clamp(220px, 24vw, 340px)', aspectRatio: '3/4' }}
                     >
-                        <img
+                        <img loading="lazy" decoding="async"
                             src={img.src}
                             alt={img.alt}
                             className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"

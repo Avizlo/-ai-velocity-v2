@@ -1,0 +1,110 @@
+{
+  "version": 3,
+  "pages404": true,
+  "appType": "app",
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "priority": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_global-error",
+      "regex": "^/_global\\-error(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_global\\-error(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/aeo",
+      "regex": "^/aeo(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/aeo(?:/)?$"
+    },
+    {
+      "page": "/agentic-commerce",
+      "regex": "^/agentic\\-commerce(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/agentic\\-commerce(?:/)?$"
+    },
+    {
+      "page": "/agentic-marketing",
+      "regex": "^/agentic\\-marketing(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/agentic\\-marketing(?:/)?$"
+    },
+    {
+      "page": "/agentic-photoshoots",
+      "regex": "^/agentic\\-photoshoots(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/agentic\\-photoshoots(?:/)?$"
+    },
+    {
+      "page": "/business-payments",
+      "regex": "^/business\\-payments(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/business\\-payments(?:/)?$"
+    },
+    {
+      "page": "/sandbox",
+      "regex": "^/sandbox(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sandbox(?:/)?$"
+    },
+    {
+      "page": "/sandbox2",
+      "regex": "^/sandbox2(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sandbox2(?:/)?$"
+    },
+    {
+      "page": "/strategy",
+      "regex": "^/strategy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/strategy(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments",
+    "clientParamParsing": false,
+    "dynamicRSCPrerender": false
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

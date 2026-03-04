@@ -53,7 +53,7 @@ export const NewsInsight = ({
                             >
                                 {/* Thumbnail */}
                                 <div className="shrink-0 w-44 md:w-52 aspect-[16/10] rounded-card overflow-hidden bg-charcoal/5">
-                                    <img
+                                    <img loading="lazy" decoding="async"
                                         src={post.image}
                                         alt={post.alt}
                                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 export const Footer = () => {
     return (
@@ -20,10 +20,10 @@ export const Footer = () => {
                     <div className="flex flex-col gap-6">
                         <h4 className="text-white/90 text-lg font-medium tracking-wide">Navigate</h4>
                         <div className="flex flex-col gap-3">
-                            <Link to="/" className="text-white/60 hover:text-white transition-colors duration-300 w-fit">Home</Link>
-                            <Link to="/agentic-commerce" className="text-white/60 hover:text-white transition-colors duration-300 w-fit">About</Link>
-                            <Link to="/portfolio" className="text-white/60 hover:text-white transition-colors duration-300 w-fit">Portfolio</Link>
-                            <Link to="#contact" className="text-white/60 hover:text-white transition-colors duration-300 w-fit">Contact</Link>
+                            <Link href="/" className="text-white/60 hover:text-white transition-colors duration-300 w-fit">Home</Link>
+                            <Link href="/agentic-commerce" className="text-white/60 hover:text-white transition-colors duration-300 w-fit">About</Link>
+                            <Link href="/portfolio" className="text-white/60 hover:text-white transition-colors duration-300 w-fit">Portfolio</Link>
+                            <Link href="#contact" className="text-white/60 hover:text-white transition-colors duration-300 w-fit">Contact</Link>
                         </div>
                     </div>
 
@@ -55,7 +55,7 @@ export const Footer = () => {
                 <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium text-white/40 tracking-wide">
                     <p>©2026</p>
                     <p>All Rights Reserved</p>
-                    <Link to="/privacy" className="hover:text-white transition-colors duration-300">Privacy Policy</Link>
+                    <Link href="/privacy" className="hover:text-white transition-colors duration-300">Privacy Policy</Link>
                 </div>
             </div>
         </footer>

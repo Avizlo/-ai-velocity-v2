@@ -1,14 +1,19 @@
+"use client";
+
 import { useRef, useState, useLayoutEffect } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { MagneticButton } from '../ui/MagneticButton';
-import { Link, useLocation } from 'react-router-dom';
+import { MagneticButton } from '@/components/ui/MagneticButton';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
+if (typeof window !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+}
 
 export const Navbar = () => {
-    const location = useLocation();
+    const pathname = usePathname();
     const navRef = useRef(null);
     const dropdownRef = useRef(null);
     const [isScrolled, setIsScrolled] = useState(false);
@@ -101,7 +106,7 @@ export const Navbar = () => {
 
         themedSections.forEach((el) => observer.observe(el));
         return () => observer.disconnect();
-    }, [location.pathname]);
+    }, [pathname]);
 
     const categories = [
         { name: 'Agentic Commerce', path: '/agentic-commerce' },
@@ -119,7 +124,7 @@ export const Navbar = () => {
                 className={`fixed top-0 left-0 right-0 z-50 px-6 py-6 flex flex-col items-center transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] font-sans ${isVisible ? 'translate-y-0' : '-translate-y-full'
                     } ${isScrolled || isMobileMenuOpen || activeDropdown
                         ? 'bg-white backdrop-blur-md border-b border-charcoal/10 text-charcoal/75'
-                        : location.pathname === '/'
+                        : pathname === '/'
                             ? 'bg-transparent border-b border-transparent text-white'
                             : 'bg-white border-b border-charcoal/10 text-charcoal/80'
                     }`}
@@ -129,7 +134,7 @@ export const Navbar = () => {
                     {/* Left Group: Logo + Desktop Links */}
                     <div className="flex items-center justify-start gap-16">
                         {/* Logo / Brand - Using Serif for emotion/branding */}
-                        <Link to="/" className="flex items-center gap-3 group relative z-50">
+                        <Link href="/" className="flex items-center gap-3 group relative z-50">
                             <span className="font-serif italic text-2xl tracking-wide opacity-90">
                                 AI VELOCITY
                             </span>
@@ -140,7 +145,7 @@ export const Navbar = () => {
                             {categories.map((cat) => (
                                 <MagneticButton key={cat.name} className="cursor-pointer group relative">
                                     <Link
-                                        to={cat.path}
+                                        href={cat.path}
                                         className="block transition-colors duration-300 nav-link-text"
                                         onMouseEnter={() => handleMouseEnter(cat.name)}
                                     >
@@ -216,7 +221,7 @@ export const Navbar = () => {
                                 <div>
                                     <h4 className="text-charcoal font-sans font-medium mb-3 text-lg">Studio</h4>
                                     <div className="flex flex-col gap-3 font-mono text-xs opacity-90">
-                                        <Link to="/agentic-photoshoots" className="text-dew-mint font-bold hover:text-dew-mint-hover transition-colors duration-300">Agentic AI Photoshoots</Link>
+                                        <Link href="/agentic-photoshoots" className="text-dew-mint font-bold hover:text-dew-mint-hover transition-colors duration-300">Agentic AI Photoshoots</Link>
                                         <span className="opacity-60 cursor-default">Digital Lookbooks</span>
                                         <span className="opacity-60 cursor-default">AI Studio Production</span>
                                     </div>
@@ -258,7 +263,7 @@ export const Navbar = () => {
             >
                 <div className="flex flex-col items-center gap-8 text-xl font-medium tracking-widest text-charcoal/90">
                     {categories.map((cat) => (
-                        <Link key={cat.name} to={cat.path} onClick={() => setIsMobileMenuOpen(false)} className="hover:text-dew-mint transition-colors duration-300">
+                        <Link key={cat.name} href={cat.path} onClick={() => setIsMobileMenuOpen(false)} className="hover:text-dew-mint transition-colors duration-300">
                             {cat.name}
                         </Link>
                     ))}

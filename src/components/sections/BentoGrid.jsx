@@ -45,7 +45,7 @@ export const BentoGrid = () => {
 
                     {/* ── [col2, rows 1-2] Tall hero image ── */}
                     <div className="group md:col-start-2 md:row-start-1 md:row-span-2 rounded-2xl overflow-hidden min-h-[580px]">
-                        <img
+                        <img loading="lazy" decoding="async"
                             src="/images/agentic-agent-hero.jpg"
                             alt="Agentic AI systems"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -64,7 +64,7 @@ export const BentoGrid = () => {
 
                     {/* ── [col1, row2] AI model image ── */}
                     <div className="group md:col-start-1 md:row-start-2 rounded-2xl overflow-hidden min-h-[280px]">
-                        <img
+                        <img loading="lazy" decoding="async"
                             src="/images/ai-model-1.webp"
                             alt="AI model campaign"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -73,7 +73,7 @@ export const BentoGrid = () => {
 
                     {/* ── [col3, row2] Landscape image ── */}
                     <div className="group md:col-start-3 md:row-start-2 rounded-2xl overflow-hidden min-h-[180px]">
-                        <img
+                        <img loading="lazy" decoding="async"
                             src="/images/good-univerce-ai.jpg"
                             alt="AI universe"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -114,7 +114,7 @@ export const BentoGrid = () => {
                                 '/images/ai-model-4.webp',
                                 '/images/ai-model-5.webp',
                             ].map((src, i) => (
-                                <img
+                                <img loading="lazy" decoding="async"
                                     key={i}
                                     src={src}
                                     alt="Team member"

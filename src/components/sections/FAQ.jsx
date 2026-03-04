@@ -45,12 +45,12 @@ const FAQItem = ({ faq, isOpen, onToggle, index }) => {
                 id={`faq-question-${index}`}
                 className="w-full flex items-center justify-between gap-8 py-7 text-left group cursor-pointer"
             >
-                <span
+                <h3
                     className="font-sans text-lg font-medium tracking-tight transition-colors duration-300"
                     style={{ color: isOpen ? '#1A1A1A' : '#6B6B6B' }}
                 >
                     {faq.question}
-                </span>
+                </h3>
 
                 <span
                     className="shrink-0 flex items-center justify-center transition-all duration-300"

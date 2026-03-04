@@ -1,0 +1,15 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/agentic-commerce/layout,_N_T_/agentic-commerce/page,_N_T_/agentic-commerce"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/agentic-commerce/__PAGE__",
+    "/agentic-commerce",
+    "/_index",
+    "/_head"
+  ]
+}

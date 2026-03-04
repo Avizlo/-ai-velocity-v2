@@ -1,0 +1,35 @@
+/* [project]/src/app/agentictimes_590bbbe8.module.css [app-client] (css) */
+@font-face {
+  font-family: agenticTimes;
+  src: url("../media/times_italic-s.p.bdabadfd.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: agenticTimes;
+  src: url("../media/times_italic-s.p.bdabadfd.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: agenticTimes Fallback;
+  src: local(Arial);
+  ascent-override: 97.47%;
+  descent-override: 23.95%;
+  line-gap-override: 0.0%;
+  size-adjust: 90.6%;
+}
+
+.agentictimes_590bbbe8-module__1MNI7q__className {
+  font-family: agenticTimes, agenticTimes Fallback;
+}
+
+.agentictimes_590bbbe8-module__1MNI7q__variable {
+  --font-agentic-times: "agenticTimes", "agenticTimes Fallback";
+}
+
+/*# sourceMappingURL=src_app_agentictimes_590bbbe8_module_css_bad6b30c._.single.css.map*/

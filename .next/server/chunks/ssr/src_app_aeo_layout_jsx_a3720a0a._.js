@@ -1,0 +1,3 @@
+module.exports=[61350,a=>{"use strict";var b=a.i(7997);let c={"@context":"https://schema.org","@type":"Service",name:"Agentic AEO",provider:{"@type":"Organization",name:"Ai Velocity Foundry"}};function d({children:a}){return(0,b.jsxs)(b.Fragment,{children:[(0,b.jsx)("script",{type:"application/ld+json",dangerouslySetInnerHTML:{__html:JSON.stringify(c)}}),a]})}a.s(["default",()=>d,"metadata",0,{title:"Agentic AEO | Ai Velocity Foundry",description:"Agentic Engine Optimization (AEO) ensures your brand is the default answer across LLMs via pre-cognitive placement and sovereign semantic anchoring."}])}];
+
+//# sourceMappingURL=src_app_aeo_layout_jsx_a3720a0a._.js.map
