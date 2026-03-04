@@ -36,7 +36,7 @@ export const FoundryManifesto = ({ title = defaultTitle, leadIn = defaultLeadIn,
             <div className="max-w-4xl mx-auto px-6 md:px-12">
 
                 <header className="mb-10">
-                    <h2 id="manifesto-title" className="text-3xl md:text-5xl font-sans font-bold tracking-tight text-charcoal">
+                    <h2 id="manifesto-title" className="text-3xl md:text-5xl font-serif tracking-tight text-charcoal">
                         {title}
                     </h2>
                 </header>

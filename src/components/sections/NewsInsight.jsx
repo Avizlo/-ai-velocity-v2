@@ -26,7 +26,7 @@ export const NewsInsight = ({
                     {/* Left: heading, sub, CTA */}
                     <div className="flex flex-col justify-between h-full gap-16">
                         <div className="space-y-4">
-                            <h2 className="font-sans font-bold text-charcoal text-4xl md:text-5xl tracking-tight">
+                            <h2 className="font-serif text-charcoal text-4xl md:text-5xl tracking-tight">
                                 {title}
                             </h2>
                             <p className="font-sans text-charcoal/50 text-sm leading-relaxed max-w-xs">

@@ -14,7 +14,7 @@ export const InfluencerCarousel = () => {
     };
 
     return (
-        <section className="py-24 bg-[#F5F5F5]" data-nav-theme="light">
+        <section className="py-24 bg-white" data-nav-theme="light">
 
             {/* Header */}
             <div className="max-w-screen-2xl mx-auto px-6 md:px-12">

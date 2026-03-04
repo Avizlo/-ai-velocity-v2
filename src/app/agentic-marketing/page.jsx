@@ -166,7 +166,7 @@ const StatementAction = ({ title, subtitle, statement, actionText }) => {
                     </div>
                 )}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_28rem] gap-12 lg:gap-20 items-center">
-                    <p className="font-serif text-[1.5rem] md:text-[2rem] lg:text-[2.2rem] text-charcoal leading-[1.3] tracking-tight lg:-mr-[125px] relative z-10">
+                    <p className="font-serif italic text-[1.5rem] md:text-[2rem] lg:text-[2.2rem] text-charcoal leading-[1.3] tracking-tight lg:-mr-[125px] relative z-10">
                         {statement}
                     </p>
                     <div className="w-full flex items-center justify-center">

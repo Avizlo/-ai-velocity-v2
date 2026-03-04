@@ -27,7 +27,7 @@ export const SplitFeature = ({
                     <div className={`flex flex-col justify-between h-full gap-16 ${reverse ? 'md:order-first' : ''}`}>
                         <div>
                             {title && (
-                                <h2 className="text-4xl md:text-5xl font-sans font-bold text-charcoal tracking-tight mb-8">
+                                <h2 className="text-4xl md:text-5xl font-serif text-charcoal tracking-tight mb-8">
                                     {title}
                                 </h2>
                             )}

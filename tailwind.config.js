@@ -6,9 +6,9 @@ export default {
       colors: { 'cloud-dancer': '#ffffff', 'dew-mint': '#dff4e7', 'electric-mint': '#c0e9cb', 'charcoal': '#1A1A1A', 'steel': '#6B6B6B' },
       fontFamily: {
         sans: ['var(--font-inter)', 'sans-serif'],
-        serif: ['var(--font-instrument-serif)', 'serif'],
+        serif: ['AgenticTimes', 'ui-serif', 'Georgia', 'Cambria', '"Times New Roman"', 'Times', 'serif'],
         'sans-instrument': ['var(--font-instrument-sans)', 'sans-serif'],
-        'agentic-times': ['var(--font-agentic-times)', 'serif']
+        'agentic-times': ['AgenticTimes', 'serif']
       },
       spacing: { 'section-desktop': '120px', 'section-mobile': '80px' },
       borderRadius: { 'card': '10px' },

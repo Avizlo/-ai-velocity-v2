@@ -107,7 +107,7 @@ export const FAQ = ({ title = "FAQ's", faqs = defaultFaqs, bgClass = "bg-cloud-d
 
                     {/* Left: Title */}
                     <div className="lg:pt-2 flex items-start">
-                        <h2 className="text-5xl md:text-6xl font-sans font-bold text-charcoal tracking-tight">
+                        <h2 className="text-5xl md:text-6xl font-serif text-charcoal tracking-tight">
                             {title}
                         </h2>
                     </div>
