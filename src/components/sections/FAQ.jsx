@@ -132,8 +132,22 @@ export const FAQ = ({ title = "FAQ's", label, faqs = defaultFaqs, bgClass = "bg-
     }, []);
 
     return (
-        <section ref={containerRef} className={`py-24 ${bgClass}`}>
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+        <section ref={containerRef} className={`relative py-24 ${bgClass} overflow-hidden`}>
+            {/* Radial gradient overlay for depth */}
+            <div
+                className="absolute inset-0 pointer-events-none z-0"
+                style={{
+                    background: 'radial-gradient(ellipse at 50% 40%, rgba(255,255,255,0.35) 0%, transparent 70%)'
+                }}
+            />
+            {/* Decorative Watermark */}
+            <div className="absolute top-1/2 right-0 -translate-y-1/2 translate-x-[10%] pointer-events-none z-0 select-none">
+                <span className="font-serif italic text-[25vw] leading-none block tracking-tighter opacity-[0.06] text-charcoal">
+                    ?
+                </span>
+            </div>
+
+            <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-16 lg:gap-24">
 
                     {/* Left: Title */}
@@ -143,7 +157,7 @@ export const FAQ = ({ title = "FAQ's", label, faqs = defaultFaqs, bgClass = "bg-
                                 {label}
                             </span>
                         )}
-                        <h2 className="text-5xl md:text-6xl font-serif text-charcoal tracking-tight">
+                        <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif italic text-charcoal tracking-tight">
                             {title}
                         </h2>
                     </div>
