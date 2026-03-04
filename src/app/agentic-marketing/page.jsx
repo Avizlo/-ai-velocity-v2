@@ -191,7 +191,7 @@ const StatementAction = ({ title, subtitle, statement, actionText }) => {
 };
 
 const StatCard2 = ({ pct, dashPct, heading, body, link }) => (
-    <div className="rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[280px]">
+    <div className="rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[280px] ring-1 ring-charcoal/5">
         <div className="flex items-center gap-3">
             <div className="relative w-14 h-14">
                 <svg className="w-full h-full -rotate-90" viewBox="0 0 56 56">
@@ -232,29 +232,35 @@ const BentoGrid2 = ({ data }) => {
                             link={data.statLine.link}
                         />
                     </div>
-                    <div className="group md:col-start-2 md:row-start-1 md:row-span-2 rounded-2xl overflow-hidden min-h-[580px]">
+                    <div className="group md:col-start-2 md:row-start-1 md:row-span-2 rounded-2xl overflow-hidden min-h-[580px] shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-500">
                         <img
                             src={data.images.center}
                             alt="Center featured"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="group md:col-start-3 md:row-start-1 rounded-2xl overflow-hidden min-h-[200px]">
+                    <div className="group md:col-start-3 md:row-start-1 rounded-2xl overflow-hidden min-h-[200px] shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-500">
                         <img
                             src={data.images.brand}
                             alt="Brand campaign"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="group md:col-start-1 md:row-start-2 rounded-2xl overflow-hidden min-h-[280px]">
+                    <div className="group md:col-start-1 md:row-start-2 rounded-2xl overflow-hidden min-h-[280px] shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-500">
                         <img
                             src={data.images.bottomLeft}
                             alt="Bottom left model"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="md:col-start-3 md:row-start-2 rounded-2xl bg-charcoal p-8 flex flex-col justify-between min-h-[180px]">
-                        <div className="space-y-3">
+                    <div className="relative md:col-start-3 md:row-start-2 rounded-2xl bg-charcoal p-8 flex flex-col justify-between min-h-[180px] overflow-hidden">
+                        {/* Faint watermark inside CTA card */}
+                        <div className="absolute bottom-0 right-0 translate-x-[15%] translate-y-[10%] pointer-events-none select-none">
+                            <span className="font-serif italic text-[8rem] leading-none block tracking-tighter opacity-[0.04] text-white">
+                                V
+                            </span>
+                        </div>
+                        <div className="space-y-3 relative z-10">
                             <h3 className="font-serif text-white text-3xl leading-tight tracking-tight">
                                 {data.cta.heading}
                             </h3>
@@ -264,7 +270,7 @@ const BentoGrid2 = ({ data }) => {
                         </div>
                         <a
                             href={data.cta.buttonLink}
-                            className="self-start inline-flex items-center gap-2 px-5 py-2.5 rounded-card bg-white text-charcoal text-sm font-sans font-medium hover:bg-electric-mint transition-all duration-300 group"
+                            className="relative z-10 self-start inline-flex items-center gap-2 px-5 py-2.5 rounded-card bg-white text-charcoal text-sm font-sans font-medium hover:bg-electric-mint transition-all duration-300 group"
                         >
                             {data.cta.buttonText}
                             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
