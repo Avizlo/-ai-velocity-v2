@@ -383,8 +383,25 @@ const BentoGrid2 = ({ data }) => {
     }, []);
 
     return (
-        <section className="py-12 bg-cloud-dancer">
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+        <section className="relative py-20 bg-cloud-dancer overflow-hidden">
+            {/* Section Watermark */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none z-0 select-none">
+                <span className="font-serif italic text-[12vw] leading-none whitespace-nowrap block tracking-tighter opacity-[0.03] text-charcoal">
+                    COMMERCE
+                </span>
+            </div>
+
+            <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
+                {/* Section Header */}
+                <div className="mb-12">
+                    <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mb-3 text-charcoal/40">
+                        Performance Data
+                    </span>
+                    <h2 className="text-4xl md:text-5xl font-serif text-charcoal tracking-tight">
+                        Agentic Intelligence
+                    </h2>
+                </div>
+
                 <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-4" style={{ gridTemplateRows: 'auto' }}>
                     <div className="bento-card md:col-start-1 md:row-start-1 opacity-0 translate-y-4">
                         <StatCard2
@@ -549,7 +566,7 @@ export default function AgenticCommerce() {
     };
 
     return (
-        <main data-nav-theme="light" className="pt-32 pb-24 w-full min-h-screen bg-cloud-dancer">
+        <main data-nav-theme="dark" className="pb-24 w-full min-h-screen bg-cloud-dancer">
             {/* Inject JSON-LD Schema directly into the head */}
             <script
                 type="application/ld+json"
@@ -564,6 +581,10 @@ export default function AgenticCommerce() {
                     actionText={statementSection.actionText}
                 />
 
+                <BentoGrid2
+                    data={commerceBentoData}
+                />
+
                 <SplitFeature
                     reverse
                     bgClass="bg-[#212121]"
@@ -575,10 +596,6 @@ export default function AgenticCommerce() {
                     title={heroFeature.title}
                     text1={heroFeature.text1}
                     text2={heroFeature.text2}
-                />
-
-                <BentoGrid2
-                    data={commerceBentoData}
                 />
 
                 <SplitFeature
