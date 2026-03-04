@@ -149,30 +149,40 @@ const manifestoSections = [
 
 const StatementAction = ({ title, subtitle, statement, actionText }) => {
     return (
-        <section className="py-20 bg-cloud-dancer">
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+        <section className="relative py-28 md:py-36 bg-charcoal overflow-hidden" data-nav-theme="dark">
+            {/* Massive Typographic Watermark */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none z-0 select-none">
+                <span className="font-serif italic text-[14vw] leading-none whitespace-nowrap block tracking-tighter opacity-[0.03] text-white">
+                    AGENTIC
+                </span>
+            </div>
+
+            <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
                 {(title || subtitle) && (
-                    <div className="mb-10 text-left">
+                    <div className="mb-14 text-left">
                         {title && (
-                            <h1 className="text-4xl md:text-5xl font-serif text-charcoal tracking-tight mb-4">
+                            <h1 className="text-6xl md:text-7xl lg:text-8xl font-serif text-white/95 tracking-tighter leading-[0.95] mb-6">
                                 {title}
                             </h1>
                         )}
                         {subtitle && (
-                            <p className="font-sans text-xs font-bold text-charcoal tracking-wide">
+                            <p className="font-sans text-xs font-bold text-white/40 tracking-[0.2em] uppercase max-w-xl">
                                 {subtitle}
                             </p>
                         )}
                     </div>
                 )}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_28rem] gap-12 lg:gap-20 items-center">
-                    <p className="font-serif italic text-[1.5rem] md:text-[2rem] lg:text-[2.2rem] text-charcoal leading-[1.3] tracking-tight lg:-mr-[125px] relative z-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_28rem] gap-12 lg:gap-20 items-end">
+                    <p className="font-serif italic text-[1.5rem] md:text-[2rem] lg:text-[2.2rem] text-white/80 leading-[1.3] tracking-tight lg:-mr-[125px] relative z-10">
                         {statement}
                     </p>
-                    <div className="w-full flex items-center justify-center">
-                        <p className="font-sans text-base md:text-lg text-charcoal font-bold tracking-tight text-center whitespace-nowrap">
-                            {actionText}
-                        </p>
+                    <div className="w-full flex items-center justify-center md:justify-end">
+                        <a
+                            href="#contact"
+                            className="border-b border-electric-mint/50 pb-1 text-electric-mint hover:text-white hover:border-white/50 transition-colors duration-300 font-sans tracking-widest text-xs uppercase"
+                        >
+                            {actionText} →
+                        </a>
                     </div>
                 </div>
             </div>
@@ -300,7 +310,7 @@ export default function Marketing() {
     };
 
     return (
-        <main data-nav-theme="light" className="pt-32 pb-24 w-full min-h-screen bg-cloud-dancer">
+        <main data-nav-theme="dark" className="pb-24 w-full min-h-screen bg-cloud-dancer">
             {/* Inject JSON-LD Schema directly into the head */}
             <script
                 type="application/ld+json"
