@@ -1,3 +1,9 @@
+"use client";
+
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
 const defaultPosts = [
     {
         date: '26.02.2025',
@@ -18,15 +24,46 @@ export const NewsInsight = ({
     description = "We share the latest breakthroughs, innovations, and updates from the world of agentic commerce.",
     posts = defaultPosts
 }) => {
+    const containerRef = useRef(null);
+    const leftRef = useRef(null);
+    const rightRef = useRef(null);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const ctx = gsap.context(() => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+            tl.fromTo(leftRef.current.children,
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: 'power3.out' }
+            )
+                .fromTo(rightRef.current.children,
+                    { x: 30, opacity: 0 },
+                    { x: 0, opacity: 1, duration: 0.8, stagger: 0.2, ease: 'power3.out' },
+                    "-=0.6"
+                );
+        }, containerRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <section className="py-20 bg-cloud-dancer">
+        <section ref={containerRef} className="py-20 bg-cloud-dancer">
             <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start">
 
                     {/* Left: heading, sub, CTA */}
-                    <div className="flex flex-col justify-between h-full gap-16">
-                        <div className="space-y-4">
-                            <h2 className="font-sans font-bold text-charcoal text-4xl md:text-5xl tracking-tight">
+                    <div ref={leftRef} className="flex flex-col justify-between h-full gap-16">
+                        <div className="space-y-4 opacity-0 translate-y-4">
+                            <h2 className="font-serif text-charcoal text-4xl md:text-5xl tracking-tight">
                                 {title}
                             </h2>
                             <p className="font-sans text-charcoal/50 text-sm leading-relaxed max-w-xs">
@@ -36,7 +73,7 @@ export const NewsInsight = ({
 
                         <a
                             href="#blog"
-                            className="self-start inline-flex items-center gap-2 px-6 py-3 rounded-card border border-charcoal/30 text-charcoal text-sm font-sans font-medium hover:bg-charcoal hover:text-white transition-all duration-300 group"
+                            className="self-start inline-flex items-center gap-2 px-6 py-3 rounded-card border border-charcoal/30 text-charcoal text-sm font-sans font-medium hover:bg-charcoal hover:text-white transition-all duration-300 group opacity-0 translate-y-4"
                         >
                             View Blog
                             <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
@@ -44,12 +81,12 @@ export const NewsInsight = ({
                     </div>
 
                     {/* Right: post list */}
-                    <div className="flex flex-col gap-5">
+                    <div ref={rightRef} className="flex flex-col gap-5">
                         {posts.map((post, i) => (
                             <a
                                 key={i}
                                 href="#blog"
-                                className="flex gap-5 items-start group cursor-pointer"
+                                className="flex gap-5 items-start group cursor-pointer opacity-0 translate-x-4"
                             >
                                 {/* Thumbnail */}
                                 <div className="shrink-0 w-44 md:w-52 aspect-[16/10] rounded-card overflow-hidden bg-charcoal/5">

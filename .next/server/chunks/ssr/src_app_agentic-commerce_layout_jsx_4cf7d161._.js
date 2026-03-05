@@ -1,3 +1,0 @@
-module.exports=[52485,a=>{"use strict";function b({children:a}){return a}a.s(["default",()=>b,"metadata",0,{title:"Agentic Commerce & Autonomous AI Agents | AI Velocity",description:"Agentic Commerce fundamentally shifts traditional manual storefront operations into autonomous predictive intelligence ecosystems via Sovereign AI visual streams."}])}];
-
-//# sourceMappingURL=src_app_agentic-commerce_layout_jsx_4cf7d161._.js.map

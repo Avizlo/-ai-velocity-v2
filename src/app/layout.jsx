@@ -1,43 +1,11 @@
 import { Navbar } from '@/components/sections/Navbar';
 import { Footer } from '@/components/sections/Footer';
-import { Inter, Instrument_Serif, Instrument_Sans } from 'next/font/google';
-import localFont from 'next/font/local';
+import { Inter } from 'next/font/google';
 import './globals.css';
 
 const inter = Inter({
     subsets: ['latin'],
     variable: '--font-inter',
-    display: 'swap'
-});
-
-const instrumentSerif = Instrument_Serif({
-    weight: ['400'],
-    style: ['normal', 'italic'],
-    subsets: ['latin'],
-    variable: '--font-instrument-serif',
-    display: 'swap'
-});
-
-const instrumentSans = Instrument_Sans({
-    subsets: ['latin'],
-    variable: '--font-instrument-sans',
-    display: 'swap'
-});
-
-const agenticTimes = localFont({
-    src: [
-        {
-            path: '../../public/fonts/times-italic.ttf',
-            weight: '400',
-            style: 'italic',
-        },
-        {
-            path: '../../public/fonts/times-italic.ttf',
-            weight: '700',
-            style: 'italic',
-        }
-    ],
-    variable: '--font-agentic-times',
     display: 'swap',
 });
 
@@ -49,13 +17,16 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" className={`${inter.variable} ${instrumentSerif.variable} ${instrumentSans.variable} ${agenticTimes.variable}`}>
-            <body>
-                <div className="relative w-full min-h-screen bg-[#F0F0EC] text-[#1A1A1A]">
+        <html lang="en" className={`${inter.variable}`}>
+            <head>
+                <link rel="preload" href="/fonts/times-italic.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+            </head>
+            <body className="font-sans antialiased bg-charcoal" suppressHydrationWarning>
+                <div className="relative w-full min-h-screen bg-[#F0F0EC] text-[#1A1A1A] z-10 shadow-[0_20px_50px_rgba(0,0,0,0.5)]">
                     <Navbar />
                     {children}
-                    <Footer />
                 </div>
+                <Footer />
             </body>
         </html>
     );

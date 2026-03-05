@@ -1,4 +1,8 @@
-import { useState } from 'react';
+"use client";
+
+import { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const defaultTitle = "The x402 Sovereign Settlement Architecture";
 
@@ -28,19 +32,62 @@ const defaultSections = [
 
 export const FoundryManifesto = ({ title = defaultTitle, leadIn = defaultLeadIn, sections = defaultSections }) => {
     const [isOpen, setIsOpen] = useState(false);
+    const containerRef = useRef(null);
+    const contentRef = useRef(null);
+    const vaultRef = useRef(null);
+    const btnRef = useRef(null);
+
+    const handleToggle = () => {
+        if (isOpen && vaultRef.current && btnRef.current) {
+            // Measure the button's position before collapse
+            const btnRect = btnRef.current.getBoundingClientRect();
+            const vaultHeight = vaultRef.current.scrollHeight;
+
+            setIsOpen(false);
+
+            // After state update, compensate scroll so button stays in view
+            requestAnimationFrame(() => {
+                window.scrollBy({ top: -vaultHeight, behavior: 'instant' });
+            });
+        } else {
+            setIsOpen(true);
+        }
+    };
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const ctx = gsap.context(() => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+            tl.fromTo(contentRef.current.children,
+                { y: 40, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' }
+            );
+        }, containerRef);
+
+        return () => ctx.revert();
+    }, []);
 
     return (
-        <section id="agentic-foundry-manifesto" aria-labelledby="manifesto-title" className="py-24 bg-cloud-dancer">
-            <div className="max-w-4xl mx-auto px-6 md:px-12">
+        <section ref={containerRef} id="agentic-foundry-manifesto" aria-labelledby="manifesto-title" className="py-24 bg-cloud-dancer">
+            <div ref={contentRef} className="max-w-4xl mx-auto px-6 md:px-12">
 
-                <header className="mb-10">
-                    <h2 id="manifesto-title" className="text-3xl md:text-5xl font-sans font-bold tracking-tight text-charcoal">
+                <header className="mb-10 opacity-0 translate-y-4">
+                    <h2 id="manifesto-title" className="text-3xl md:text-5xl font-serif tracking-tight text-charcoal">
                         {title}
                     </h2>
                 </header>
 
                 {/* Always Visible Lead-in Text */}
-                <div className="space-y-6 font-sans text-lg text-charcoal/80 leading-relaxed mb-8">
+                <div className="space-y-6 font-sans text-charcoal/80 mb-8 opacity-0 translate-y-4">
                     {leadIn.map((paragraph, index) => (
                         <p key={index}>{paragraph}</p>
                     ))}
@@ -49,6 +96,7 @@ export const FoundryManifesto = ({ title = defaultTitle, leadIn = defaultLeadIn,
                 {/* Hidden Vault Content - Always in the DOM for SEO, toggled visually via CSS Grid */}
                 <div
                     id="foundry-vault-content"
+                    ref={vaultRef}
                     aria-hidden={!isOpen}
                     className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mb-10' : 'grid-rows-[0fr] opacity-0'}`}
                 >
@@ -56,23 +104,23 @@ export const FoundryManifesto = ({ title = defaultTitle, leadIn = defaultLeadIn,
                         {sections.map((section, idx) => (
                             <div key={idx} className={idx === 0 ? "pt-4" : ""}>
                                 <h3 className="text-xl font-bold text-charcoal mb-3">{section.title}</h3>
-                                <p className="leading-relaxed">{section.content}</p>
+                                <p>{section.content}</p>
                             </div>
                         ))}
                     </div>
                 </div>
 
                 {/* Call to Action Toggle Button */}
-                <div className="pt-6 border-t border-charcoal/10">
+                <div className="pt-6 border-t border-charcoal/10 opacity-0 translate-y-4 w-full">
                     <button
                         id="vault-toggle-btn"
-                        onClick={() => setIsOpen(!isOpen)}
+                        ref={btnRef}
+                        onClick={handleToggle}
                         aria-expanded={isOpen}
                         aria-controls="foundry-vault-content"
-                        className="inline-flex items-center gap-2 px-8 py-3 rounded-card border border-charcoal/30 text-charcoal text-sm font-sans font-bold hover:bg-charcoal hover:text-white transition-all duration-300 group"
+                        className="inline-block border-b border-charcoal/30 pb-1 text-charcoal hover:text-electric-mint hover:border-electric-mint/50 transition-colors duration-300 font-sans tracking-widest text-xs uppercase cursor-pointer"
                     >
-                        {isOpen ? 'Read Less' : 'Read More'}
-                        <span className={`transition-transform duration-300 ${isOpen ? '-rotate-90' : 'rotate-90'}`}>→</span>
+                        {isOpen ? 'Read Less' : 'Read More'} →
                     </button>
                 </div>
 

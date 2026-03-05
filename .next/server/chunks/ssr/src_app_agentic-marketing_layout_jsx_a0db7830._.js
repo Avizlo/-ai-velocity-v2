@@ -1,3 +1,0 @@
-module.exports=[96771,a=>{"use strict";function b({children:a}){return a}a.s(["default",()=>b,"metadata",0,{title:"Agentic Marketing & Autonomous AI Agents | AI Velocity",description:"Agentic Marketing fundamentally shifts traditional manual marketing operations into autonomous predictive intelligence ecosystems via Sovereign AI visual streams."}])}];
-
-//# sourceMappingURL=src_app_agentic-marketing_layout_jsx_a0db7830._.js.map

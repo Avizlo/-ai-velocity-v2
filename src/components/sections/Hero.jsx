@@ -1,8 +1,11 @@
 "use client";
 
 import { useEffect, useRef } from 'react';
-import Image from 'next/image';
+import dynamic from 'next/dynamic';
 import gsap from 'gsap';
+
+// Dynamically import the Canvas so it only renders on client
+const LiquidCanvas = dynamic(() => import('@/components/ui/LiquidCanvas').then(mod => mod.LiquidCanvas), { ssr: false });
 
 export const Hero = () => {
     const containerRef = useRef(null);
@@ -20,13 +23,10 @@ export const Hero = () => {
 
     return (
         <section ref={containerRef} data-nav-theme="dark" className="relative min-h-[100svh] w-full flex flex-col justify-end pb-32 md:pb-52 overflow-hidden bg-charcoal">
-            <Image
-                src="/images/agentic-agent-hero.jpg"
-                alt="Background"
-                priority
-                fill
-                className="object-cover opacity-60 z-0"
-            />
+            {/* Liquid Metal Background Effect */}
+            <div className="absolute inset-0 z-0">
+                <LiquidCanvas />
+            </div>
 
             <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-12">
                 <div className="max-w-4xl text-left space-y-6 md:space-y-8">

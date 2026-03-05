@@ -1,15 +1,7 @@
-"use client";
-
-import { useState, useRef, useEffect } from 'react';
-import { Plus, X } from 'lucide-react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { useGSAP } from '@gsap/react';
 import { CTABanner } from '@/components/sections/CTABanner';
-
-if (typeof window !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger, useGSAP);
-}
+import { GsapPageWrapper } from '@/components/ui/GsapPageWrapper';
+import { FAQ } from '@/components/sections/FAQ';
+import { FoundryManifesto } from '@/components/sections/FoundryManifesto';
 
 // ============================================================================
 // PAGE CONTENT VARIABLES
@@ -18,6 +10,7 @@ if (typeof window !== 'undefined') {
 
 const heroFeature = {
     image: "/images/agentic-agent-hero.webp",
+    imageAlt: "Digital representation of an autonomous Agentic Commerce software delegate",
     title: "The Future of Commerce",
     text1: "Agentic commerce represents the fundamental shift to autonomous software delegates executing complex procurement tasks with zero human friction. This is a total replacement of the traditional retail front end with specialized machine-to-machine negotiation rails that bypass the Document Object Model entirely. These digital agents do not care about sleek marketing copy or the psychological tricks used by legacy retail giants to manipulate human desire.",
     text2: "They parse raw data schemas and real-time inventory levels to identify the most efficient purchase route based on a user's pre-defined budget. Every critical product attribute must be instantly readable and verifiable to ensure the autonomous buyer can execute trade with surgical precision."
@@ -40,8 +33,11 @@ const commerceBentoData = {
     },
     images: {
         center: "/images/ai-model-1.webp",
+        centerAlt: "Dashboard explicitly showing Agentic Commerce transaction velocity",
         brand: "/images/antesta-ai-model.jpg",
-        bottomLeft: "/images/ai-model-5.webp"
+        brandAlt: "Autonomous AI visual agent processing high-volume legacy marketing campaigns",
+        bottomLeft: "/images/ai-model-5.webp",
+        bottomLeftAlt: "AI-generated product model executing algorithmic negotiations"
     },
     cta: {
         heading: "Content that converts, at machine speed.",
@@ -53,6 +49,7 @@ const commerceBentoData = {
 
 const secondaryFeature = {
     image: "/images/ai-model-9.webp",
+    imageAlt: "Visualization of the v402 autonomous machine-readable settlement handshake",
     title: "Agentic Agents",
     text1: "The 2026 signal for autonomous settlement is already appearing in the way global payments are being restructured for machine-to-machine commerce. At the heart of this transition is the v402 handshake, a protocol designed to facilitate secure and instant value transfers between agentic agents without human oversight. This system utilizes JSON-LD to provide semantic clarity to every transaction, ensuring that the intent of the buyer is perfectly aligned with the offer of the seller. When an agent initiates a purchase, it validates the cryptographic signatures of the merchant to prevent fraud in a way that legacy credit card processors simply cannot match. The speed of these settlements allows for a level of logistical agility that was previously impossible in international trade.",
     text2: "Ultimately, the move toward agentic commerce is a return to the fundamental principles of trade, stripped of the bloat and inefficiency of the early internet era. By focusing on technical density and high-fidelity data, brands can position themselves at the center of the new autonomous economy. Those who understand the physics of the handshake and the protocol will be the ones who define the next thirty years of global commerce. The transition is accelerating, and the era of the passive consumer is coming to a definitive end."
@@ -106,13 +103,13 @@ const commercePosts = [
         date: '26.02.2025',
         title: 'Agentic AI is rewriting the rules of digital commerce',
         image: '/images/agentic-agent-hero.jpg',
-        alt: 'Agentic AI hero',
+        alt: 'Abstract visualization of an Agentic AI system rewriting global digital commerce rules',
     },
     {
         date: '24.02.2025',
         title: 'How autonomous agents are replacing legacy marketing teams',
         image: '/images/good-univerce-ai.jpg',
-        alt: 'AI universe',
+        alt: 'Illustration of autonomous agents managing a high-volume legacy marketing workflow',
     },
 ];
 
@@ -158,13 +155,15 @@ const manifestoSections = [
 
 const SplitFeature = ({
     image,
+    imageAlt,
     title,
     text1,
     text2,
     ctaText = "Discover",
     ctaLink = "#contact",
     reverse = false,
-    bgClass = "bg-cloud-dancer"
+    bgClass = "bg-cloud-dancer",
+    theme = "light"
 }) => {
     return (
         <section className={`py-20 ${bgClass}`}>
@@ -174,7 +173,7 @@ const SplitFeature = ({
                     <div className={`group rounded-card overflow-hidden aspect-[4/5] w-full max-w-md ${reverse ? 'md:order-last md:justify-self-end' : ''}`}>
                         <img loading="lazy" decoding="async"
                             src={image}
-                            alt="Agentic AI model"
+                            alt={imageAlt || "Agentic AI model"}
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
@@ -182,17 +181,17 @@ const SplitFeature = ({
                     <div className={`flex flex-col justify-between h-full gap-16 ${reverse ? 'md:order-first' : ''}`}>
                         <div>
                             {title && (
-                                <h1 className="text-4xl md:text-5xl font-serif text-charcoal tracking-tight mb-8">
+                                <h1 className={`text-4xl md:text-5xl font-serif tracking-tight mb-8 ${theme === 'dark' ? 'text-white' : 'text-charcoal'}`}>
                                     {title}
                                 </h1>
                             )}
                             {text1 && (
-                                <p className="font-sans text-charcoal text-lg leading-relaxed">
+                                <p className={theme === 'dark' ? 'text-white/90' : 'text-charcoal'}>
                                     {text1}
                                 </p>
                             )}
                             {text2 && (
-                                <p className="font-sans text-charcoal text-lg leading-relaxed mt-4">
+                                <p className={`mt-4 ${theme === 'dark' ? 'text-white/90' : 'text-charcoal'}`}>
                                     {text2}
                                 </p>
                             )}
@@ -224,7 +223,7 @@ const StatementAction = ({ title, subtitle, statement, actionText }) => {
                     </div>
                 )}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_28rem] gap-12 lg:gap-20 items-center">
-                    <p className="font-serif text-[1.5rem] md:text-[2rem] lg:text-[2.2rem] text-charcoal leading-[1.3] tracking-tight lg:-mr-[125px] relative z-10">
+                    <p className="font-serif italic text-[1.5rem] md:text-[2rem] lg:text-[2.2rem] text-charcoal leading-[1.3] tracking-tight lg:-mr-[125px] relative z-10">
                         {statement}
                     </p>
                     <div className="w-full flex items-center justify-center">
@@ -283,21 +282,21 @@ const BentoGrid2 = ({ data }) => {
                     <div className="group md:col-start-2 md:row-start-1 md:row-span-2 rounded-2xl overflow-hidden min-h-[580px]">
                         <img loading="lazy" decoding="async"
                             src={data.images.center}
-                            alt="Center featured"
+                            alt={data.images.centerAlt || "Center featured"}
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
                     <div className="group md:col-start-3 md:row-start-1 rounded-2xl overflow-hidden min-h-[200px]">
                         <img loading="lazy" decoding="async"
                             src={data.images.brand}
-                            alt="Brand campaign"
+                            alt={data.images.brandAlt || "Brand campaign"}
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
                     <div className="group md:col-start-1 md:row-start-2 rounded-2xl overflow-hidden min-h-[280px]">
                         <img loading="lazy" decoding="async"
                             src={data.images.bottomLeft}
-                            alt="Bottom left model"
+                            alt={data.images.bottomLeftAlt || "Bottom left model"}
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
@@ -324,81 +323,6 @@ const BentoGrid2 = ({ data }) => {
     );
 };
 
-const FAQItem = ({ faq, isOpen, onToggle, index }) => {
-    return (
-        <div className="border-t border-charcoal/10 last:border-b">
-            <button
-                onClick={onToggle}
-                aria-expanded={isOpen}
-                aria-controls={`faq-answer-${index}`}
-                id={`faq-question-${index}`}
-                className="w-full flex items-center justify-between gap-8 py-7 text-left group cursor-pointer"
-            >
-                <span
-                    className="font-sans text-2xl font-medium tracking-tight transition-colors duration-300 text-black"
-                >
-                    {faq.question}
-                </span>
-                <span
-                    className="shrink-0 flex items-center justify-center transition-all duration-300 text-black"
-                >
-                    <span
-                        className="inline-block transition-transform duration-400 ease-[cubic-bezier(0.25,1,0.5,1)]"
-                        style={{ transform: isOpen ? 'rotate(45deg)' : 'rotate(0deg)' }}
-                    >
-                        {isOpen ? <X className="w-4 h-4" strokeWidth={1.5} /> : <Plus className="w-4 h-4" strokeWidth={1.5} />}
-                    </span>
-                </span>
-            </button>
-            <div
-                id={`faq-answer-${index}`}
-                role="region"
-                aria-labelledby={`faq-question-${index}`}
-                aria-hidden={!isOpen}
-                className={`grid transition-[grid-template-rows,opacity] duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${isOpen ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'}`}
-            >
-                <div className="overflow-hidden">
-                    <p className="pb-8 text-black font-sans text-lg leading-relaxed max-w-2xl">
-                        {faq.answer}
-                    </p>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-const FAQ = ({ title, faqs, bgClass = "bg-cloud-dancer" }) => {
-    const [openIndex, setOpenIndex] = useState(0);
-
-    const toggle = (index) => {
-        setOpenIndex(prev => (prev === index ? null : index));
-    };
-
-    return (
-        <section className={`py-24 ${bgClass}`}>
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-                <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-16 lg:gap-24">
-                    <div className="lg:pt-2 flex items-start">
-                        <h2 className="text-5xl md:text-6xl font-serif text-black tracking-tight">
-                            {title}
-                        </h2>
-                    </div>
-                    <div className="flex flex-col">
-                        {faqs.map((faq, index) => (
-                            <FAQItem
-                                key={index}
-                                index={index}
-                                faq={faq}
-                                isOpen={openIndex === index}
-                                onToggle={() => toggle(index)}
-                            />
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-};
 
 const NewsInsight = ({ title, description, posts }) => {
     return (
@@ -447,95 +371,36 @@ const NewsInsight = ({ title, description, posts }) => {
     );
 };
 
-const FoundryManifesto = ({ title, leadIn, sections }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    return (
-        <section className="py-24 bg-cloud-dancer">
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-                <div className="max-w-4xl mx-auto">
-                    <header className="mb-10 text-left">
-                        <h2 id="manifesto-title" className="text-3xl md:text-5xl font-serif tracking-tight text-charcoal">
-                            {title}
-                        </h2>
-                    </header>
-                    <div className="space-y-6 font-sans text-lg text-charcoal/80 leading-relaxed mb-8 text-left">
-                        {leadIn.map((paragraph, index) => (
-                            <p key={index}>{paragraph}</p>
-                        ))}
-                    </div>
-                    <div
-                        role="region"
-                        aria-labelledby="manifesto-title"
-                        aria-hidden={!isOpen}
-                        className={`grid transition-all duration-500 ease-in-out ${isOpen ? 'grid-rows-[1fr] opacity-100 mb-10' : 'grid-rows-[0fr] opacity-0'}`}
-                    >
-                        <div className="overflow-hidden space-y-10 font-sans text-lg text-charcoal/80 text-left">
-                            {sections.map((section, idx) => (
-                                <div key={idx} className={idx === 0 ? "pt-4" : ""}>
-                                    <h3 className="text-3xl font-serif text-charcoal mb-3">{section.title}</h3>
-                                    <p className="leading-relaxed">{section.content}</p>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                    <div className="flex justify-start">
-                        <button
-                            onClick={() => setIsOpen(!isOpen)}
-                            aria-expanded={isOpen}
-                            className="group flex items-center gap-3 px-6 py-3 rounded-full border border-charcoal text-charcoal font-sans text-sm font-medium tracking-wide hover:bg-charcoal hover:text-white transition-all duration-300"
-                        >
-                            {isOpen ? 'Close' : 'Read More'}
-                            <span
-                                className="inline-block transition-transform duration-500 ease-[cubic-bezier(0.25,1,0.5,1)]"
-                                style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
-                            >
-                                ↓
-                            </span>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </section>
-    );
-};
 
 // ============================================================================
 // MAIN PAGE LAYOUT
 // ============================================================================
 
 export default function AgenticCommerce() {
-    const container = useRef(null);
-
-    useGSAP(() => {
-        const sections = gsap.utils.toArray(container.current.children);
-
-        sections.forEach((sec) => {
-            gsap.fromTo(sec,
-                { y: 60, opacity: 0 },
-                {
-                    y: 0,
-                    opacity: 1,
-                    duration: 1.2,
-                    ease: "power3.out",
-                    scrollTrigger: {
-                        trigger: sec,
-                        start: "top 85%",
-                        toggleActions: "play none none reverse"
-                    }
-                }
-            );
-        });
-    }, { scope: container });
 
     const schema = {
         "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Agentic Commerce",
-        "provider": {
-            "@type": "Organization",
-            "name": "AI Velocity"
-        }
+        "@graph": [
+            {
+                "@type": "Service",
+                "name": "Agentic Commerce",
+                "provider": {
+                    "@type": "Organization",
+                    "name": "AI Velocity"
+                }
+            },
+            {
+                "@type": "FAQPage",
+                "mainEntity": commerceFaqs.map(faq => ({
+                    "@type": "Question",
+                    "name": faq.question,
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": faq.answer
+                    }
+                }))
+            }
+        ]
     };
 
     return (
@@ -546,7 +411,7 @@ export default function AgenticCommerce() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
 
-            <div ref={container} className="flex flex-col gap-16 lg:gap-24 overflow-hidden">
+            <GsapPageWrapper className="gap-16 lg:gap-24">
                 <StatementAction
                     title={statementSection.title}
                     subtitle={statementSection.subtitle}
@@ -556,8 +421,10 @@ export default function AgenticCommerce() {
 
                 <SplitFeature
                     reverse
-                    bgClass="bg-electric-mint"
+                    bgClass="bg-[#212121]"
+                    theme="dark"
                     image={heroFeature.image}
+                    imageAlt={heroFeature.imageAlt}
                     title={heroFeature.title}
                     text1={heroFeature.text1}
                     text2={heroFeature.text2}
@@ -569,6 +436,7 @@ export default function AgenticCommerce() {
 
                 <SplitFeature
                     image={secondaryFeature.image}
+                    imageAlt={secondaryFeature.imageAlt}
                     title={secondaryFeature.title}
                     text1={secondaryFeature.text1}
                     text2={secondaryFeature.text2}
@@ -587,7 +455,7 @@ export default function AgenticCommerce() {
                 />
 
                 <CTABanner />
-            </div>
+            </GsapPageWrapper>
         </main>
     );
 };

@@ -1,7 +1,0 @@
-1:"$Sreact.fragment"
-2:I[48398,["/_next/static/chunks/127beacb5f0da074.js","/_next/static/chunks/b7f414347eecff66.js","/_next/static/chunks/24f586b0896e9f24.js","/_next/static/chunks/2343498dbc883c4b.js"],"Hero"]
-3:I[36145,["/_next/static/chunks/127beacb5f0da074.js","/_next/static/chunks/b7f414347eecff66.js","/_next/static/chunks/24f586b0896e9f24.js","/_next/static/chunks/2343498dbc883c4b.js"],"InfluencerCarousel"]
-4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/d2be314c3ece3fbe.js"],"OutletBoundary"]
-5:"$Sreact.suspense"
-0:{"buildId":"wVtk8sJ4e1LcVkpItM8hK","rsc":["$","$1","c",{"children":[["$","main",null,{"children":[["$","script",null,{"type":"application/ld+json","dangerouslySetInnerHTML":{"__html":"{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":\"WebSite\",\"name\":\"Ai Velocity Foundry\",\"url\":\"https://aivelocity.com/\"},{\"@type\":\"Organization\",\"name\":\"Ai Velocity Foundry\",\"url\":\"https://aivelocity.com/\",\"description\":\"Master the shift to Agentic Commerce and Marketing with Ai Velocity. We provide the high-fidelity visual intelligence and autonomous growth systems required to vaporize legacy management.\"}]}"}}],["$","$L2",null,{}],["$","$L3",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/2343498dbc883c4b.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
-6:null

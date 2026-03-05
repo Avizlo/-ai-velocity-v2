@@ -1,16 +1,32 @@
 /* 1. TOP-LEVEL ASSET IMPORT MOVED TO INDEX.HTML */
+/* Local Typography via Next/Font */
+@font-face {
+  font-family: 'AgenticTimes';
+  src: url('/fonts/times-italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'AgenticTimes';
+  src: url('/fonts/times-italic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  html {
-    font-family: var(--font-instrument-sans), sans-serif;
+  body {
+    @apply bg-[#ffffff] text-[#1A1A1A];
   }
 
-  body {
-    @apply bg-[#ffffff] text-[#1A1A1A] antialiased;
+  p {
+    @apply text-base font-light tracking-wide leading-[1.8];
   }
 }
 

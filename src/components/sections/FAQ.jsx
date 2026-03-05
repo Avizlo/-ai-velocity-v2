@@ -1,5 +1,9 @@
+"use client";
+
 import { useState, useRef, useEffect } from 'react';
 import { Plus, X } from 'lucide-react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 const defaultFaqs = [
     {
@@ -36,7 +40,7 @@ const FAQItem = ({ faq, isOpen, onToggle, index }) => {
     }, [isOpen]);
 
     return (
-        <div className="border-t border-charcoal/10 last:border-b">
+        <div className="border-t border-charcoal/10 last:border-b faq-item opacity-0 translate-y-4">
             {/* Question row */}
             <button
                 onClick={onToggle}
@@ -47,14 +51,14 @@ const FAQItem = ({ faq, isOpen, onToggle, index }) => {
             >
                 <h3
                     className="font-sans text-lg font-medium tracking-tight transition-colors duration-300"
-                    style={{ color: isOpen ? '#1A1A1A' : '#6B6B6B' }}
+                    style={{ color: isOpen ? '#1A1A1A' : '#1A1A1A' }}
                 >
                     {faq.question}
                 </h3>
 
                 <span
                     className="shrink-0 flex items-center justify-center transition-all duration-300"
-                    style={{ color: isOpen ? '#1A1A1A' : '#6B6B6B' }}
+                    style={{ color: isOpen ? '#1A1A1A' : '#1A1A1A' }}
                 >
                     <span
                         className="inline-block transition-transform duration-400 ease-[cubic-bezier(0.25,1,0.5,1)]"
@@ -82,7 +86,7 @@ const FAQItem = ({ faq, isOpen, onToggle, index }) => {
                 }}
             >
                 <div ref={bodyRef}>
-                    <p className="pb-8 text-[#1A1A1A] font-sans text-sm leading-relaxed max-w-2xl">
+                    <p className="pb-8 text-[#1A1A1A] font-sans max-w-2xl">
                         {faq.answer}
                     </p>
                 </div>
@@ -91,21 +95,150 @@ const FAQItem = ({ faq, isOpen, onToggle, index }) => {
     );
 };
 
-export const FAQ = ({ title = "FAQ's", faqs = defaultFaqs }) => {
+export const FAQ = ({ title = "FAQ's", label, faqs = defaultFaqs, bgClass = "bg-cloud-dancer" }) => {
     const [openIndex, setOpenIndex] = useState(0);
+    const containerRef = useRef(null);
+    const titleRef = useRef(null);
+    const blob1Ref = useRef(null);
+    const blob2Ref = useRef(null);
+    const blob3Ref = useRef(null);
+    const blob4Ref = useRef(null);
 
     const toggle = (index) => {
         setOpenIndex(prev => (prev === index ? null : index));
     };
 
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const ctx = gsap.context(() => {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: containerRef.current,
+                    start: "top 80%",
+                    end: "bottom 20%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+            tl.fromTo(titleRef.current,
+                { y: 30, opacity: 0 },
+                { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }
+            )
+                .fromTo(".faq-item",
+                    { y: 30, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.6, stagger: 0.1, ease: 'power3.out' },
+                    "-=0.4"
+                );
+
+            // Organic mesh gradient — 4 blobs drifting on infinite loops
+            const blobs = [blob1Ref.current, blob2Ref.current, blob3Ref.current, blob4Ref.current];
+
+            blobs.forEach((blob, i) => {
+                const duration = 12 + i * 4; // 12s, 16s, 20s, 24s
+                const xRange = 15 + i * 10;
+                const yRange = 10 + i * 8;
+
+                gsap.to(blob, {
+                    xPercent: xRange,
+                    yPercent: yRange,
+                    scale: 1.15,
+                    duration: duration,
+                    ease: 'sine.inOut',
+                    repeat: -1,
+                    yoyo: true,
+                });
+
+                gsap.to(blob, {
+                    xPercent: -xRange * 0.7,
+                    yPercent: -yRange * 0.5,
+                    duration: duration * 0.7,
+                    ease: 'sine.inOut',
+                    repeat: -1,
+                    yoyo: true,
+                    delay: duration * 0.3,
+                });
+            });
+        }, containerRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
-        <section className="py-24 bg-cloud-dancer">
-            <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+        <section ref={containerRef} className="relative py-24 bg-electric-mint overflow-hidden">
+            {/* Stronger graduated fade */}
+            <div
+                className="absolute inset-0 pointer-events-none z-0"
+                style={{
+                    background: `
+                        radial-gradient(ellipse at 50% 40%, rgba(255,255,255,0.4) 0%, transparent 60%),
+                        linear-gradient(180deg, rgba(255,255,255,0.15) 0%, transparent 20%, transparent 80%, rgba(0,0,0,0.08) 100%)
+                    `
+                }}
+            />
+
+            {/* Organic mesh gradient blobs */}
+            <div
+                ref={blob1Ref}
+                className="absolute pointer-events-none z-[1]"
+                style={{
+                    width: '55%', height: '70%',
+                    top: '-5%', left: '-10%',
+                    background: 'radial-gradient(ellipse, rgba(255,255,255,0.3) 0%, rgba(223,244,231,0.15) 40%, transparent 70%)',
+                    borderRadius: '50%',
+                    filter: 'blur(60px)',
+                    willChange: 'transform'
+                }}
+            />
+            <div
+                ref={blob2Ref}
+                className="absolute pointer-events-none z-[1]"
+                style={{
+                    width: '45%', height: '60%',
+                    top: '30%', right: '-8%',
+                    background: 'radial-gradient(ellipse, rgba(150,210,170,0.2) 0%, rgba(192,233,203,0.1) 45%, transparent 70%)',
+                    borderRadius: '50%',
+                    filter: 'blur(50px)',
+                    willChange: 'transform'
+                }}
+            />
+            <div
+                ref={blob3Ref}
+                className="absolute pointer-events-none z-[1]"
+                style={{
+                    width: '40%', height: '50%',
+                    bottom: '-10%', left: '25%',
+                    background: 'radial-gradient(ellipse, rgba(255,255,255,0.25) 0%, rgba(200,240,215,0.1) 40%, transparent 65%)',
+                    borderRadius: '50%',
+                    filter: 'blur(45px)',
+                    willChange: 'transform'
+                }}
+            />
+            {/* Deep forest shadow blob */}
+            <div
+                ref={blob4Ref}
+                className="absolute pointer-events-none z-[1]"
+                style={{
+                    width: '60%', height: '65%',
+                    bottom: '5%', right: '-5%',
+                    background: 'radial-gradient(ellipse, rgba(80,140,90,0.14) 0%, rgba(60,120,75,0.08) 40%, transparent 65%)',
+                    borderRadius: '50%',
+                    filter: 'blur(70px)',
+                    willChange: 'transform'
+                }}
+            />
+
+            <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
                 <div className="grid grid-cols-1 lg:grid-cols-[280px_1fr] gap-16 lg:gap-24">
 
                     {/* Left: Title */}
-                    <div className="lg:pt-2 flex items-start">
-                        <h2 className="text-5xl md:text-6xl font-sans font-bold text-charcoal tracking-tight">
+                    <div ref={titleRef} className="lg:pt-2 flex flex-col items-start opacity-0 translate-y-4">
+                        {label && (
+                            <span className="block font-mono text-[10px] tracking-[0.25em] uppercase text-[#1a1a1a]/50 mb-4">
+                                {label}
+                            </span>
+                        )}
+                        <h2 className="text-5xl md:text-6xl lg:text-7xl font-serif italic text-[#1a1a1a] tracking-tight">
                             {title}
                         </h2>
                     </div>
