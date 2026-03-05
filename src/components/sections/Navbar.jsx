@@ -265,10 +265,20 @@ export const Navbar = () => {
                     <ParticleWave />
                 </div>
 
-                <div className="relative z-10 flex flex-col items-center gap-8 text-xl font-medium tracking-widest text-white/90">
+                <div className="relative z-10 flex flex-col items-center gap-10 text-2xl font-serif italic tracking-wide text-white/90">
                     {categories.map((cat) => (
-                        <Link key={cat.name} href={cat.path} onClick={() => setIsMobileMenuOpen(false)} className="hover:text-dew-mint transition-colors duration-300 shadow-sm shadow-black/50 drop-shadow-md">
+                        <Link
+                            key={cat.name}
+                            href={cat.path}
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="relative transition-all duration-300 active:scale-95 active:text-white drop-shadow-md"
+                        >
                             {cat.name}
+
+                            {/* Active page dot indicator for mobile */}
+                            {pathname === cat.path && (
+                                <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-electric-mint shadow-[0_0_8px_rgba(133,216,172,0.6)]"></span>
+                            )}
                         </Link>
                     ))}
                 </div>
