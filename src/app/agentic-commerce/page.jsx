@@ -25,7 +25,7 @@ const heroFeature = {
 
 const statementSection = {
     title: "Agentic Commerce",
-    subtitle: "Agentic commerce is where autonomous software agents execute, and settle commercial transactions across digital platforms.",
+    subtitle: "PHASE-IN: AUTONOMOUS TRANSACTIONS",
     statement: `The world of commerce is shifting from "Human-to-Human" to "Agent-to-Agent," and the old playbooks are being vaporized. Agentic commerce is a transformative form of online shopping where autonomous AI agents act on behalf of customers to find, compare, and execute purchases independently.`,
     actionText: "Are you ready?"
 };
