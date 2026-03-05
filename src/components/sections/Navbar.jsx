@@ -7,6 +7,9 @@ import { MagneticButton } from '@/components/ui/MagneticButton';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
+import dynamic from 'next/dynamic';
+
+const ParticleWave = dynamic(() => import('@/components/ui/ParticleWave').then(mod => mod.ParticleWave), { ssr: false });
 
 if (typeof window !== 'undefined') {
     gsap.registerPlugin(ScrollTrigger);
@@ -117,9 +120,11 @@ export const Navbar = () => {
             <nav
                 ref={navRef}
                 onMouseLeave={() => setActiveDropdown(null)}
-                className={`fixed top-0 left-0 right-0 z-50 px-6 py-6 flex flex-col items-center transition-all duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] font-sans ${isVisible ? 'translate-y-0' : '-translate-y-full'
+                className={`fixed top-0 left-0 right-0 z-50 px-6 py-6 flex flex-col items-center transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] font-sans ${isVisible ? 'translate-y-0' : '-translate-y-full'
                     } ${isScrolled || isMobileMenuOpen || activeDropdown
-                        ? 'bg-white/80 backdrop-blur-xl border-b border-charcoal/10 text-charcoal/75 shadow-[0_1px_0_0_rgba(192,233,203,0.3)]'
+                        ? (isMobileMenuOpen || navTheme === 'dark')
+                            ? 'bg-charcoal/70 backdrop-blur-2xl border-b border-white/[0.06] text-white shadow-[0_1px_20px_0_rgba(0,0,0,0.4)]'
+                            : 'bg-white/80 backdrop-blur-xl border-b border-charcoal/10 text-charcoal/75 shadow-[0_1px_0_0_rgba(192,233,203,0.3)]'
                         : navTheme === 'dark'
                             ? 'bg-transparent border-b border-transparent text-white'
                             : 'bg-transparent border-b border-transparent text-charcoal/80'
@@ -162,7 +167,9 @@ export const Navbar = () => {
 
                         <button
                             className={`lg:hidden transition-colors ${isScrolled || isMobileMenuOpen || activeDropdown
-                                ? 'text-charcoal/80 hover:text-charcoal'
+                                ? (isMobileMenuOpen || navTheme === 'dark')
+                                    ? 'text-white/80 hover:text-white'
+                                    : 'text-charcoal/80 hover:text-charcoal'
                                 : navTheme === 'light'
                                     ? 'text-charcoal/80 hover:text-charcoal'
                                     : 'text-white/80 hover:text-white'
@@ -250,18 +257,20 @@ export const Navbar = () => {
 
             {/* Mobile Full-Screen Overlay */}
             <div
-                className={`fixed inset-0 z-40 bg-cloud-dancer flex flex-col justify-center items-center transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+                className={`fixed inset-0 z-40 bg-charcoal flex flex-col justify-center items-center transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] ${isMobileMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
                     }`}
             >
-                <div className="flex flex-col items-center gap-8 text-xl font-medium tracking-widest text-charcoal/90">
+                {/* Particle Wave Background Effect inside Menu */}
+                <div className="absolute inset-0 z-0">
+                    <ParticleWave />
+                </div>
+
+                <div className="relative z-10 flex flex-col items-center gap-8 text-xl font-medium tracking-widest text-white/90">
                     {categories.map((cat) => (
-                        <Link key={cat.name} href={cat.path} onClick={() => setIsMobileMenuOpen(false)} className="hover:text-dew-mint transition-colors duration-300">
+                        <Link key={cat.name} href={cat.path} onClick={() => setIsMobileMenuOpen(false)} className="hover:text-dew-mint transition-colors duration-300 shadow-sm shadow-black/50 drop-shadow-md">
                             {cat.name}
                         </Link>
                     ))}
-                    <button className="mt-8 bg-charcoal text-white px-8 py-3 rounded-full font-mono text-base font-bold tracking-wide hover:bg-dew-mint hover:text-charcoal transition-colors duration-300">
-                        Initialize
-                    </button>
                 </div>
             </div>
         </>
