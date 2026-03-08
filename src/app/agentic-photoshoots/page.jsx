@@ -26,13 +26,13 @@ const photoshootPosts = [
     {
         date: '26.02.2025',
         title: 'Agentic AI is rewriting the rules of digital commerce',
-        image: '/images/agentic-agent-hero.jpg',
+        image: '/images/agentic-agent-hero.webp',
         alt: 'Agentic AI hero',
     },
     {
         date: '24.02.2025',
         title: 'How autonomous agents are replacing legacy marketing teams',
-        image: '/images/good-univerce-ai.jpg',
+        image: '/images/good-univerce-ai.webp',
         alt: 'AI universe',
     },
 ];

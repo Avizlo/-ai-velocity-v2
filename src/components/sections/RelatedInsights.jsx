@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useRef, useEffect } from 'react';
 import { insightsData } from '@/lib/insightsData';
 import { ArrowRight } from 'lucide-react';
@@ -79,11 +80,13 @@ export const RelatedInsights = ({
                         {posts.map((post) => (
                             <Link key={post.id} href={`/news-insights/${post.slug}`} className="ri-anim opacity-0">
                                 <article className="flex gap-5 items-start group cursor-pointer">
-                                    <div className="shrink-0 w-44 md:w-52 aspect-[16/10] rounded-card overflow-hidden bg-charcoal/5 ring-1 ring-charcoal/5">
-                                        <img loading="lazy" decoding="async"
+                                    <div className="shrink-0 w-44 md:w-52 aspect-[16/10] rounded-card overflow-hidden bg-charcoal/5 ring-1 ring-charcoal/5 relative">
+                                        <Image
                                             src={post.image}
                                             alt={post.title}
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            fill
+                                            sizes="(max-width: 768px) 176px, 208px"
+                                            className="object-cover transition-transform duration-500 group-hover:scale-105"
                                         />
                                     </div>
                                     <div className="flex-1 space-y-2 pt-1">

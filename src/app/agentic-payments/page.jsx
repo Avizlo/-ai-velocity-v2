@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CTABanner } from '@/components/sections/CTABanner';
@@ -178,11 +179,13 @@ const SplitFeature = ({
             <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
                     {/* Left/Right: Image */}
-                    <div ref={imageRef} className={`group rounded-card overflow-hidden aspect-[4/5] w-full max-w-md ${reverse ? 'md:order-last md:justify-self-end' : ''} opacity-0`}>
-                        <img loading="lazy" decoding="async"
+                    <div ref={imageRef} className={`group rounded-card overflow-hidden aspect-[4/5] w-full max-w-md relative ${reverse ? 'md:order-last md:justify-self-end' : ''} opacity-0`}>
+                        <Image
                             src={image}
                             alt={imageAlt || "Agentic AI model"}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 448px"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
                     {/* Left/Right: Text + CTA */}
@@ -363,20 +366,24 @@ const PaymentsSettlementGrid = () => {
                     </div>
 
                     {/* Large center image — spans 2 rows */}
-                    <div className="bento-anim group md:row-span-2 rounded-2xl overflow-hidden min-h-[560px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 opacity-0">
-                        <img loading="lazy" decoding="async"
-                            src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80"
+                    <div className="bento-anim group md:row-span-2 rounded-2xl overflow-hidden min-h-[560px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 opacity-0 relative">
+                        <Image
+                            src="/images/autonomous-payment-processing.webp"
                             alt="Secure autonomous payment processing"
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
 
                     {/* Glassmorphic overlay card — top right */}
                     <Link href="/news-insights/v402-handshake-how-machine-to-machine-negotiation-works" className="bento-anim relative group rounded-2xl overflow-hidden min-h-[270px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 opacity-0 block">
-                        <img loading="lazy" decoding="async"
-                            src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&q=80"
+                        <Image
+                            src="/images/blockchain-settlement-ledger.webp"
                             alt="Blockchain distributed ledger visualization"
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent flex items-end p-6">
                             <div>

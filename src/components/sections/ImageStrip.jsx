@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import Image from 'next/image';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const images = [
@@ -8,7 +9,7 @@ const images = [
     { src: '/images/ai-model-4.webp', alt: 'AI Model 4' },
     { src: '/images/ai-model-5.webp', alt: 'AI Model 5' },
     { src: '/images/antesta-ai-model.jpg', alt: 'AI Model 6' },
-    { src: '/images/good-univerce-ai.jpg', alt: 'AI Model 7' },
+    { src: '/images/good-univerce-ai.webp', alt: 'AI Model 7' },
 ];
 
 export const ImageStrip = () => {
@@ -53,10 +54,12 @@ export const ImageStrip = () => {
                         className="relative shrink-0 snap-start rounded-card overflow-hidden bg-charcoal/5"
                         style={{ width: 'clamp(220px, 24vw, 340px)', aspectRatio: '3/4' }}
                     >
-                        <img loading="lazy" decoding="async"
+                        <Image
                             src={img.src}
                             alt={img.alt}
-                            className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 220px, 24vw"
+                            className="object-cover transition-transform duration-700 hover:scale-105"
                         />
                     </div>
                 ))}

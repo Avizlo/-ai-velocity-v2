@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CTABanner } from '@/components/sections/CTABanner';
@@ -113,13 +114,13 @@ const commercePosts = [
     {
         date: '26.02.2025',
         title: 'Agentic AI is rewriting the rules of digital commerce',
-        image: '/images/agentic-agent-hero.jpg',
+        image: '/images/agentic-agent-hero.webp',
         alt: 'Abstract visualization of an Agentic AI system rewriting global digital commerce rules',
     },
     {
         date: '24.02.2025',
         title: 'How autonomous agents are replacing legacy marketing teams',
-        image: '/images/good-univerce-ai.jpg',
+        image: '/images/good-univerce-ai.webp',
         alt: 'Illustration of autonomous agents managing a high-volume legacy marketing workflow',
     },
 ];
@@ -221,11 +222,13 @@ const SplitFeature = ({
             <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center">
                     {/* Left/Right: Image */}
-                    <div ref={imageRef} className={`group rounded-card overflow-hidden aspect-[4/5] w-full max-w-md ${reverse ? 'md:order-last md:justify-self-end' : ''} opacity-0`}>
-                        <img loading="lazy" decoding="async"
+                    <div ref={imageRef} className={`group rounded-card overflow-hidden aspect-[4/5] w-full max-w-md relative ${reverse ? 'md:order-last md:justify-self-end' : ''} opacity-0`}>
+                        <Image
                             src={image}
                             alt={imageAlt || "Agentic AI model"}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 448px"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
                     {/* Left/Right: Text + CTA */}
@@ -434,25 +437,31 @@ const BentoGrid2 = ({ data }) => {
                             body={data.statLine.body}
                         />
                     </div>
-                    <div className="bento-card group md:col-start-2 md:row-start-1 md:row-span-2 rounded-2xl overflow-hidden min-h-[580px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
-                        <img loading="lazy" decoding="async"
+                    <div className="bento-card group md:col-start-2 md:row-start-1 md:row-span-2 rounded-2xl overflow-hidden min-h-[580px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4 relative">
+                        <Image
                             src={data.images.center}
                             alt={data.images.centerAlt || "Center featured"}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="bento-card group md:col-start-3 md:row-start-1 rounded-2xl overflow-hidden min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
-                        <img loading="lazy" decoding="async"
+                    <div className="bento-card group md:col-start-3 md:row-start-1 rounded-2xl overflow-hidden min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4 relative">
+                        <Image
                             src={data.images.brand}
                             alt={data.images.brandAlt || "Brand campaign"}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="bento-card group md:col-start-1 md:row-start-2 rounded-2xl overflow-hidden min-h-[280px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
-                        <img loading="lazy" decoding="async"
+                    <div className="bento-card group md:col-start-1 md:row-start-2 rounded-2xl overflow-hidden min-h-[280px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4 relative">
+                        <Image
                             src={data.images.bottomLeft}
                             alt={data.images.bottomLeftAlt || "Bottom left model"}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
                     <Link href="/news-insights/solana-launches-ai-agent-registry-with-9000-agents" className="bento-card relative md:col-start-3 md:row-start-2 rounded-2xl bg-charcoal p-8 flex flex-col justify-between min-h-[180px] ring-1 ring-white/5 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4 block">
@@ -530,11 +539,13 @@ const NewsInsight = ({ title, description, posts }) => {
                     <div className="flex flex-col gap-5">
                         {posts.map((post, i) => (
                             <a key={i} href="#blog" className="news-anim flex gap-5 items-start group cursor-pointer opacity-0 translate-y-4">
-                                <div className="shrink-0 w-44 md:w-52 aspect-[16/10] rounded-card overflow-hidden bg-charcoal/5 ring-1 ring-charcoal/5">
-                                    <img loading="lazy" decoding="async"
+                                <div className="shrink-0 w-44 md:w-52 aspect-[16/10] rounded-card overflow-hidden bg-charcoal/5 ring-1 ring-charcoal/5 relative">
+                                    <Image
                                         src={post.image}
                                         alt={post.alt}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                        fill
+                                        sizes="(max-width: 768px) 176px, 208px"
+                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
                                     />
                                 </div>
                                 <div className="space-y-2 pt-1">

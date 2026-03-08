@@ -2,6 +2,7 @@
 
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CTABanner } from '@/components/sections/CTABanner';
@@ -108,13 +109,13 @@ const commercePosts = [
     {
         date: '26.02.2025',
         title: 'Agentic AI is rewriting the rules of digital commerce',
-        image: '/images/agentic-agent-hero.jpg',
+        image: '/images/agentic-agent-hero.webp',
         alt: 'Agentic AI hero',
     },
     {
         date: '24.02.2025',
         title: 'How autonomous agents are replacing legacy marketing teams',
-        image: '/images/good-univerce-ai.jpg',
+        image: '/images/good-univerce-ai.webp',
         alt: 'AI universe',
     },
 ];
@@ -261,25 +262,31 @@ const BentoGrid2 = ({ data }) => {
                             link={data.statLine.link}
                         />
                     </div>
-                    <div className="bento-card group md:col-start-2 md:row-start-1 md:row-span-2 rounded-2xl overflow-hidden min-h-[580px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
-                        <img loading="lazy" decoding="async"
+                    <div className="bento-card group md:col-start-2 md:row-start-1 md:row-span-2 rounded-2xl overflow-hidden min-h-[580px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4 relative">
+                        <Image
                             src={data.images.center}
                             alt="AI-generated model executing autonomous cross-channel marketing campaigns"
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="bento-card group md:col-start-3 md:row-start-1 rounded-2xl overflow-hidden min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
-                        <img loading="lazy" decoding="async"
+                    <div className="bento-card group md:col-start-3 md:row-start-1 rounded-2xl overflow-hidden min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4 relative">
+                        <Image
                             src={data.images.brand}
                             alt="AI-generated brand ambassador photoshoot for autonomous influencer campaigns"
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="bento-card group md:col-start-1 md:row-start-2 rounded-2xl overflow-hidden min-h-[280px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
-                        <img loading="lazy" decoding="async"
+                    <div className="bento-card group md:col-start-1 md:row-start-2 rounded-2xl overflow-hidden min-h-[280px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4 relative">
+                        <Image
                             src={data.images.bottomLeft}
                             alt="AI-generated product model for agentic commerce content creation"
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
                     <div className="bento-card relative md:col-start-3 md:row-start-2 rounded-2xl bg-charcoal p-8 flex flex-col justify-between min-h-[180px] ring-1 ring-white/5 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">

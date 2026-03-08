@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 const StatCard = ({ pct, dashPct, heading, body, link }) => (
     <div className="rounded-2xl bg-charcoal p-8 flex flex-col justify-between min-h-[280px]">
         <div className="flex items-center gap-3">
@@ -44,11 +46,13 @@ export const BentoGrid = () => {
                     </div>
 
                     {/* ── [col2, rows 1-2] Tall hero image ── */}
-                    <div className="group md:col-start-2 md:row-start-1 md:row-span-2 rounded-2xl overflow-hidden min-h-[580px]">
-                        <img loading="lazy" decoding="async"
-                            src="/images/agentic-agent-hero.jpg"
+                    <div className="group md:col-start-2 md:row-start-1 md:row-span-2 rounded-2xl overflow-hidden min-h-[580px] relative">
+                        <Image
+                            src="/images/agentic-agent-hero.webp"
                             alt="Agentic AI systems"
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
 
@@ -63,20 +67,24 @@ export const BentoGrid = () => {
                     </div>
 
                     {/* ── [col1, row2] AI model image ── */}
-                    <div className="group md:col-start-1 md:row-start-2 rounded-2xl overflow-hidden min-h-[280px]">
-                        <img loading="lazy" decoding="async"
+                    <div className="group md:col-start-1 md:row-start-2 rounded-2xl overflow-hidden min-h-[280px] relative">
+                        <Image
                             src="/images/ai-model-1.webp"
                             alt="AI model campaign"
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
 
                     {/* ── [col3, row2] Landscape image ── */}
-                    <div className="group md:col-start-3 md:row-start-2 rounded-2xl overflow-hidden min-h-[180px]">
-                        <img loading="lazy" decoding="async"
-                            src="/images/good-univerce-ai.jpg"
+                    <div className="group md:col-start-3 md:row-start-2 rounded-2xl overflow-hidden min-h-[180px] relative">
+                        <Image
+                            src="/images/good-univerce-ai.webp"
                             alt="AI universe"
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 33vw"
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
 
@@ -114,11 +122,13 @@ export const BentoGrid = () => {
                                 '/images/ai-model-4.webp',
                                 '/images/ai-model-5.webp',
                             ].map((src, i) => (
-                                <img loading="lazy" decoding="async"
+                                <Image
                                     key={i}
                                     src={src}
                                     alt="Team member"
-                                    className="w-10 h-10 rounded-full object-cover border-2 border-charcoal"
+                                    width={40}
+                                    height={40}
+                                    className="rounded-full object-cover border-2 border-charcoal"
                                 />
                             ))}
                         </div>
