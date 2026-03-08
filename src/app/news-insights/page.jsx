@@ -78,6 +78,19 @@ function NewsInsightsContent() {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Read category from URL query params (e.g. ?category=agentic-payments)
+    useEffect(() => {
+        const categoryParam = searchParams.get('category');
+        if (categoryParam) {
+            // Map URL-friendly slug back to display name (e.g. "agentic-payments" → "Agentic Payments")
+            const normalized = categoryParam.replace(/-/g, ' ').toLowerCase();
+            const matched = categories.find(cat => cat.toLowerCase() === normalized);
+            if (matched) {
+                setActiveCategory(matched);
+            }
+        }
+    }, []);
+
     // Handle filtering logic
     useEffect(() => {
         if (activeCategory === 'All') {

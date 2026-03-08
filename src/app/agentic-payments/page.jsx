@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CTABanner } from '@/components/sections/CTABanner';
@@ -31,25 +32,7 @@ const statementSection = {
     actionText: "Are you ready?"
 };
 
-const paymentsBentoData = {
-    statLine: {
-        pct: "<1s",
-        dashPct: 0.99,
-        heading: "Sub-Second Verification",
-        body: "Instant cryptographic verification ensures autonomous transactions settle with zero latency.",
-        link: "View Protocol"
-    },
-    images: {
-        center: "/images/ai-model-2.webp",
-        centerAlt: "Cryptographic ledger visualization for instant settlement"
-    },
-    cta: {
-        heading: "Fraud-proof secure handshakes.",
-        body: "Decentralized settlement layers prevent unauthorized access and validate machine intent. No human needed.",
-        buttonText: "Deploy Agents",
-        buttonLink: "#connect-wallet"
-    }
-};
+
 
 const secondaryFeature = {
     image: "/images/ai-model-9.webp",
@@ -304,42 +287,14 @@ const StatementAction = ({ title, subtitle, statement, actionText }) => {
     );
 };
 
-const StatCard2 = ({ pct, dashPct, heading, body, link }) => (
-    <div className="rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[280px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-        <div className="flex items-center gap-3">
-            <div className="relative w-14 h-14">
-                <svg className="w-full h-full -rotate-90" viewBox="0 0 56 56">
-                    <circle cx="28" cy="28" r="24" fill="none" stroke="#1A1A1A22" strokeWidth="3" />
-                    <circle
-                        cx="28" cy="28" r="24" fill="none"
-                        stroke="#1A1A1A" strokeWidth="3"
-                        strokeDasharray={`${2 * Math.PI * 24 * dashPct} ${2 * Math.PI * 24 * (1 - dashPct)}`}
-                        strokeLinecap="round"
-                    />
-                </svg>
-                <span className="absolute inset-0 flex items-center justify-center text-charcoal text-xs font-sans font-bold">
-                    {pct}
-                </span>
-            </div>
-        </div>
-        <div className="mt-6 space-y-3">
-            <h3 className="font-sans font-bold text-charcoal text-xl leading-tight">{heading}</h3>
-            <p className="font-sans text-charcoal/60 text-sm leading-relaxed">{body}</p>
-            <span className="inline-block font-sans text-charcoal text-xs tracking-widest uppercase border-b border-charcoal/30 pb-1 cursor-pointer hover:text-electric-mint hover:border-electric-mint/50 transition-colors duration-200">
-                {link} →
-            </span>
-        </div>
-    </div>
-);
-
-const BentoGrid2 = ({ data }) => {
+const PaymentsSettlementGrid = () => {
     const gridRef = useRef(null);
 
     useEffect(() => {
         gsap.registerPlugin(ScrollTrigger);
 
         const ctx = gsap.context(() => {
-            gsap.fromTo(gridRef.current.querySelectorAll('.bento-card'),
+            gsap.fromTo(gridRef.current.querySelectorAll('.bento-anim'),
                 { y: 40, opacity: 0 },
                 {
                     y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out',
@@ -357,61 +312,100 @@ const BentoGrid2 = ({ data }) => {
 
     return (
         <section className="relative py-20 bg-cloud-dancer overflow-hidden">
-            {/* Section Watermark */}
-            <div className="absolute top-[30%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none z-[1] select-none">
-                <span className="font-serif italic text-[12vw] leading-none whitespace-nowrap block tracking-tighter opacity-[0.05] text-charcoal">
-                    SETTLEMENT
+            <div className="absolute top-[22%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center pointer-events-none z-[1] select-none">
+                <span className="font-serif italic text-[12vw] leading-none whitespace-nowrap block tracking-tighter opacity-[0.04] text-charcoal">
+                    PAYMENTS
                 </span>
             </div>
 
             <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
-                {/* Section Header */}
                 <div className="mb-12">
-                    <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mb-3 text-charcoal/40">
-                        Agentic Settlement Output
+                    <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mb-3 text-electric-mint">
+                        Settlement Infrastructure
                     </span>
                     <h2 className="text-4xl md:text-5xl font-serif text-charcoal tracking-tight">
-                        Cryptographic Precision
+                        Autonomous Settlement
                     </h2>
                 </div>
 
-                <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-                    <div className="bento-card opacity-0 translate-y-4">
-                        <StatCard2
-                            pct={data.statLine.pct}
-                            dashPct={data.statLine.dashPct}
-                            heading={data.statLine.heading}
-                            body={data.statLine.body}
-                            link={data.statLine.link}
-                        />
+                <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-4" style={{ gridTemplateRows: 'auto auto' }}>
+                    {/* Tall KPI Panel — left, spans 2 rows */}
+                    <div className="bento-anim relative md:row-span-2 rounded-2xl bg-charcoal p-8 flex flex-col min-h-[560px] ring-1 ring-charcoal/5 overflow-hidden transition-all duration-300 hover:-translate-y-1 opacity-0">
+                        {/* Watermark */}
+                        <span className="absolute bottom-4 right-4 font-serif italic text-[4.5rem] leading-none text-white/[0.03] pointer-events-none select-none tracking-tighter">
+                            Protocol
+                        </span>
+                        {/* Title + Facts grouped together */}
+                        <div className="relative z-10">
+                            <span className="font-serif italic text-2xl text-electric-mint block mb-6">Why Autonomous Payments</span>
+                            <div className="space-y-4">
+                                <div className="border-b border-white/[0.10] pb-3">
+                                    <p className="font-serif italic text-3xl text-white tracking-tight">90%</p>
+                                    <p className="font-sans font-normal text-white/70 text-sm mt-1">Faster Reconciliation vs Traditional Rails</p>
+                                </div>
+                                <div className="border-b border-white/[0.10] pb-3">
+                                    <p className="font-serif italic text-3xl text-white tracking-tight">130+</p>
+                                    <p className="font-sans font-normal text-white/70 text-sm mt-1">Markets With Instant Settlement</p>
+                                </div>
+                                <div className="border-b border-white/[0.10] pb-3">
+                                    <p className="font-serif italic text-3xl text-white tracking-tight">Zero‑trust</p>
+                                    <p className="font-sans font-normal text-white/70 text-sm mt-1">Non-custodial Architecture</p>
+                                </div>
+                                <div>
+                                    <p className="font-serif italic text-3xl text-white tracking-tight">99%</p>
+                                    <p className="font-sans font-normal text-white/70 text-sm mt-1">Lower Fees vs Traditional Payment Rails</p>
+                                </div>
+                            </div>
+                        </div>
+                        <Link href="/news-insights?category=agentic-payments" className="relative z-10 mt-auto self-start inline font-sans text-white/40 text-xs tracking-widest uppercase border-b border-white/10 pb-1 hover:text-electric-mint hover:border-electric-mint/50 transition-colors duration-200">
+                            Explore Payments Insights →
+                        </Link>
                     </div>
-                    <div className="bento-card group rounded-2xl overflow-hidden min-h-[400px] md:min-h-full ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
+
+                    {/* Large center image — spans 2 rows */}
+                    <div className="bento-anim group md:row-span-2 rounded-2xl overflow-hidden min-h-[560px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 opacity-0">
                         <img loading="lazy" decoding="async"
-                            src={data.images.center}
-                            alt={data.images.centerAlt || "Data flow visualization"}
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 bg-charcoal"
+                            src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=800&q=80"
+                            alt="Secure autonomous payment processing"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="bento-card relative rounded-2xl bg-charcoal p-8 flex flex-col justify-between min-h-[400px] md:min-h-full ring-1 ring-white/5 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
-                        {/* CTA Watermark */}
-                        <span className="absolute bottom-4 right-4 font-serif italic text-[4rem] leading-none text-white/[0.03] pointer-events-none select-none tracking-tighter">
-                            Secure
+
+                    {/* Glassmorphic overlay card — top right */}
+                    <Link href="/news-insights/v402-handshake-how-machine-to-machine-negotiation-works" className="bento-anim relative group rounded-2xl overflow-hidden min-h-[270px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 opacity-0 block">
+                        <img loading="lazy" decoding="async"
+                            src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&q=80"
+                            alt="Blockchain distributed ledger visualization"
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent flex items-end p-6">
+                            <div>
+                                <p className="font-sans font-bold text-white text-sm">The v402 Handshake</p>
+                                <p className="font-sans text-white/50 text-xs mt-1">How machine-to-machine negotiation actually works.</p>
+                                <span className="inline-block font-sans text-white/70 text-xs tracking-widest uppercase border-b border-white/30 pb-1 mt-3 group-hover:text-electric-mint group-hover:border-electric-mint/50 transition-colors duration-200">
+                                    Read Article →
+                                </span>
+                            </div>
+                        </div>
+                    </Link>
+
+                    {/* CTA card — bottom right (mint) */}
+                    <Link href="/news-insights/autonomous-payment-settlement-what-cfos-need-to-know" className="bento-anim relative rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[270px] ring-1 ring-charcoal/5 overflow-hidden transition-all duration-300 hover:-translate-y-1 opacity-0 block">
+                        <span className="absolute bottom-3 right-4 font-serif italic text-[3.5rem] leading-none text-charcoal/[0.06] pointer-events-none select-none tracking-tighter">
+                            Settle
                         </span>
                         <div className="space-y-3 relative z-10">
-                            <h3 className="font-serif text-white text-3xl leading-tight tracking-tight">
-                                {data.cta.heading}
+                            <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">
+                                Autonomous Payment Settlement: What CFOs Need to Know in 2026
                             </h3>
-                            <p className="font-sans text-white/50 text-sm leading-relaxed mt-4">
-                                {data.cta.body}
+                            <p className="font-sans text-charcoal/50 text-sm leading-relaxed">
+                                Agent-initiated transactions now represent 8% of B2B settlement volume. Your payment infrastructure was not built for this.
                             </p>
                         </div>
-                        <a
-                            href={data.cta.buttonLink}
-                            className="relative z-10 self-start inline-block border-b border-white/30 pb-1 text-white/70 transition-colors duration-300 font-sans tracking-widest text-xs uppercase hover:text-electric-mint hover:border-electric-mint/50 mt-8"
-                        >
-                            {data.cta.buttonText} →
-                        </a>
-                    </div>
+                        <span className="relative z-10 self-start inline-block border-b border-charcoal/30 pb-1 text-charcoal transition-colors duration-300 font-sans tracking-widest text-xs uppercase">
+                            Read Article →
+                        </span>
+                    </Link>
                 </div>
             </div>
         </section>
@@ -468,9 +462,7 @@ export default function AgenticPayments() {
                     actionText={statementSection.actionText}
                 />
 
-                <BentoGrid2
-                    data={paymentsBentoData}
-                />
+                <PaymentsSettlementGrid />
 
                 <SplitFeature
                     reverse

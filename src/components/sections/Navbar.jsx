@@ -155,12 +155,8 @@ export const Navbar = () => {
                                         onMouseEnter={() => handleMouseEnter(cat.name)}
                                     >
                                         {cat.name}
-                                        {/* Center-out underline on hover */}
-                                        <span className="absolute -bottom-1 left-1/2 h-[1px] w-0 bg-current -translate-x-1/2 transition-all duration-300 group-hover:w-full"></span>
-                                        {/* Active page dot indicator */}
-                                        {pathname === cat.path && (
-                                            <span className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-electric-mint"></span>
-                                        )}
+                                        {/* Unified underline: short bar when active, full width on hover */}
+                                        <span className={`absolute -bottom-1.5 left-1/2 h-[1.5px] -translate-x-1/2 transition-all duration-300 ease-out group-hover:w-full ${pathname === cat.path ? 'w-[16px] bg-electric-mint' : 'w-0 bg-current'}`}></span>
                                     </Link>
                                 </MagneticButton>
                             ))}
