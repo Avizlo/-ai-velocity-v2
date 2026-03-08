@@ -4,6 +4,8 @@ export const insightsData = [
         slug: "the-end-of-legacy-seo",
         title: "The End of Legacy SEO: Transitioning to Agentic AEO",
         category: "Agentic AEO",
+        categoryPage: "/agentic-aeo",
+        relatedSlugs: ["schema-markup-is-not-optional-the-aeo-technical-checklist", "why-every-enterprise-needs-agentic-readiness-framework"],
         date: "2026-03-01T08:00:00Z",
         author: "AI Velocity Engineering",
         readTime: "10 min read",
@@ -132,6 +134,8 @@ The question is no longer whether to transition. The question is whether you wil
         slug: "machine-to-machine-negotiation-protocols-reshaping-commerce",
         title: "Machine-to-Machine Negotiation Protocols Are Reshaping Autonomous Commerce",
         category: "Agentic Payments",
+        categoryPage: "/agentic-payments",
+        relatedSlugs: ["v402-handshake-how-machine-to-machine-negotiation-works", "autonomous-payment-settlement-what-cfos-need-to-know"],
         date: "2026-03-05T14:30:00Z",
         author: "AI Velocity Engineering",
         readTime: "8 min read",
@@ -248,6 +252,8 @@ For organisations still evaluating whether M2M negotiation is relevant to their 
         slug: "headless-architecture-in-2026",
         title: "Headless Architecture is No Longer Optional in 2026",
         category: "Agentic Commerce",
+        categoryPage: "/agentic-commerce",
+        relatedSlugs: ["product-data-liquidity-how-autonomous-agents-compare-and-buy", "zero-click-checkout-how-autonomous-agents-bypass-your-sales-funnel"],
         date: "2026-02-15T09:15:00Z",
         author: "AI Velocity Engineering",
         readTime: "7 min read",
@@ -356,6 +362,8 @@ If your competitive strategy in 2026 still involves optimising visual page load 
         slug: "why-your-marketing-stack-is-invisible-to-autonomous-agents",
         title: "Why Your Marketing Stack is Invisible to Autonomous Agents",
         category: "Agentic Marketing",
+        categoryPage: "/agentic-marketing",
+        relatedSlugs: ["agent-first-content-strategy-what-to-publish-when-machines-are-your-audience", "brand-authority-signals-ai-agents-actually-trust"],
         date: "2026-02-28T10:00:00Z",
         author: "AI Velocity Engineering",
         readTime: "7 min read",
@@ -450,6 +458,8 @@ The window to build this advantage is narrow. Once your competitors make their m
         slug: "autonomous-payment-settlement-what-cfos-need-to-know",
         title: "Autonomous Payment Settlement: What CFOs Need to Know in 2026",
         category: "Agentic Payments",
+        categoryPage: "/agentic-payments",
+        relatedSlugs: ["machine-to-machine-negotiation-protocols-reshaping-commerce", "v402-handshake-how-machine-to-machine-negotiation-works"],
         date: "2026-02-20T11:30:00Z",
         author: "AI Velocity Engineering",
         readTime: "6 min read",
@@ -542,6 +552,8 @@ The CFOs who act now will define the governance frameworks that become industry 
         slug: "schema-markup-is-not-optional-the-aeo-technical-checklist",
         title: "Schema Markup is Not Optional: The AEO Technical Checklist",
         category: "Agentic AEO",
+        categoryPage: "/agentic-aeo",
+        relatedSlugs: ["the-end-of-legacy-seo", "why-every-enterprise-needs-agentic-readiness-framework"],
         date: "2026-02-10T08:00:00Z",
         author: "AI Velocity Engineering",
         readTime: "8 min read",
@@ -638,6 +650,8 @@ Schema markup adoption is accelerating, but it is far from saturated. In our ana
         slug: "product-data-liquidity-how-autonomous-agents-compare-and-buy",
         title: "Product Data Liquidity: How Autonomous Agents Compare and Buy",
         category: "Agentic Commerce",
+        categoryPage: "/agentic-commerce",
+        relatedSlugs: ["headless-architecture-in-2026", "zero-click-checkout-how-autonomous-agents-bypass-your-sales-funnel"],
         date: "2026-02-05T09:00:00Z",
         author: "AI Velocity Engineering",
         readTime: "7 min read",
@@ -720,6 +734,8 @@ The competitive advantage is clear and the window is closing. As more retailers 
         slug: "agent-first-content-strategy-what-to-publish-when-machines-are-your-audience",
         title: "Agent-First Content Strategy: What to Publish When Machines Are Your Audience",
         category: "Agentic Marketing",
+        categoryPage: "/agentic-marketing",
+        relatedSlugs: ["why-your-marketing-stack-is-invisible-to-autonomous-agents", "brand-authority-signals-ai-agents-actually-trust"],
         date: "2026-01-25T10:00:00Z",
         author: "AI Velocity Engineering",
         readTime: "7 min read",
@@ -822,6 +838,8 @@ The organisations that adopt agent-first content strategy now will build a compo
         slug: "v402-handshake-how-machine-to-machine-negotiation-works",
         title: "The v402 Handshake: How Machine-to-Machine Negotiation Actually Works",
         category: "Agentic Payments",
+        categoryPage: "/agentic-payments",
+        relatedSlugs: ["machine-to-machine-negotiation-protocols-reshaping-commerce", "autonomous-payment-settlement-what-cfos-need-to-know"],
         date: "2026-01-18T14:00:00Z",
         author: "Protocol Team",
         readTime: "6 min read",
@@ -914,6 +932,8 @@ The commerce infrastructure of the next decade will be built on protocols like t
         slug: "why-every-enterprise-needs-agentic-readiness-framework",
         title: "Why Every Enterprise Needs an Agentic Readiness Framework",
         category: "Agentic AEO",
+        categoryPage: "/agentic-aeo",
+        relatedSlugs: ["the-end-of-legacy-seo", "schema-markup-is-not-optional-the-aeo-technical-checklist"],
         date: "2026-02-25T12:00:00Z",
         author: "AI Velocity Engineering",
         readTime: "8 min read",
@@ -1026,6 +1046,8 @@ The gap between AI ambition and AI readiness is measurable, improvable, and comm
         slug: "zero-click-checkout-how-autonomous-agents-bypass-your-sales-funnel",
         title: "Zero-Click Checkout: How Autonomous Agents Bypass Your Sales Funnel",
         category: "Agentic Commerce",
+        categoryPage: "/agentic-commerce",
+        relatedSlugs: ["headless-architecture-in-2026", "product-data-liquidity-how-autonomous-agents-compare-and-buy"],
         date: "2026-03-06T09:00:00Z",
         author: "AI Velocity Engineering",
         readTime: "8 min read",
@@ -1144,6 +1166,8 @@ The question is not whether autonomous agents will buy your products. They alrea
         slug: "brand-authority-signals-ai-agents-actually-trust",
         title: "Brand Authority Signals AI Agents Actually Trust",
         category: "Agentic Marketing",
+        categoryPage: "/agentic-marketing",
+        relatedSlugs: ["why-your-marketing-stack-is-invisible-to-autonomous-agents", "agent-first-content-strategy-what-to-publish-when-machines-are-your-audience"],
         date: "2026-03-04T08:00:00Z",
         author: "AI Velocity Engineering",
         readTime: "8 min read",
@@ -1274,6 +1298,8 @@ The brands that invest in agent trust now are building an advantage that compoun
         slug: "solana-launches-ai-agent-registry-with-9000-agents",
         title: "Solana Launches AI Agent Registry with 9,000+ Agents on Mainnet",
         category: "News",
+        categoryPage: "/news-insights",
+        relatedSlugs: ["solana-alpenglow-upgrade-targets-100ms-transaction-finality", "agent-native-commerce-platforms-launch-on-solana"],
         date: "2026-03-07T09:00:00Z",
         author: "AI Velocity",
         readTime: "3 min read",
@@ -1315,6 +1341,8 @@ The key metric to monitor is agent transaction volume through the registry. The 
         slug: "solana-alpenglow-upgrade-targets-100ms-transaction-finality",
         title: "Solana's Alpenglow Upgrade Targets 100ms Transaction Finality",
         category: "News",
+        categoryPage: "/news-insights",
+        relatedSlugs: ["solana-launches-ai-agent-registry-with-9000-agents", "agent-native-commerce-platforms-launch-on-solana"],
         date: "2026-03-06T10:00:00Z",
         author: "AI Velocity",
         readTime: "3 min read",
@@ -1356,6 +1384,8 @@ The upgrade also strengthens Solana's position as the primary settlement layer f
         slug: "agent-native-commerce-platforms-launch-on-solana",
         title: "Agent-Native Commerce Platforms Launch on Solana as Agentic GDP Takes Shape",
         category: "News",
+        categoryPage: "/news-insights",
+        relatedSlugs: ["solana-launches-ai-agent-registry-with-9000-agents", "openclaw-autonomous-ai-agent-platform-hits-mainstream"],
         date: "2026-03-05T08:00:00Z",
         author: "AI Velocity",
         readTime: "3 min read",
@@ -1405,6 +1435,8 @@ The agentic commerce ecosystem is no longer theoretical. It has a registry, a se
         slug: "openclaw-autonomous-ai-agent-platform-hits-mainstream",
         title: "OpenClaw Hits Mainstream as AWS, Google, and OpenAI Converge on Open-Source AI Agent Platform",
         category: "News",
+        categoryPage: "/news-insights",
+        relatedSlugs: ["solana-launches-ai-agent-registry-with-9000-agents", "agent-native-commerce-platforms-launch-on-solana"],
         date: "2026-03-07T16:00:00Z",
         author: "AI Velocity",
         readTime: "3 min read",
@@ -1461,5 +1493,127 @@ The organisations that benefit most from this shift are those with agent-readabl
 `,
         faqs: []
     },
-];
+    {
+        id: "17",
+        slug: "agentic-intelligence-horizontal-economy",
+        title: "Agentic Intelligence: The Operating System of the Horizontal Economy",
+        category: "Agentic Commerce",
+        categoryPage: "/agentic-commerce",
+        relatedSlugs: ["headless-architecture-in-2026", "zero-click-checkout-how-autonomous-agents-bypass-your-sales-funnel", "product-data-liquidity-how-autonomous-agents-compare-and-buy"],
+        date: "2026-03-08T10:00:00Z",
+        author: "AI Velocity Engineering",
+        readTime: "7 min read",
+        image: "/images/insights/agentic-intelligence-horizontal-economy.webp",
+        excerpt: "Legacy agency retainers are a parasitic architecture bleeding capital into manual processes. Agentic intelligence replaces creative guesswork with programmatic precision.",
+        content: `
+## The Structural Fracture
 
+The global commercial infrastructure is currently suffocating under the weight of structurally fractured systems that are rapidly being replaced. For decades, brands have relied on a model defined by the high failure rate of legacy agency retainers. This parasitic architecture forces companies to bleed capital into manual processes that simply cannot match the velocity of modern consumer intent.
+
+The market is not asking for incremental improvement. It is demanding a clinical transition toward a mathematical framework of execution. This framework is **agentic intelligence**. It replaces the slow bloat of traditional marketing with relentless programmatic precision.
+
+To operate within this new paradigm, brands must now build three foundational pillars:
+
+* A robust **Knowledge Graph** to organize their data into machine-readable relationships
+* **Entity embedding** to give their products semantic meaning within AI knowledge bases
+* Structured formats like **JSON-LD** to communicate directly with the machines that now orchestrate global capital
+
+Without these foundations, a brand ceases to exist in the eyes of the autonomous agents that are rapidly becoming the primary consumer.
+
+## The Architecture of Agentic Intelligence
+
+Understanding this shift requires acknowledging that passive software is no longer sufficient for market survival. The industry is moving toward building living commercial organisms that hunt for intent across the timeline. This requires a departure from the traditional consulting framework into what is emerging as the **Sovereign Retainer** model. This new operational standard guarantees that every strategic move is backed by cold algorithmic logic rather than creative guesswork.
+
+To achieve this level of execution, the underlying infrastructure must be perfectly legible to autonomous agents. Three technical requirements are non-negotiable:
+
+### Retrieval-Augmented Generation
+
+Brands must utilize **RAG** to synthesize vast datasets in real time. This allows an agent to pull relevant context from a brand's entire knowledge base, catalogue, and pricing history before making a decision. Without RAG integration, the agent operates on stale or incomplete data.
+
+### RESTful Service Exposure
+
+Product catalogues, pricing engines, and inventory systems must be exposed through clean **RESTful services** to allow for frictionless data extraction. Agents cannot navigate visual storefronts. They require structured API endpoints that return predictable, well-documented JSON responses.
+
+### Model Context Protocol Integration
+
+The **Model Context Protocol (MCP)** gives agents the necessary environmental awareness to make complex decisions. It provides contextual framing, session memory, and tool-calling orchestration. Without this technical density, a brand simply ceases to exist in the eyes of the digital proxy.
+
+## From Intent to Settlement
+
+The gap between abstract technology and physical retail reality is bridged the moment a consumer demands immediate gratification based on an emerging cultural aesthetic.
+
+Consider a high-net-worth buyer looking to execute a **vibe trading strategy** by acquiring a hyper-specific capsule collection the second a global streetwear trend erupts on social media. The consumer does not want to browse a slow visual storefront. Their personal agent negotiates directly with the brand backend to secure the inventory.
+
+This scenario demands several technical capabilities operating in concert:
+
+* Seamless **API handshakes** to process the request instantly
+* A **headless architecture** where the transactional engine operates entirely independent of the visual interface
+* Deep **semantic mass** to ensure the agent correctly identifies the exact cultural artefact
+* A **synthetic creative pipeline** that generates high-fidelity visual assets dynamically, matching the exact cultural frequency of the buyer without human intervention
+
+The visual output matches the exact cultural frequency of the buyer without human intervention. Studio costs are vaporized. The speed-to-market collapses from weeks to seconds.
+
+## Securing Intelligence in a Horizontal Economy
+
+The physical physics of this exchange demand an environment where intelligence and liquidity move in perfect synchronization. The agent must read the catalogue and verify the authenticity of the inventory before committing capital. This requires absolute precision at the protocol layer.
+
+Several technologies are emerging to facilitate this level of execution:
+
+* The **deBridge MCP** facilitates a high-fidelity communication tunnel between disparate commercial networks, ensuring agents can read complex JSON structures and execute trades flawlessly
+* **Semantic embedding** maps consumer intent directly to the exact product SKU, eliminating ambiguity
+* **Dynamic GraphQL endpoints** query only the specific data required for each transaction, preventing payload bloat and accelerating execution speed to fractions of a second
+
+The horizontal economy does not tolerate friction or manual review. Every millisecond of latency is a competitive disadvantage.
+
+## The Convergence of Machine Reasoning and Decentralized Finance
+
+The 2026 signal is already flashing brightly across the institutional landscape as the industry witnesses a rapid shift toward autonomous settlement. Traditional banking rails are proving too cumbersome for a workforce that operates in milliseconds.
+
+The convergence is happening through integration layers like the **Whop x Tether WDK**. This technology allows agentic intelligence to settle trades instantly using stablecoins across borders. It bypasses the legacy clearing houses that have historically bottlenecked global commerce.
+
+The architecture relies on three cryptographic primitives:
+
+* **Deterministic routing** to find the most efficient settlement path across chains and jurisdictions
+* **Immutable smart contracts** to lock in the terms of the trade without human oversight
+* **Cryptographic verification** to ensure the transaction is authentic and secure at every layer
+
+The intelligence that discovers the product is now the exact same intelligence that pays for it. Discovery, negotiation, and settlement collapse into a single autonomous operation.
+
+## The Threshold
+
+The brands that survive will be those that accept the clinical reality of this machine-mediated environment. Legacy systems are structurally fractured and their collapse is a mathematical certainty.
+
+The transition requires specific technical commitments:
+
+* **Stateful APIs** that remember the context of every interaction
+* **Vector databases** to store the high-dimensional relationships of your catalogue
+* **Clean machine-readable logic** to replace the chaotic human web
+
+Agentic intelligence is not a distant theory. It is the active operating system of the horizontal economy. The integration foundry is open and the sovereign digital workforce is ready to deploy.
+
+Industry benchmarking analysis across enterprise deployments reveals that brands with agent-readable infrastructure are seeing discovery rates increase by an order of magnitude compared to those still relying on visual-first architectures. The window to transition is measured in months, not years.
+`,
+        faqs: [
+            {
+                question: "What is agentic intelligence and how does it differ from traditional AI?",
+                answer: "Agentic intelligence is a mathematical framework of execution where autonomous AI agents independently discover, negotiate, and settle commercial transactions. Unlike traditional AI which assists human decision-making, agentic intelligence replaces human operators entirely with programmatic precision across the full transaction lifecycle."
+            },
+            {
+                question: "Why are legacy agency retainers being replaced by agentic systems?",
+                answer: "Legacy agency retainers force companies to bleed capital into manual processes that cannot match the velocity of modern consumer intent. Agentic systems replace creative guesswork with algorithmic logic, executing at machine speed around the clock without the overhead of human-operated campaigns."
+            },
+            {
+                question: "What is a Knowledge Graph and why do brands need one?",
+                answer: "A Knowledge Graph is a structured data framework that organizes a brand's entire product catalogue, relationships, and attributes into machine-readable format. AI agents require this semantic structure to understand what a brand sells and how products relate to one another. Without it, the brand is invisible to autonomous commerce."
+            },
+            {
+                question: "How does the Model Context Protocol enable autonomous agents?",
+                answer: "The Model Context Protocol provides agents with environmental awareness, session memory, and tool-calling orchestration. It allows an agent to maintain context across multi-step transactions, remember previous interactions, and invoke the right APIs at the right time to complete complex commercial operations."
+            },
+            {
+                question: "What is headless architecture and why does it matter for agentic commerce?",
+                answer: "Headless architecture decouples the visual frontend from the transactional backend, allowing AI agents to interact directly with the commerce engine via APIs. This results in exponentially faster transaction speeds because autonomous agents bypass the graphical interface entirely and negotiate at the protocol layer."
+            }
+        ]
+    },
+];

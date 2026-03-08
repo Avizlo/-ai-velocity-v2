@@ -1,6 +1,7 @@
 'use client';
 
 import { useRef, useEffect } from 'react';
+import Link from 'next/link';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CTABanner } from '@/components/sections/CTABanner';
@@ -33,11 +34,11 @@ const statementSection = {
 
 const commerceBentoData = {
     statLine: {
-        pct: "87%",
-        dashPct: 0.87,
-        heading: "Campaign Performance Rate",
-        body: "Agentic content consistently outperforms traditional creative in both engagement and conversion metrics.",
-        link: "View Research"
+        label: "Agentic Sales Force",
+        pct: "24/7",
+        dashPct: 0.99,
+        heading: "These models work for you.",
+        body: "Every model in this grid is AI-generated. Agentic influencers sell your products around the clock, fluent in 60+ languages, with zero downtime. By 2030, autonomous commerce is forecast to influence $30 trillion in global transactions."
     },
     images: {
         center: "/images/ai-model-1.webp",
@@ -332,33 +333,53 @@ const StatementAction = ({ title, subtitle, statement, actionText }) => {
     );
 };
 
-const StatCard2 = ({ pct, dashPct, heading, body, link }) => (
-    <div className="rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[280px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
-        <div className="flex items-center gap-3">
-            <div className="relative w-14 h-14">
-                <svg className="w-full h-full -rotate-90" viewBox="0 0 56 56">
-                    <circle cx="28" cy="28" r="24" fill="none" stroke="#1A1A1A22" strokeWidth="3" />
-                    <circle
-                        cx="28" cy="28" r="24" fill="none"
-                        stroke="#1A1A1A" strokeWidth="3"
-                        strokeDasharray={`${2 * Math.PI * 24 * dashPct} ${2 * Math.PI * 24 * (1 - dashPct)}`}
-                        strokeLinecap="round"
-                    />
-                </svg>
-                <span className="absolute inset-0 flex items-center justify-center text-charcoal text-xs font-sans font-bold">
-                    {pct}
-                </span>
+const StatCard2 = ({ label, pct, dashPct, heading, body, link }) => {
+    const circumference = 2 * Math.PI * 24;
+
+    return (
+        <div className="rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[280px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+            <style>{`
+            @keyframes ringFill {
+                0% { stroke-dashoffset: ${circumference}; }
+                100% { stroke-dashoffset: 0; }
+            }
+        `}</style>
+            <div>
+                {label && (
+                    <span className="block font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 mb-4">
+                        {label}
+                    </span>
+                )}
+                <div className="flex items-center gap-3">
+                    <div className="relative w-14 h-14">
+                        <svg className="w-full h-full -rotate-90" viewBox="0 0 56 56">
+                            <circle cx="28" cy="28" r="24" fill="none" stroke="#1A1A1A22" strokeWidth="3" />
+                            <circle
+                                cx="28" cy="28" r="24" fill="none"
+                                stroke="#1A1A1A" strokeWidth="3"
+                                strokeDasharray={circumference}
+                                strokeLinecap="round"
+                                style={{ animation: 'ringFill 5s ease-in-out infinite' }}
+                            />
+                        </svg>
+                        <span className="absolute inset-0 flex items-center justify-center text-charcoal text-xs font-sans font-bold">
+                            {pct}
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div className="mt-6 space-y-3">
+                <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">{heading}</h3>
+                <p className="font-sans text-charcoal/60 text-sm leading-relaxed">{body}</p>
+                {link && (
+                    <span className="inline-block font-sans text-charcoal text-xs tracking-widest uppercase border-b border-charcoal/30 pb-1 cursor-pointer hover:text-charcoal/60 transition-colors duration-200">
+                        {link} →
+                    </span>
+                )}
             </div>
         </div>
-        <div className="mt-6 space-y-3">
-            <h3 className="font-sans font-bold text-charcoal text-xl leading-tight">{heading}</h3>
-            <p className="font-sans text-charcoal/60 text-sm leading-relaxed">{body}</p>
-            <span className="inline-block font-sans text-charcoal text-xs tracking-widest uppercase border-b border-charcoal/30 pb-1 cursor-pointer hover:text-electric-mint hover:border-electric-mint/50 transition-colors duration-200">
-                {link} →
-            </span>
-        </div>
-    </div>
-);
+    );
+};
 
 const BentoGrid2 = ({ data }) => {
     const gridRef = useRef(null);
@@ -406,11 +427,11 @@ const BentoGrid2 = ({ data }) => {
                 <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-4" style={{ gridTemplateRows: 'auto' }}>
                     <div className="bento-card md:col-start-1 md:row-start-1 opacity-0 translate-y-4">
                         <StatCard2
+                            label={data.statLine.label}
                             pct={data.statLine.pct}
                             dashPct={data.statLine.dashPct}
                             heading={data.statLine.heading}
                             body={data.statLine.body}
-                            link={data.statLine.link}
                         />
                     </div>
                     <div className="bento-card group md:col-start-2 md:row-start-1 md:row-span-2 rounded-2xl overflow-hidden min-h-[580px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
@@ -434,26 +455,23 @@ const BentoGrid2 = ({ data }) => {
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="bento-card relative md:col-start-3 md:row-start-2 rounded-2xl bg-charcoal p-8 flex flex-col justify-between min-h-[180px] ring-1 ring-white/5 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
+                    <Link href="/news-insights/solana-launches-ai-agent-registry-with-9000-agents" className="bento-card relative md:col-start-3 md:row-start-2 rounded-2xl bg-charcoal p-8 flex flex-col justify-between min-h-[180px] ring-1 ring-white/5 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4 block">
                         {/* CTA Watermark */}
                         <span className="absolute bottom-4 right-4 font-serif italic text-[4rem] leading-none text-white/[0.03] pointer-events-none select-none tracking-tighter">
-                            Velocity
+                            Solana
                         </span>
                         <div className="space-y-3 relative z-10">
-                            <h3 className="font-serif text-white text-3xl leading-tight tracking-tight">
-                                {data.cta.heading}
+                            <h3 className="font-serif italic text-white text-2xl leading-tight tracking-tight">
+                                Solana Launches AI Agent Registry with 9,000+ Agents
                             </h3>
-                            <p className="font-sans text-white/50 text-xs leading-relaxed">
-                                {data.cta.body}
+                            <p className="font-sans text-white/50 text-sm leading-relaxed">
+                                The first major on-chain identity layer for autonomous AI agents is now live on mainnet.
                             </p>
                         </div>
-                        <a
-                            href={data.cta.buttonLink}
-                            className="relative z-10 self-start inline-block border-b border-white/30 pb-1 text-white/70 transition-colors duration-300 font-sans tracking-widest text-xs uppercase hover:text-electric-mint hover:border-electric-mint/50"
-                        >
-                            {data.cta.buttonText} →
-                        </a>
-                    </div>
+                        <span className="relative z-10 self-start inline-block border-b border-white/10 pb-1 text-white/40 transition-colors duration-300 font-sans tracking-widest text-xs uppercase hover:text-electric-mint hover:border-electric-mint/50">
+                            Read Article →
+                        </span>
+                    </Link>
                 </div>
             </div>
         </section>
@@ -545,11 +563,81 @@ export default function AgenticCommerce() {
         "@context": "https://schema.org",
         "@graph": [
             {
+                "@type": "Organization",
+                "@id": "https://ai-velocity.com/#organization",
+                "name": "AI Velocity",
+                "url": "https://ai-velocity.com",
+                "sameAs": [
+                    "https://www.linkedin.com/company/ai-velocity"
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://ai-velocity.com/agentic-commerce/#webpage",
+                "url": "https://ai-velocity.com/agentic-commerce",
+                "name": "Agentic Commerce — Autonomous AI Agents for Procurement & Settlement",
+                "description": "Agentic commerce replaces manual storefronts with autonomous AI agents that discover, negotiate, and settle purchases on behalf of your customers — 24/7, in 60+ languages.",
+                "isPartOf": { "@id": "https://ai-velocity.com/#website" },
+                "about": { "@id": "https://ai-velocity.com/agentic-commerce/#service" },
+                "speakable": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": ["h1", "h2", ".stmt-anim"]
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://ai-velocity.com"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Agentic Commerce",
+                        "item": "https://ai-velocity.com/agentic-commerce"
+                    }
+                ]
+            },
+            {
                 "@type": "Service",
+                "@id": "https://ai-velocity.com/agentic-commerce/#service",
                 "name": "Agentic Commerce",
-                "provider": {
-                    "@type": "Organization",
-                    "name": "AI Velocity"
+                "description": "Autonomous AI agent infrastructure for machine-to-machine procurement, negotiation, and settlement. Replaces manual storefronts with headless architecture optimised for agent-to-agent trade.",
+                "serviceType": "Autonomous Commerce Infrastructure",
+                "areaServed": "Worldwide",
+                "provider": { "@id": "https://ai-velocity.com/#organization" },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Agentic Commerce Services",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "AI-Generated Brand Ambassadors",
+                                "description": "Synthetic influencers fluent in 60+ languages that represent your brand 24/7 with zero downtime."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Autonomous Settlement Infrastructure",
+                                "description": "Machine-to-machine payment rails using the v402 handshake protocol for instant, cryptographically verified settlement."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Headless Commerce Architecture",
+                                "description": "API-first commerce backends optimised for autonomous agent discovery, negotiation, and procurement."
+                            }
+                        }
+                    ]
                 }
             },
             {
@@ -614,6 +702,50 @@ export default function AgenticCommerce() {
                     faqs={commerceFaqs}
                     bgClass="bg-electric-mint"
                 />
+
+                {/* Internal Cross-Links for SEO/AEO topical authority */}
+                <section className="py-16 bg-cloud-dancer">
+                    <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+                        <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mb-3 text-electric-mint">
+                            Related Services
+                        </span>
+                        <h2 className="text-4xl md:text-5xl font-serif text-charcoal tracking-tight mb-10">
+                            Explore the Ecosystem
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <Link href="/agentic-payments" className="group rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1">
+                                <div>
+                                    <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-3">Settlement</span>
+                                    <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">Agentic Payments</h3>
+                                    <p className="font-sans text-charcoal/60 text-sm leading-relaxed mt-2">Machine-to-machine settlement infrastructure for autonomous procurement.</p>
+                                </div>
+                                <span className="self-start inline-block border-b border-charcoal/20 pb-1 text-charcoal/50 font-sans tracking-widest text-xs uppercase mt-4 group-hover:text-charcoal group-hover:border-charcoal/50 transition-colors duration-200">
+                                    Explore →
+                                </span>
+                            </Link>
+                            <Link href="/agentic-aeo" className="group rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1">
+                                <div>
+                                    <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-3">Discovery</span>
+                                    <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">Agentic AEO</h3>
+                                    <p className="font-sans text-charcoal/60 text-sm leading-relaxed mt-2">Make your brand the canonical answer for autonomous search agents.</p>
+                                </div>
+                                <span className="self-start inline-block border-b border-charcoal/20 pb-1 text-charcoal/50 font-sans tracking-widest text-xs uppercase mt-4 group-hover:text-charcoal group-hover:border-charcoal/50 transition-colors duration-200">
+                                    Explore →
+                                </span>
+                            </Link>
+                            <Link href="/agentic-photoshoots" className="group rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1">
+                                <div>
+                                    <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-3">Creative</span>
+                                    <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">AI Photoshoots</h3>
+                                    <p className="font-sans text-charcoal/60 text-sm leading-relaxed mt-2">AI-generated brand ambassadors fluent in 60+ languages, working 24/7.</p>
+                                </div>
+                                <span className="self-start inline-block border-b border-charcoal/20 pb-1 text-charcoal/50 font-sans tracking-widest text-xs uppercase mt-4 group-hover:text-charcoal group-hover:border-charcoal/50 transition-colors duration-200">
+                                    Explore →
+                                </span>
+                            </Link>
+                        </div>
+                    </div>
+                </section>
 
                 <RelatedInsights
                     category="Agentic Commerce"

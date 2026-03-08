@@ -434,12 +434,81 @@ export default function AgenticAEO() {
         "@context": "https://schema.org",
         "@graph": [
             {
+                "@type": "Organization",
+                "@id": "https://ai-velocity.com/#organization",
+                "name": "AI Velocity",
+                "url": "https://ai-velocity.com",
+                "sameAs": [
+                    "https://www.linkedin.com/company/ai-velocity"
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://ai-velocity.com/agentic-aeo/#webpage",
+                "url": "https://ai-velocity.com/agentic-aeo",
+                "name": "Agentic AEO — Answer Engine Optimization for AI Agents",
+                "description": "Agentic AEO restructures your digital footprint so autonomous AI agents cite your brand as the canonical answer. Structured schema, semantic knowledge graphs, and entity anchoring.",
+                "isPartOf": { "@id": "https://ai-velocity.com/#website" },
+                "about": { "@id": "https://ai-velocity.com/agentic-aeo/#service" },
+                "speakable": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": ["h1", "h2", ".stmt-anim"]
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://ai-velocity.com"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Agentic AEO",
+                        "item": "https://ai-velocity.com/agentic-aeo"
+                    }
+                ]
+            },
+            {
                 "@type": "Service",
+                "@id": "https://ai-velocity.com/agentic-aeo/#service",
                 "name": "Agentic AEO",
-                "description": "Agentic AEO orchestrates machine-readable discovery.",
-                "provider": {
-                    "@type": "Organization",
-                    "name": "AI Velocity"
+                "description": "Answer Engine Optimization infrastructure that makes your brand the canonical citation for autonomous AI agents like ChatGPT, Perplexity, and Gemini.",
+                "serviceType": "Answer Engine Optimization",
+                "areaServed": "Worldwide",
+                "provider": { "@id": "https://ai-velocity.com/#organization" },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Agentic AEO Services",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Entity Anchoring & Knowledge Graphs",
+                                "description": "Structured schema, semantic metadata, and verifiable provenance that embed your brand as the canonical entity in AI knowledge bases."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Information Gain Optimization",
+                                "description": "Unique, verifiable data that answer engines prioritize over commodity content — ensuring your brand is cited as the primary authority."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Machine-Readable Architecture",
+                                "description": "Headless infrastructure with JSON-LD, semantic HTML, and API-first backends optimised for autonomous agent discovery and citation."
+                            }
+                        }
+                    ]
                 }
             },
             {
@@ -504,7 +573,49 @@ export default function AgenticAEO() {
                     bgClass="bg-electric-mint"
                 />
 
-
+                {/* Internal Cross-Links for SEO/AEO topical authority */}
+                <section className="py-16 bg-cloud-dancer">
+                    <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+                        <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mb-3 text-electric-mint">
+                            Related Services
+                        </span>
+                        <h2 className="text-4xl md:text-5xl font-serif text-charcoal tracking-tight mb-10">
+                            Explore the Ecosystem
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <Link href="/agentic-commerce" className="group rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1">
+                                <div>
+                                    <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-3">Commerce</span>
+                                    <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">Agentic Commerce</h3>
+                                    <p className="font-sans text-charcoal/60 text-sm leading-relaxed mt-2">Autonomous procurement and settlement for machine-to-machine trade.</p>
+                                </div>
+                                <span className="self-start inline-block border-b border-charcoal/20 pb-1 text-charcoal/50 font-sans tracking-widest text-xs uppercase mt-4 group-hover:text-charcoal group-hover:border-charcoal/50 transition-colors duration-200">
+                                    Explore →
+                                </span>
+                            </Link>
+                            <Link href="/agentic-marketing" className="group rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1">
+                                <div>
+                                    <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-3">Acquisition</span>
+                                    <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">Agentic Marketing</h3>
+                                    <p className="font-sans text-charcoal/60 text-sm leading-relaxed mt-2">Autonomous campaign orchestration and AI-generated content at machine speed.</p>
+                                </div>
+                                <span className="self-start inline-block border-b border-charcoal/20 pb-1 text-charcoal/50 font-sans tracking-widest text-xs uppercase mt-4 group-hover:text-charcoal group-hover:border-charcoal/50 transition-colors duration-200">
+                                    Explore →
+                                </span>
+                            </Link>
+                            <Link href="/agentic-payments" className="group rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1">
+                                <div>
+                                    <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-3">Settlement</span>
+                                    <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">Agentic Payments</h3>
+                                    <p className="font-sans text-charcoal/60 text-sm leading-relaxed mt-2">Machine-to-machine settlement infrastructure for autonomous procurement.</p>
+                                </div>
+                                <span className="self-start inline-block border-b border-charcoal/20 pb-1 text-charcoal/50 font-sans tracking-widest text-xs uppercase mt-4 group-hover:text-charcoal group-hover:border-charcoal/50 transition-colors duration-200">
+                                    Explore →
+                                </span>
+                            </Link>
+                        </div>
+                    </div>
+                </section>
 
                 <RelatedInsights
                     category="Agentic AEO"

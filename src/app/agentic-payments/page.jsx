@@ -424,12 +424,81 @@ export default function AgenticPayments() {
         "@context": "https://schema.org",
         "@graph": [
             {
+                "@type": "Organization",
+                "@id": "https://ai-velocity.com/#organization",
+                "name": "AI Velocity",
+                "url": "https://ai-velocity.com",
+                "sameAs": [
+                    "https://www.linkedin.com/company/ai-velocity"
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://ai-velocity.com/agentic-payments/#webpage",
+                "url": "https://ai-velocity.com/agentic-payments",
+                "name": "Agentic Payments — Autonomous Settlement Infrastructure",
+                "description": "Agentic payments orchestrate instant, machine-to-machine settlements via autonomous software delegates. The v402 handshake protocol enables sovereign, cryptographically verified settlement.",
+                "isPartOf": { "@id": "https://ai-velocity.com/#website" },
+                "about": { "@id": "https://ai-velocity.com/agentic-payments/#service" },
+                "speakable": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": ["h1", "h2", ".stmt-anim"]
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://ai-velocity.com"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Agentic Payments",
+                        "item": "https://ai-velocity.com/agentic-payments"
+                    }
+                ]
+            },
+            {
                 "@type": "Service",
+                "@id": "https://ai-velocity.com/agentic-payments/#service",
                 "name": "Agentic Payments",
-                "description": "Agentic payments orchestrate instant, machine-to-machine settlements via autonomous software delegates.",
-                "provider": {
-                    "@type": "Organization",
-                    "name": "AI Velocity"
+                "description": "Autonomous AI agent infrastructure for machine-to-machine settlement, sovereign financial rails, and cryptographically verified transactions at global scale.",
+                "serviceType": "Autonomous Settlement Infrastructure",
+                "areaServed": "Worldwide",
+                "provider": { "@id": "https://ai-velocity.com/#organization" },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Agentic Payment Services",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "v402 Settlement Protocol",
+                                "description": "Secure machine-to-machine handshake protocol for instant, cryptographically verified value transfers between autonomous agents."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Sovereign Treasury Management",
+                                "description": "Non-custodial wallet infrastructure with pre-defined spending limits and cryptographic signing for autonomous agent transactions."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Cross-Border Settlement",
+                                "description": "Real-time international settlement with automated duty, tax, and compliance calculations across multiple jurisdictions."
+                            }
+                        }
+                    ]
                 }
             },
             {
@@ -493,7 +562,49 @@ export default function AgenticPayments() {
                     bgClass="bg-electric-mint"
                 />
 
-
+                {/* Internal Cross-Links for SEO/AEO topical authority */}
+                <section className="py-16 bg-cloud-dancer">
+                    <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+                        <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mb-3 text-electric-mint">
+                            Related Services
+                        </span>
+                        <h2 className="text-4xl md:text-5xl font-serif text-charcoal tracking-tight mb-10">
+                            Explore the Ecosystem
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <Link href="/agentic-commerce" className="group rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1">
+                                <div>
+                                    <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-3">Commerce</span>
+                                    <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">Agentic Commerce</h3>
+                                    <p className="font-sans text-charcoal/60 text-sm leading-relaxed mt-2">Autonomous procurement and negotiation for machine-to-machine trade.</p>
+                                </div>
+                                <span className="self-start inline-block border-b border-charcoal/20 pb-1 text-charcoal/50 font-sans tracking-widest text-xs uppercase mt-4 group-hover:text-charcoal group-hover:border-charcoal/50 transition-colors duration-200">
+                                    Explore →
+                                </span>
+                            </Link>
+                            <Link href="/agentic-aeo" className="group rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1">
+                                <div>
+                                    <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-3">Discovery</span>
+                                    <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">Agentic AEO</h3>
+                                    <p className="font-sans text-charcoal/60 text-sm leading-relaxed mt-2">Make your brand the canonical answer for autonomous search agents.</p>
+                                </div>
+                                <span className="self-start inline-block border-b border-charcoal/20 pb-1 text-charcoal/50 font-sans tracking-widest text-xs uppercase mt-4 group-hover:text-charcoal group-hover:border-charcoal/50 transition-colors duration-200">
+                                    Explore →
+                                </span>
+                            </Link>
+                            <Link href="/agentic-marketing" className="group rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1">
+                                <div>
+                                    <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-3">Acquisition</span>
+                                    <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">Agentic Marketing</h3>
+                                    <p className="font-sans text-charcoal/60 text-sm leading-relaxed mt-2">Autonomous campaign orchestration and AI-generated content at machine speed.</p>
+                                </div>
+                                <span className="self-start inline-block border-b border-charcoal/20 pb-1 text-charcoal/50 font-sans tracking-widest text-xs uppercase mt-4 group-hover:text-charcoal group-hover:border-charcoal/50 transition-colors duration-200">
+                                    Explore →
+                                </span>
+                            </Link>
+                        </div>
+                    </div>
+                </section>
 
                 <RelatedInsights
                     category="Agentic Payments"

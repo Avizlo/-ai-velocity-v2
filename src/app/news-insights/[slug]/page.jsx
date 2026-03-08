@@ -1,12 +1,12 @@
 import { notFound } from 'next/navigation';
 import { insightsData } from '@/lib/insightsData';
-import ReactMarkdown from 'react-markdown';
 import Image from 'next/image';
 import Link from 'next/link';
 import { NextProtocolBridge } from '@/components/sections/NextProtocolBridge';
 import { ArticleFAQ } from '@/components/sections/ArticleFAQ';
 import { ReadingProgress } from '@/components/ui/ReadingProgress';
 import { ShareButton } from '@/components/ui/ShareButton';
+import { ContextualLinker } from '@/components/ui/ContextualLinker';
 
 const SITE_URL = 'https://ai-velocity.com';
 
@@ -103,7 +103,15 @@ export default async function ArticlePage({ params }) {
         speakable: {
             '@type': 'SpeakableSpecification',
             cssSelector: ['article h2', 'article p:first-of-type']
-        }
+        },
+        ...(article.categoryPage && article.categoryPage !== '/news-insights' ? {
+            isPartOf: {
+                '@type': 'WebPage',
+                '@id': `https://ai-velocity.com${article.categoryPage}`,
+                name: article.category,
+                url: `https://ai-velocity.com${article.categoryPage}`
+            }
+        } : {})
     };
 
     // Generate FAQPage schema if article has FAQs (highest-impact LLM citation signal)
@@ -189,9 +197,15 @@ export default async function ArticlePage({ params }) {
 
                             <div>
                                 <span className="block text-white/20 mb-2">Category</span>
-                                <span className="text-electric-mint">
-                                    {article.category}
-                                </span>
+                                {article.categoryPage ? (
+                                    <Link href={article.categoryPage} className="text-electric-mint hover:text-white transition-colors duration-200 hover:underline">
+                                        {article.category}
+                                    </Link>
+                                ) : (
+                                    <span className="text-electric-mint">
+                                        {article.category}
+                                    </span>
+                                )}
                             </div>
 
                             <div>
@@ -234,13 +248,13 @@ export default async function ArticlePage({ params }) {
                                 src={article.image}
                                 alt={article.title}
                                 fill
-                                className="object-cover"
+                                className="object-cover object-top"
                                 priority
                                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1100px"
                             />
                         </div>
 
-                        {/* Markdown Renderer with explicit dark-mode typography */}
+                        {/* Markdown Renderer with contextual internal linking */}
                         <article className="max-w-prose text-white/70 font-sans font-light leading-relaxed text-lg md:text-xl
                             [&>h2]:font-serif [&>h2]:font-normal [&>h2]:tracking-tight [&>h2]:text-white [&>h2]:text-3xl md:[&>h2]:text-4xl [&>h2]:mt-16 [&>h2]:mb-8
                             [&>h3]:font-serif [&>h3]:font-normal [&>h3]:tracking-tight [&>h3]:text-white/90 [&>h3]:text-2xl md:[&>h3]:text-3xl [&>h3]:mt-12 [&>h3]:mb-6
@@ -251,8 +265,46 @@ export default async function ArticlePage({ params }) {
                             [&_a]:text-electric-mint [&_a]:underline [&_a:hover]:text-white
                             [&>blockquote]:border-l-2 [&>blockquote]:border-electric-mint/50 [&>blockquote]:pl-6 [&>blockquote]:italic [&>blockquote]:text-white/80 [&>blockquote]:my-8
                         ">
-                            <ReactMarkdown>{article.content}</ReactMarkdown>
+                            <ContextualLinker content={article.content} currentCategoryPage={article.categoryPage} />
                         </article>
+
+                        {/* Further Reading — curated article cross-links */}
+                        {article.relatedSlugs && article.relatedSlugs.length > 0 && (() => {
+                            const relatedArticles = article.relatedSlugs
+                                .map(slug => insightsData.find(a => a.slug === slug))
+                                .filter(Boolean);
+                            if (relatedArticles.length === 0) return null;
+                            return (
+                                <div className="max-w-prose mt-16 pt-12 border-t border-white/10">
+                                    <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/30 block mb-6">Further Reading</span>
+                                    <div className="flex flex-col gap-4">
+                                        {relatedArticles.map(related => (
+                                            <Link key={related.slug} href={`/news-insights/${related.slug}`} className="group flex items-start gap-4 p-4 -mx-4 rounded-xl hover:bg-white/[0.03] transition-colors duration-200">
+                                                <div className="shrink-0 w-2 h-2 mt-2.5 rounded-full bg-electric-mint/50 group-hover:bg-electric-mint transition-colors duration-200" />
+                                                <div>
+                                                    <span className="font-mono text-[9px] uppercase tracking-widest text-white/30">{related.category} · {related.readTime}</span>
+                                                    <p className="font-serif text-white/80 text-lg leading-snug mt-1 group-hover:text-electric-mint transition-colors duration-200">{related.title}</p>
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            );
+                        })()}
+
+                        {/* Category CTA Banner — links back to parent category page */}
+                        {article.categoryPage && article.categoryPage !== '/news-insights' && (
+                            <div className="max-w-prose mt-16 p-8 rounded-2xl bg-white/[0.03] border border-white/10">
+                                <span className="font-mono text-[10px] uppercase tracking-widest text-electric-mint block mb-3">Explore {article.category}</span>
+                                <p className="font-serif text-white/80 text-xl leading-snug mb-4">Discover our full {article.category.toLowerCase()} capabilities and infrastructure.</p>
+                                <Link
+                                    href={article.categoryPage}
+                                    className="inline-block border-b border-electric-mint/50 pb-1 text-electric-mint hover:text-white hover:border-white/50 transition-colors duration-300 font-sans tracking-widest text-xs uppercase"
+                                >
+                                    Learn More About {article.category} →
+                                </Link>
+                            </div>
+                        )}
 
                         {/* Expandable FAQ Section */}
                         {article.faqs && <ArticleFAQ faqs={article.faqs} />}

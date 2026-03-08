@@ -150,7 +150,7 @@ function NewsInsightsContent() {
                             src={heroArticle.image}
                             alt={heroArticle.title}
                             fill
-                            className="object-cover"
+                            className="object-cover object-top"
                             priority
                             sizes="100vw"
                         />

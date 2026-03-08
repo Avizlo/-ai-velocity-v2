@@ -1,3 +1,9 @@
+'use client';
+
+import { useRef, useEffect } from 'react';
+import Link from 'next/link';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CTABanner } from '@/components/sections/CTABanner';
 import { GsapPageWrapper } from '@/components/ui/GsapPageWrapper';
 import { SplitFeature } from '@/components/sections/SplitFeature';
@@ -220,11 +226,33 @@ const StatCard2 = ({ pct, dashPct, heading, body, link }) => (
 );
 
 const BentoGrid2 = ({ data }) => {
+    const gridRef = useRef(null);
+
+    useEffect(() => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        const ctx = gsap.context(() => {
+            gsap.fromTo(gridRef.current.querySelectorAll('.bento-card'),
+                { y: 40, opacity: 0 },
+                {
+                    y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out',
+                    scrollTrigger: {
+                        trigger: gridRef.current,
+                        start: 'top 80%',
+                        toggleActions: 'play none none reverse'
+                    }
+                }
+            );
+        }, gridRef);
+
+        return () => ctx.revert();
+    }, []);
+
     return (
         <section className="py-12 bg-cloud-dancer">
             <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-4" style={{ gridTemplateRows: 'auto' }}>
-                    <div className="md:col-start-1 md:row-start-1">
+                <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-3 gap-4" style={{ gridTemplateRows: 'auto' }}>
+                    <div className="bento-card md:col-start-1 md:row-start-1 opacity-0 translate-y-4">
                         <StatCard2
                             pct={data.statLine.pct}
                             dashPct={data.statLine.dashPct}
@@ -233,48 +261,45 @@ const BentoGrid2 = ({ data }) => {
                             link={data.statLine.link}
                         />
                     </div>
-                    <div className="group md:col-start-2 md:row-start-1 md:row-span-2 rounded-2xl overflow-hidden min-h-[580px] shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-500">
-                        <img
+                    <div className="bento-card group md:col-start-2 md:row-start-1 md:row-span-2 rounded-2xl overflow-hidden min-h-[580px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
+                        <img loading="lazy" decoding="async"
                             src={data.images.center}
-                            alt="Center featured"
+                            alt="AI-generated model executing autonomous cross-channel marketing campaigns"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="group md:col-start-3 md:row-start-1 rounded-2xl overflow-hidden min-h-[200px] shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-500">
-                        <img
+                    <div className="bento-card group md:col-start-3 md:row-start-1 rounded-2xl overflow-hidden min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
+                        <img loading="lazy" decoding="async"
                             src={data.images.brand}
-                            alt="Brand campaign"
+                            alt="AI-generated brand ambassador photoshoot for autonomous influencer campaigns"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="group md:col-start-1 md:row-start-2 rounded-2xl overflow-hidden min-h-[280px] shadow-sm hover:-translate-y-1 hover:shadow-xl transition-all duration-500">
-                        <img
+                    <div className="bento-card group md:col-start-1 md:row-start-2 rounded-2xl overflow-hidden min-h-[280px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
+                        <img loading="lazy" decoding="async"
                             src={data.images.bottomLeft}
-                            alt="Bottom left model"
+                            alt="AI-generated product model for agentic commerce content creation"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
-                    <div className="relative md:col-start-3 md:row-start-2 rounded-2xl bg-charcoal p-8 flex flex-col justify-between min-h-[180px] overflow-hidden">
+                    <div className="bento-card relative md:col-start-3 md:row-start-2 rounded-2xl bg-charcoal p-8 flex flex-col justify-between min-h-[180px] ring-1 ring-white/5 overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg opacity-0 translate-y-4">
                         {/* Faint watermark inside CTA card */}
-                        <div className="absolute bottom-0 right-0 translate-x-[15%] translate-y-[10%] pointer-events-none select-none">
-                            <span className="font-serif italic text-[8rem] leading-none block tracking-tighter opacity-[0.04] text-white">
-                                V
-                            </span>
-                        </div>
+                        <span className="absolute bottom-4 right-4 font-serif italic text-[4rem] leading-none text-white/[0.03] pointer-events-none select-none tracking-tighter">
+                            Velocity
+                        </span>
                         <div className="space-y-3 relative z-10">
-                            <h3 className="font-serif text-white text-3xl leading-tight tracking-tight">
+                            <h3 className="font-serif italic text-white text-2xl leading-tight tracking-tight">
                                 {data.cta.heading}
                             </h3>
-                            <p className="font-sans text-white/50 text-xs leading-relaxed">
+                            <p className="font-sans text-white/50 text-sm leading-relaxed">
                                 {data.cta.body}
                             </p>
                         </div>
                         <a
                             href={data.cta.buttonLink}
-                            className="relative z-10 self-start inline-flex items-center gap-2 px-5 py-2.5 rounded-card bg-white text-charcoal text-sm font-sans font-medium hover:bg-electric-mint transition-all duration-300 group"
+                            className="relative z-10 self-start inline-block border-b border-white/10 pb-1 text-white/40 transition-colors duration-300 font-sans tracking-widest text-xs uppercase hover:text-electric-mint hover:border-electric-mint/50"
                         >
-                            {data.cta.buttonText}
-                            <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                            {data.cta.buttonText} →
                         </a>
                     </div>
                 </div>
@@ -295,11 +320,81 @@ export default function Marketing() {
         "@context": "https://schema.org",
         "@graph": [
             {
+                "@type": "Organization",
+                "@id": "https://ai-velocity.com/#organization",
+                "name": "AI Velocity",
+                "url": "https://ai-velocity.com",
+                "sameAs": [
+                    "https://www.linkedin.com/company/ai-velocity"
+                ]
+            },
+            {
+                "@type": "WebPage",
+                "@id": "https://ai-velocity.com/agentic-marketing/#webpage",
+                "url": "https://ai-velocity.com/agentic-marketing",
+                "name": "Agentic Marketing — Autonomous AI Campaign Orchestration",
+                "description": "Agentic marketing deploys autonomous AI agents to execute campaign orchestration, content generation, and performance optimisation at machine speed.",
+                "isPartOf": { "@id": "https://ai-velocity.com/#website" },
+                "about": { "@id": "https://ai-velocity.com/agentic-marketing/#service" },
+                "speakable": {
+                    "@type": "SpeakableSpecification",
+                    "cssSelector": ["h1", "h2", ".stmt-anim"]
+                }
+            },
+            {
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {
+                        "@type": "ListItem",
+                        "position": 1,
+                        "name": "Home",
+                        "item": "https://ai-velocity.com"
+                    },
+                    {
+                        "@type": "ListItem",
+                        "position": 2,
+                        "name": "Agentic Marketing",
+                        "item": "https://ai-velocity.com/agentic-marketing"
+                    }
+                ]
+            },
+            {
                 "@type": "Service",
+                "@id": "https://ai-velocity.com/agentic-marketing/#service",
                 "name": "Agentic Marketing",
-                "provider": {
-                    "@type": "Organization",
-                    "name": "AI Velocity"
+                "description": "Autonomous AI agent infrastructure for campaign orchestration, content generation, and performance marketing execution. Replaces legacy agency models with goal-driven digital labor.",
+                "serviceType": "Autonomous Marketing Infrastructure",
+                "areaServed": "Worldwide",
+                "provider": { "@id": "https://ai-velocity.com/#organization" },
+                "hasOfferCatalog": {
+                    "@type": "OfferCatalog",
+                    "name": "Agentic Marketing Services",
+                    "itemListElement": [
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "Autonomous Campaign Orchestration",
+                                "description": "AI agents that monitor live engagement signals, reallocate budgets in milliseconds, and execute cross-channel campaigns without human oversight."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "AI Content Generation",
+                                "description": "Generative AI systems that produce brand-aligned visual and text assets at machine speed, eliminating manual creative supply chains."
+                            }
+                        },
+                        {
+                            "@type": "Offer",
+                            "itemOffered": {
+                                "@type": "Service",
+                                "name": "AI Agentic Influencers",
+                                "description": "Synthetic brand ambassadors and AI-generated influencers that represent your brand 24/7 across 60+ languages."
+                            }
+                        }
+                    ]
                 }
             },
             {
@@ -362,6 +457,50 @@ export default function Marketing() {
                     label="Knowledge Base"
                     faqs={commerceFaqs}
                 />
+
+                {/* Internal Cross-Links for SEO/AEO topical authority */}
+                <section className="py-16 bg-cloud-dancer">
+                    <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+                        <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mb-3 text-electric-mint">
+                            Related Services
+                        </span>
+                        <h2 className="text-4xl md:text-5xl font-serif text-charcoal tracking-tight mb-10">
+                            Explore the Ecosystem
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <Link href="/agentic-commerce" className="group rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1">
+                                <div>
+                                    <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-3">Commerce</span>
+                                    <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">Agentic Commerce</h3>
+                                    <p className="font-sans text-charcoal/60 text-sm leading-relaxed mt-2">Autonomous procurement and settlement for machine-to-machine trade.</p>
+                                </div>
+                                <span className="self-start inline-block border-b border-charcoal/20 pb-1 text-charcoal/50 font-sans tracking-widest text-xs uppercase mt-4 group-hover:text-charcoal group-hover:border-charcoal/50 transition-colors duration-200">
+                                    Explore →
+                                </span>
+                            </Link>
+                            <Link href="/agentic-aeo" className="group rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1">
+                                <div>
+                                    <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-3">Discovery</span>
+                                    <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">Agentic AEO</h3>
+                                    <p className="font-sans text-charcoal/60 text-sm leading-relaxed mt-2">Make your brand the canonical answer for autonomous search agents.</p>
+                                </div>
+                                <span className="self-start inline-block border-b border-charcoal/20 pb-1 text-charcoal/50 font-sans tracking-widest text-xs uppercase mt-4 group-hover:text-charcoal group-hover:border-charcoal/50 transition-colors duration-200">
+                                    Explore →
+                                </span>
+                            </Link>
+                            <Link href="/agentic-payments" className="group rounded-2xl bg-electric-mint p-8 flex flex-col justify-between min-h-[200px] ring-1 ring-charcoal/5 transition-all duration-300 hover:-translate-y-1">
+                                <div>
+                                    <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/40 block mb-3">Settlement</span>
+                                    <h3 className="font-serif italic text-charcoal text-2xl leading-tight tracking-tight">Agentic Payments</h3>
+                                    <p className="font-sans text-charcoal/60 text-sm leading-relaxed mt-2">Machine-to-machine settlement infrastructure for autonomous procurement.</p>
+                                </div>
+                                <span className="self-start inline-block border-b border-charcoal/20 pb-1 text-charcoal/50 font-sans tracking-widest text-xs uppercase mt-4 group-hover:text-charcoal group-hover:border-charcoal/50 transition-colors duration-200">
+                                    Explore →
+                                </span>
+                            </Link>
+                        </div>
+                    </div>
+                </section>
 
                 <RelatedInsights
                     category="Agentic Marketing"

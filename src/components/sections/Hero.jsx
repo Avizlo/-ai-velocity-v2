@@ -58,13 +58,13 @@ export const Hero = () => {
                 {/* Micro-label */}
                 <div ref={labelRef} className="mb-6 opacity-0">
                     <span className="font-mono text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/40">
-                        001 — Foundry
+                        001 / Foundry
                     </span>
                 </div>
 
-                {/* Main Heading — Mixed Weight */}
+                {/* Main Heading - Mixed Weight */}
                 <div className="space-y-1 md:space-y-2 mb-10 md:mb-14">
-                    {/* "Agentic" — Outlined stroke, no fill */}
+                    {/* "Agentic" - Outlined stroke, no fill */}
                     <h1 ref={outlineRef} className="opacity-0">
                         <span
                             className="block text-6xl md:text-[8rem] lg:text-[10rem] font-serif italic font-light leading-[0.9] tracking-tight"
@@ -75,29 +75,25 @@ export const Hero = () => {
                         >
                             Agentic
                         </span>
-                    </h1>
-
-                    {/* "Commerce." — Solid bold fill */}
-                    <div ref={solidRef} className="opacity-0">
-                        <span className="block text-6xl md:text-[8rem] lg:text-[10rem] font-serif italic font-bold leading-[0.9] tracking-tight text-electric-mint">
+                        <span ref={solidRef} className="block text-6xl md:text-[8rem] lg:text-[10rem] font-serif italic font-bold leading-[0.9] tracking-tight text-electric-mint opacity-0">
                             Commerce.
                         </span>
-                    </div>
+                    </h1>
                 </div>
 
-                {/* Subtitle — Clean with accent dots */}
+                {/* Subtitle - Clean with accent dots */}
                 <div ref={subRef} className="opacity-0 flex items-start gap-4 max-w-xl">
                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-electric-mint flex-shrink-0" />
                     <p className="text-sm md:text-base text-white/50 font-mono leading-relaxed tracking-wide">
-                        Sovereign visual intelligence & autonomous growth systems — designed to vaporize legacy management.
+                        Agentic commerce. Marketing. Payments. Discovery. Autonomous systems for the agentic economy.
                     </p>
                 </div>
 
                 {/* Editorial CTA */}
                 <div ref={ctaRef} className="opacity-0 mt-10">
-                    <a href="/agentic-commerce" className="inline-flex items-center gap-3 group">
+                    <a href="#services" className="inline-flex items-center gap-3 group">
                         <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/60 group-hover:text-electric-mint transition-colors duration-300">
-                            Enter the Era
+                            Explore the Foundry
                         </span>
                         <span className="w-8 h-px bg-white/30 group-hover:w-12 group-hover:bg-electric-mint transition-all duration-300" />
                         <span className="text-white/60 group-hover:text-electric-mint transition-colors duration-300">→</span>

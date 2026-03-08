@@ -22,15 +22,12 @@ export const Footer = () => {
                     <div className="flex gap-16 md:gap-24 font-mono text-xs text-white/50 shrink-0">
                         <div className="flex flex-col gap-3">
                             <span className="text-white/80 font-sans tracking-widest text-[10px] uppercase mb-2">Location</span>
-                            <p>4872 Mark Columbus Blvd</p>
-                            <p>New York, 10035</p>
-                            <p className="mt-2">(212) 555-123456</p>
+                            <p>The Agentic Network</p>
+                            <p>Everywhere. Always on.</p>
                         </div>
                         <div className="flex flex-col gap-3">
                             <span className="text-white/80 font-sans tracking-widest text-[10px] uppercase mb-2">Connect</span>
-                            <a href="#" className="hover:text-white transition-colors">X / Twitter</a>
-                            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-                            <a href="#" className="hover:text-white transition-colors">GitHub</a>
+                            <a href="https://x.com/aivelocitydev" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">X / Twitter</a>
                         </div>
                     </div>
                 </div>
@@ -48,6 +45,8 @@ export const Footer = () => {
                         <Link href="/" className="hover:text-white transition-colors uppercase">Home</Link>
                         <Link href="/agentic-commerce" className="hover:text-white transition-colors uppercase">Commerce</Link>
                         <Link href="/agentic-marketing" className="hover:text-white transition-colors uppercase">Marketing</Link>
+                        <Link href="/agentic-payments" className="hover:text-white transition-colors uppercase">Payments</Link>
+                        <Link href="/agentic-aeo" className="hover:text-white transition-colors uppercase">AEO</Link>
                         <Link href="/agentic-strategy" className="hover:text-white transition-colors uppercase">Strategy</Link>
                         <Link href="/news-insights" className="hover:text-white transition-colors uppercase">News & Insights</Link>
                     </div>

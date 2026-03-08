@@ -8,7 +8,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
-const getArticlesByCategory = (category, count = 2) => {
+const getArticlesByCategory = (category, count = 99) => {
     return insightsData
         .filter(a => a.category === category)
         .sort((a, b) => new Date(b.date) - new Date(a.date))

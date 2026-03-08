@@ -7,31 +7,31 @@ export default function sitemap() {
     const staticPages = [
         {
             url: BASE_URL,
-            lastModified: new Date('2026-03-07'),
+            lastModified: new Date('2026-03-08'),
             changeFrequency: 'weekly',
             priority: 1.0,
         },
         {
             url: `${BASE_URL}/agentic-commerce`,
-            lastModified: new Date('2026-03-01'),
+            lastModified: new Date('2026-03-08'),
             changeFrequency: 'monthly',
             priority: 0.9,
         },
         {
             url: `${BASE_URL}/agentic-marketing`,
-            lastModified: new Date('2026-03-01'),
+            lastModified: new Date('2026-03-08'),
             changeFrequency: 'monthly',
             priority: 0.9,
         },
         {
             url: `${BASE_URL}/agentic-payments`,
-            lastModified: new Date('2026-03-01'),
+            lastModified: new Date('2026-03-08'),
             changeFrequency: 'monthly',
             priority: 0.9,
         },
         {
             url: `${BASE_URL}/agentic-aeo`,
-            lastModified: new Date('2026-03-01'),
+            lastModified: new Date('2026-03-08'),
             changeFrequency: 'monthly',
             priority: 0.9,
         },
@@ -67,7 +67,7 @@ export default function sitemap() {
         },
         {
             url: `${BASE_URL}/news-insights`,
-            lastModified: new Date('2026-03-07'),
+            lastModified: new Date('2026-03-08'),
             changeFrequency: 'weekly',
             priority: 0.8,
         },
