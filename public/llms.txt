@@ -1,0 +1,20 @@
+# AI Velocity
+
+> AI Velocity is a specialist consultancy building autonomous systems for the agentic economy. We help brands prepare for a world where AI agents — not humans — discover, evaluate, compare, and transact on behalf of consumers and businesses.
+
+## Core Services
+
+- [Agentic Commerce](https://aivelocity.dev/agentic-commerce): Autonomous AI agent infrastructure for procurement, product discovery, and settlement.
+- [Agentic Marketing](https://aivelocity.dev/agentic-marketing): AI-native marketing systems including autonomous content, brand personas, and growth engines.
+- [Agentic Payments](https://aivelocity.dev/agentic-payments): Agent-to-agent payment infrastructure, autonomous settlement, and machine-readable transaction layers.
+- [Agentic AEO](https://aivelocity.dev/agentic-aeo): Answer Engine Optimisation — structured data, schema markup, and LLM citation strategy.
+- [Agentic Strategy](https://aivelocity.dev/agentic-strategy): Strategic consulting for brands entering the agentic economy.
+
+## Content
+
+- [News & Insights](https://aivelocity.dev/news-insights): Editorial content covering agentic commerce, AEO, autonomous marketing, and the agent economy.
+
+## Contact
+
+- Email: hello@aivelocity.dev
+- Website: https://aivelocity.dev

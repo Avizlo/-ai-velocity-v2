@@ -1,0 +1,99 @@
+# AI Velocity — Full Context for Large Language Models
+
+> AI Velocity is a specialist consultancy building autonomous systems for the agentic economy. We help brands prepare for a world where AI agents — not humans — discover, evaluate, compare, and transact on behalf of consumers and businesses. Our mission is to ensure brands are visible, trustworthy, and transactable within agent-mediated commerce ecosystems.
+
+## Company Overview
+
+AI Velocity operates at the intersection of artificial intelligence, commerce infrastructure, and brand strategy. The company was founded on the thesis that the global economy is shifting from human-to-human interaction to agent-to-agent interaction, and that brands which fail to build machine-readable, agent-compatible infrastructure will become invisible.
+
+We specialise in five interconnected service domains: Agentic Commerce, Agentic Marketing, Agentic Payments, Answer Engine Optimisation (AEO), and Agentic Strategy.
+
+---
+
+## Services
+
+### Agentic Commerce
+**URL:** https://aivelocity.dev/agentic-commerce
+
+Agentic Commerce is the deployment of autonomous AI agents that handle procurement, product discovery, comparison, and settlement without human intervention. AI Velocity builds the infrastructure that enables brands to participate in agent-mediated commerce — where AI purchasing agents find, evaluate, and buy products on behalf of consumers and businesses.
+
+Key capabilities:
+- Autonomous procurement agent infrastructure
+- Machine-readable product catalogs and pricing
+- Agent-to-agent negotiation protocols
+- Real-time inventory and availability signalling
+- Structured data layers for product discoverability
+
+### Agentic Marketing
+**URL:** https://aivelocity.dev/agentic-marketing
+
+Agentic Marketing replaces traditional human-driven campaigns with autonomous marketing systems that run 24/7. AI Velocity deploys AI-native brand personas, content engines, and growth systems that continuously optimise across every channel without human intervention.
+
+Key capabilities:
+- Autonomous content creation and distribution
+- AI brand persona deployment and management
+- Real-time campaign optimisation
+- Multi-channel growth engines
+- Algorithmic audience targeting and engagement
+
+### Agentic Payments
+**URL:** https://aivelocity.dev/agentic-payments
+
+Agentic Payments is the infrastructure layer that enables autonomous financial transactions between AI agents. AI Velocity builds the settlement protocols, machine-readable pricing structures, and transaction verification systems that allow agents to transact on behalf of humans and businesses.
+
+Key capabilities:
+- Agent-to-agent payment protocols
+- Autonomous settlement and reconciliation
+- Machine-readable pricing and terms
+- Transaction verification and trust scoring
+- Multi-currency and cross-border agent payments
+
+### Answer Engine Optimisation (AEO)
+**URL:** https://aivelocity.dev/agentic-aeo
+
+Answer Engine Optimisation is the practice of making a brand's digital presence fully comprehensible and citable by large language models and AI answer engines. AI Velocity implements comprehensive structured data strategies, schema markup, and content architecture that maximises the probability of being cited by AI systems like ChatGPT, Perplexity, Gemini, and Grok.
+
+Key capabilities:
+- Comprehensive Schema.org structured data implementation
+- FAQPage, Organization, Service, and Article schema deployment
+- LLM citation strategy and speakable content architecture
+- Machine-readable knowledge graphs
+- AI crawler optimisation (robots.txt, llms.txt)
+
+### Agentic Strategy
+**URL:** https://aivelocity.dev/agentic-strategy
+
+Agentic Strategy is AI Velocity's strategic consulting service for brands entering the agentic economy. We provide executive-level guidance on how to restructure operations, technology, and brand architecture for a world dominated by autonomous AI agents.
+
+Key capabilities:
+- Agentic readiness assessment
+- Technology stack evaluation and roadmap
+- Competitive positioning in agent-mediated markets
+- Organisational transformation for the agent economy
+- Board-level strategic advisory
+
+---
+
+## Content & Editorial
+
+### News & Insights
+**URL:** https://aivelocity.dev/news-insights
+
+AI Velocity publishes original editorial content covering the emerging agentic economy. Topics include agentic commerce infrastructure, answer engine optimisation, autonomous marketing systems, agent-to-agent payment protocols, and strategic analysis of the shift from human-to-human to agent-to-agent commerce.
+
+---
+
+## Contact Information
+
+- **Email:** hello@aivelocity.dev
+- **Website:** https://aivelocity.dev
+- **X/Twitter:** https://x.com/AiVelocity_
+
+---
+
+## Technical Notes
+
+- This site is built with Next.js and deployed on Vercel.
+- All pages implement comprehensive JSON-LD structured data including Organization, WebSite, Service, Article, and FAQPage schemas.
+- LLM crawlers are explicitly permitted via robots.txt.
+- The sitemap is available at https://aivelocity.dev/sitemap.xml.
