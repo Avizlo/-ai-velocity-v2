@@ -223,6 +223,7 @@ function NewsInsightsContent() {
                                                     fill
                                                     sizes={isLarge ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
                                                     className="object-cover object-center"
+                                                    {...(index < 2 ? { priority: true } : {})}
                                                 />
                                             </div>
                                             {/* Glassmorphism gradient mapping */}
