@@ -182,10 +182,15 @@ export default function CategoryPage({ categorySlug }) {
                                     className={`group relative rounded-card overflow-hidden bg-charcoal border border-white/5 shadow-2xl h-[450px] ${isLarge ? 'md:col-span-2 lg:col-span-2' : shouldExpand ? (remainingCols >= 2 ? 'md:col-span-2 lg:col-span-3' : 'md:col-span-2 lg:col-span-2') : 'col-span-1'}`}
                                 >
                                     <Link href={`/news-insights/${article.slug}`} className="absolute inset-0 z-10 block">
-                                        <div
-                                            className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105"
-                                            style={{ backgroundImage: `url(${article.image})` }}
-                                        ></div>
+                                        <div className="absolute inset-0 transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105">
+                                            <Image
+                                                src={article.image}
+                                                alt={article.title}
+                                                fill
+                                                sizes={isLarge ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
+                                                className="object-cover object-center"
+                                            />
+                                        </div>
                                         <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent"></div>
 
                                         <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end">

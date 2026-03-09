@@ -216,10 +216,15 @@ function NewsInsightsContent() {
                                         <Link href={`/news-insights/${article.slug}`} className="absolute inset-0 z-10 block">
 
                                             {/* Full-bleed image background */}
-                                            <div
-                                                className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105"
-                                                style={{ backgroundImage: `url(${article.image})` }}
-                                            ></div>
+                                            <div className="absolute inset-0 transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105">
+                                                <Image
+                                                    src={article.image}
+                                                    alt={article.title}
+                                                    fill
+                                                    sizes={isLarge ? "(max-width: 768px) 100vw, 66vw" : "(max-width: 768px) 100vw, 33vw"}
+                                                    className="object-cover object-center"
+                                                />
+                                            </div>
                                             {/* Glassmorphism gradient mapping */}
                                             <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/30 to-transparent"></div>
 

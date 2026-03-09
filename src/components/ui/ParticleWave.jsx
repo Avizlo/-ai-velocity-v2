@@ -48,11 +48,15 @@ export const ParticleWave = () => {
 
         let width, height;
         let cols, rows;
-        const spacing = 18;
+        const isMobile = () => window.innerWidth < 768;
+        const getSpacing = () => isMobile() ? 28 : 18;
+        let spacing = getSpacing();
         const dotBase = 1.4;
 
         const resize = () => {
-            const dpr = Math.min(window.devicePixelRatio || 1, 2);
+            const mobile = isMobile();
+            const dpr = mobile ? 1 : Math.min(window.devicePixelRatio || 1, 2);
+            spacing = getSpacing();
             width = window.innerWidth;
             height = window.innerHeight;
             canvas.width = width * dpr;
@@ -66,11 +70,15 @@ export const ParticleWave = () => {
         resize();
         window.addEventListener('resize', resize);
 
+        // Only track mouse on non-touch devices
         const onMouseMove = (e) => {
             mouseRef.current.targetX = e.clientX / width;
             mouseRef.current.targetY = e.clientY / height;
         };
-        window.addEventListener('mousemove', onMouseMove);
+        const isTouch = window.matchMedia('(pointer: coarse)').matches;
+        if (!isTouch) {
+            window.addEventListener('mousemove', onMouseMove);
+        }
 
         let time = 0;
         let raf;

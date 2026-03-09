@@ -3,6 +3,7 @@
 const nextConfig = {
     turbopack: {},
     images: {
+        formats: ['image/avif', 'image/webp'],
         remotePatterns: [],
     },
 };

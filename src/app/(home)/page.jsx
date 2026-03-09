@@ -1,6 +1,5 @@
-'use client';
-
 import Link from 'next/link';
+import Image from 'next/image';
 import { Hero } from '@/components/sections/Hero';
 import { GsapPageWrapper } from '@/components/ui/GsapPageWrapper';
 import { InfluencerCarousel } from '@/components/sections/InfluencerCarousel';
@@ -171,10 +170,16 @@ export default function Home() {
                                     className="group relative rounded-2xl overflow-hidden min-h-[320px] ring-1 ring-charcoal/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl flex flex-col justify-between"
                                 >
                                     {/* Background Image */}
-                                    <div
-                                        className="absolute inset-0 bg-cover transition-transform duration-700 group-hover:scale-105"
-                                        style={{ backgroundImage: `url(${service.image})`, backgroundPosition: service.bgPosition || 'center' }}
-                                    />
+                                    <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+                                        <Image
+                                            src={service.image}
+                                            alt={service.title}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 50vw"
+                                            className="object-cover"
+                                            style={{ objectPosition: service.bgPosition || 'center' }}
+                                        />
+                                    </div>
                                     {/* Dark Gradient Overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/70 to-charcoal/30" />
 
@@ -276,10 +281,15 @@ export default function Home() {
                                     href={`/news-insights/${article.slug}`}
                                     className="group relative rounded-2xl overflow-hidden min-h-[380px] ring-1 ring-charcoal/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl block"
                                 >
-                                    <div
-                                        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
-                                        style={{ backgroundImage: `url(${article.image})` }}
-                                    />
+                                    <div className="absolute inset-0 transition-transform duration-700 group-hover:scale-105">
+                                        <Image
+                                            src={article.image}
+                                            alt={article.title}
+                                            fill
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                            className="object-cover object-center"
+                                        />
+                                    </div>
                                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal/90 via-charcoal/40 to-transparent" />
                                     <div className="absolute bottom-0 left-0 w-full p-6 md:p-8 flex flex-col justify-end">
                                         <div className="flex items-center gap-3 mb-3">

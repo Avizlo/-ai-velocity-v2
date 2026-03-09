@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { insightsData } from '@/lib/insightsData';
 
 export const NextProtocolBridge = ({ currentSlug }) => {
@@ -99,9 +100,16 @@ const ArticleCard = ({ article }) => (
         {/* Image */}
         <div className="relative w-full overflow-hidden aspect-[16/10]">
             <div
-                className="absolute inset-0 bg-cover bg-center transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105 opacity-70 group-hover:opacity-100"
-                style={{ backgroundImage: `url(${article.image})` }}
-            ></div>
+                className="absolute inset-0 transition-transform duration-[1.5s] ease-[cubic-bezier(0.19,1,0.22,1)] group-hover:scale-105"
+            >
+                <Image
+                    src={article.image}
+                    alt={article.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover object-center opacity-70 group-hover:opacity-100 transition-opacity duration-[1.5s]"
+                />
+            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/30 to-transparent"></div>
         </div>
 
