@@ -2,10 +2,25 @@
 
 import Link from 'next/link';
 import { GsapPageWrapper } from '@/components/ui/GsapPageWrapper';
+import { InfluencerCarousel } from '@/components/sections/InfluencerCarousel';
+import { FAQ } from '@/components/sections/FAQ';
+import { CTABanner } from '@/components/sections/CTABanner';
 
-export const HomeAnimatedSections = ({ services, stats, latestInsights }) => {
+export const HomeAnimatedSections = ({ services, stats, latestInsights, faqs }) => {
     return (
-        <GsapPageWrapper>
+        <GsapPageWrapper className="gap-16 lg:gap-24">
+            {/* Intro Statement */}
+            <section data-no-anim className="py-12 md:py-16 bg-cloud-dancer">
+                <div className="max-w-screen-2xl mx-auto px-6 md:px-12 text-center">
+                    <h2 className="font-serif italic text-4xl md:text-5xl lg:text-6xl text-charcoal tracking-tight leading-[1.15] mb-8">
+                        The world of commerce is changing.
+                    </h2>
+                    <p className="font-sans text-charcoal/60 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                        AI agents will soon find, compare, and buy products without human input. Brands that embrace agentic sales and marketing will win.
+                    </p>
+                </div>
+            </section>
+
             {/* 2. Thesis Statement */}
             <section className="relative py-24 md:py-28 bg-charcoal overflow-hidden">
                 {/* Watermark */}
@@ -37,7 +52,7 @@ export const HomeAnimatedSections = ({ services, stats, latestInsights }) => {
             {/* 3. Service Ecosystem */}
             <section id="services" className="py-20 bg-cloud-dancer">
                 <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-                    <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mb-3 text-electric-mint">
+                    <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mb-3 text-charcoal/40">
                         Infrastructure
                     </span>
                     <h2 className="text-4xl md:text-5xl font-serif text-charcoal tracking-tight mb-12">
@@ -100,7 +115,7 @@ export const HomeAnimatedSections = ({ services, stats, latestInsights }) => {
             {/* 5. Manifesto: The Architecture of Agentic Intelligence */}
             <section className="py-24 bg-cloud-dancer" data-nav-theme="light">
                 <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-                    <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mb-4 text-electric-mint">
+                    <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mb-4 text-charcoal/40">
                         The Architecture
                     </span>
                     <h2 className="text-4xl md:text-5xl font-serif text-charcoal tracking-tight mb-16 max-w-3xl">
@@ -111,19 +126,19 @@ export const HomeAnimatedSections = ({ services, stats, latestInsights }) => {
                         <div>
                             <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/30 block mb-4">01 / Infrastructure</span>
                             <p className="font-sans text-charcoal/70 text-[15px] leading-[1.8]">
-                                Passive software is no longer sufficient for market survival. Agentic commerce demands that brands build a robust Knowledge Graph to organize their data. They must leverage entity embedding to give their products semantic meaning. They must deploy structured formats like JSON-LD to communicate directly with the machines that now orchestrate global capital.
+                                The way people buy things is changing. AI assistants will soon find, compare, and purchase products on behalf of consumers without ever opening a browser. For this to work, your product data needs to be structured so that machines can read it as easily as humans can. This is the foundation, making your business visible to AI.
                             </p>
                         </div>
                         <div>
                             <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/30 block mb-4">02 / Execution</span>
                             <p className="font-sans text-charcoal/70 text-[15px] leading-[1.8]">
-                                Brands must utilize Retrieval-Augmented Generation to synthesize vast datasets in real time. They must expose their catalogs through RESTful services to allow for frictionless data extraction. They must integrate the Model Context Protocol to give their agents the necessary environmental awareness to make complex decisions.
+                                Once your data is machine-readable, AI agents need real-time access to it. That means live pricing, live inventory, and live product details available through secure connections. When an AI assistant asks "is this in stock and what does it cost?", your systems need to answer instantly and accurately.
                             </p>
                         </div>
                         <div>
                             <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-charcoal/30 block mb-4">03 / Settlement</span>
                             <p className="font-sans text-charcoal/70 text-[15px] leading-[1.8]">
-                                The convergence of machine reasoning and decentralized finance enables agentic commerce to settle trades instantly using stablecoins across borders. Deterministic routing finds the most efficient settlement path. Immutable smart contracts lock in terms without human oversight. Cryptographic verification ensures every transaction is authentic.
+                                The final piece is payment. AI agents need to complete purchases securely without a human typing in card details. New payment protocols allow machines to verify, authorise, and settle transactions instantly, across borders, in any currency, with full transparency and zero friction.
                             </p>
                         </div>
                     </div>
@@ -131,20 +146,20 @@ export const HomeAnimatedSections = ({ services, stats, latestInsights }) => {
             </section>
 
             {/* 6. Latest Insights */}
-            <section className="py-20 bg-charcoal" data-nav-theme="dark">
+            <section className="py-20 bg-cloud-dancer" data-nav-theme="light">
                 <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
                     <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
                         <div>
-                            <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mb-3 text-electric-mint">
+                            <span className="block font-mono text-[10px] tracking-[0.25em] uppercase mb-3 text-charcoal/40">
                                 Intelligence
                             </span>
-                            <h2 className="text-4xl md:text-5xl font-serif text-white tracking-tight">
+                            <h2 className="text-4xl md:text-5xl font-serif text-charcoal tracking-tight">
                                 Latest Insights
                             </h2>
                         </div>
                         <Link
                             href="/news-insights"
-                            className="inline-block border-b border-white/10 pb-1 text-white/40 font-sans tracking-widest text-xs uppercase hover:text-electric-mint hover:border-electric-mint/50 transition-colors duration-200"
+                            className="inline-block border-b border-charcoal/20 pb-1 text-charcoal/50 font-sans tracking-widest text-xs uppercase hover:text-electric-mint hover:border-electric-mint/50 transition-colors duration-200"
                         >
                             View All Insights →
                         </Link>
@@ -154,7 +169,7 @@ export const HomeAnimatedSections = ({ services, stats, latestInsights }) => {
                             <Link
                                 key={article.id}
                                 href={`/news-insights/${article.slug}`}
-                                className="group relative rounded-2xl overflow-hidden min-h-[380px] ring-1 ring-white/5 transition-all duration-300 hover:-translate-y-1 block"
+                                className="group relative rounded-2xl overflow-hidden min-h-[380px] ring-1 ring-charcoal/10 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl block"
                             >
                                 <div
                                     className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
@@ -183,6 +198,20 @@ export const HomeAnimatedSections = ({ services, stats, latestInsights }) => {
                     </div>
                 </div>
             </section>
+
+            {/* 7. Influencer Carousel */}
+            <InfluencerCarousel />
+
+            {/* 8. FAQ */}
+            <FAQ
+                title="Agentic Query Matrix"
+                label="Intelligence"
+                faqs={faqs}
+                bgClass="bg-electric-mint"
+            />
+
+            {/* 9. CTA Banner */}
+            <CTABanner />
         </GsapPageWrapper>
     );
 };

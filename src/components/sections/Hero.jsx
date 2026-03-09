@@ -9,25 +9,18 @@ const ParticleWave = dynamic(() => import('@/components/ui/ParticleWave').then(m
 
 export const Hero = () => {
     const containerRef = useRef(null);
-    const labelRef = useRef(null);
     const outlineRef = useRef(null);
     const solidRef = useRef(null);
     const subRef = useRef(null);
-    const ctaRef = useRef(null);
 
     useEffect(() => {
         const ctx = gsap.context(() => {
             const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
-            tl.fromTo(labelRef.current,
-                { y: 20, opacity: 0 },
-                { y: 0, opacity: 1, duration: 1 }
+            tl.fromTo(outlineRef.current,
+                { y: 80, opacity: 0 },
+                { y: 0, opacity: 1, duration: 1.4 }
             )
-                .fromTo(outlineRef.current,
-                    { y: 80, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 1.4 },
-                    "-=0.6"
-                )
                 .fromTo(solidRef.current,
                     { y: 80, opacity: 0 },
                     { y: 0, opacity: 1, duration: 1.4 },
@@ -37,30 +30,19 @@ export const Hero = () => {
                     { y: 30, opacity: 0 },
                     { y: 0, opacity: 1, duration: 1.2 },
                     "-=0.8"
-                )
-                .fromTo(ctaRef.current,
-                    { y: 20, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 1 },
-                    "-=0.6"
                 );
         }, containerRef);
         return () => ctx.revert();
     }, []);
 
     return (
-        <section ref={containerRef} data-nav-theme="dark" className="relative min-h-[100svh] w-full flex flex-col justify-end pb-24 md:pb-40 overflow-hidden bg-charcoal">
+        <section ref={containerRef} data-nav-theme="dark" className="relative min-h-[70vh] w-full flex flex-col justify-end pb-16 md:pb-24 overflow-hidden bg-charcoal">
             {/* Particle Wave Background Effect */}
             <div className="absolute inset-0 z-0">
                 <ParticleWave />
             </div>
 
             <div className="relative z-10 w-full max-w-screen-2xl mx-auto px-6 md:px-12">
-                {/* Micro-label */}
-                <div ref={labelRef} className="mb-6 opacity-0">
-                    <span className="font-mono text-[10px] md:text-xs tracking-[0.3em] uppercase text-white/40">
-                        001 / Foundry
-                    </span>
-                </div>
 
                 {/* Main Heading - Mixed Weight */}
                 <div className="space-y-1 md:space-y-2 mb-10 md:mb-14">
@@ -82,22 +64,10 @@ export const Hero = () => {
                 </div>
 
                 {/* Subtitle - Clean with accent dots */}
-                <div ref={subRef} className="opacity-0 flex items-start gap-4 max-w-xl">
-                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-electric-mint flex-shrink-0" />
+                <div ref={subRef} className="opacity-0 max-w-xl">
                     <p className="text-sm md:text-base text-white/50 font-mono leading-relaxed tracking-wide">
-                        Agentic commerce. Marketing. Payments. Discovery. Autonomous systems for the agentic economy.
+                        Commerce. Marketing. Payments. Discovery. Autonomous systems for the AI economy.
                     </p>
-                </div>
-
-                {/* Editorial CTA */}
-                <div ref={ctaRef} className="opacity-0 mt-10">
-                    <a href="#services" className="inline-flex items-center gap-3 group">
-                        <span className="font-mono text-[10px] md:text-xs tracking-[0.25em] uppercase text-white/60 group-hover:text-electric-mint transition-colors duration-300">
-                            Explore the Foundry
-                        </span>
-                        <span className="w-8 h-px bg-white/30 group-hover:w-12 group-hover:bg-electric-mint transition-all duration-300" />
-                        <span className="text-white/60 group-hover:text-electric-mint transition-colors duration-300">→</span>
-                    </a>
                 </div>
             </div>
         </section>

@@ -185,12 +185,9 @@ const StatementAction = ({ title, subtitle, statement, actionText }) => {
                         {statement}
                     </p>
                     <div className="w-full flex items-center justify-center md:justify-end">
-                        <a
-                            href="#contact"
-                            className="border-b border-electric-mint/50 pb-1 text-electric-mint hover:text-white hover:border-white/50 transition-colors duration-300 font-sans tracking-widest text-xs uppercase"
-                        >
-                            {actionText} →
-                        </a>
+                        <span className="text-electric-mint font-sans tracking-widest text-xs uppercase border-b border-electric-mint/50 pb-1">
+                            {actionText}
+                        </span>
                     </div>
                 </div>
             </div>

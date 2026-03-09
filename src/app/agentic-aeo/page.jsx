@@ -132,8 +132,6 @@ const SplitFeature = ({
     title,
     text1,
     text2,
-    ctaText = "Discover",
-    ctaLink = "#contact",
     reverse = false,
     bgClass = "bg-cloud-dancer",
     theme = "light"
@@ -213,15 +211,6 @@ const SplitFeature = ({
                                     {text2}
                                 </p>
                             )}
-                        </div>
-
-                        <div className="split-anim opacity-0 translate-y-4">
-                            <a
-                                href={ctaLink}
-                                className={`inline-block border-b pb-1 transition-colors duration-300 font-sans tracking-widest text-xs uppercase ${theme === 'dark' ? 'text-white/70 border-white/30 hover:text-electric-mint hover:border-electric-mint/50' : 'text-charcoal border-charcoal/30 hover:text-electric-mint hover:border-electric-mint/50'}`}
-                            >
-                                {ctaText} →
-                            </a>
                         </div>
                     </div>
                 </div>

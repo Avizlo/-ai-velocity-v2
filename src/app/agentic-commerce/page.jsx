@@ -173,8 +173,6 @@ const SplitFeature = ({
     title,
     text1,
     text2,
-    ctaText = "Discover",
-    ctaLink = "#contact",
     reverse = false,
     bgClass = "bg-cloud-dancer",
     theme = "light"
@@ -255,15 +253,6 @@ const SplitFeature = ({
                                 </p>
                             )}
                         </div>
-
-                        <div className="split-anim opacity-0 translate-y-4">
-                            <a
-                                href={ctaLink}
-                                className={`inline-block border-b pb-1 transition-colors duration-300 font-sans tracking-widest text-xs uppercase ${theme === 'dark' ? 'text-white/70 border-white/30 hover:text-electric-mint hover:border-electric-mint/50' : 'text-charcoal border-charcoal/30 hover:text-electric-mint hover:border-electric-mint/50'}`}
-                            >
-                                {ctaText} →
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -323,12 +312,9 @@ const StatementAction = ({ title, subtitle, statement, actionText }) => {
                         {statement}
                     </p>
                     <div className="stmt-anim w-full flex items-center justify-center md:justify-end opacity-0 translate-y-4">
-                        <a
-                            href="#contact"
-                            className="border-b border-electric-mint/50 pb-1 text-electric-mint hover:text-white hover:border-white/50 transition-colors duration-300 font-sans tracking-widest text-xs uppercase"
-                        >
-                            {actionText} →
-                        </a>
+                        <span className="text-electric-mint font-sans tracking-widest text-xs uppercase border-b border-electric-mint/50 pb-1">
+                            {actionText}
+                        </span>
                     </div>
                 </div>
             </div>

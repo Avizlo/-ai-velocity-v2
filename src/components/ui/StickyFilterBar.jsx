@@ -15,7 +15,7 @@ export default function StickyFilterBar({ activeCategory, label = 'News & Insigh
             className="mb-16 border-b border-white/10 pb-6 flex flex-col md:flex-row justify-between md:items-end gap-6 sticky z-30 bg-charcoal pt-6 transition-all duration-300 ease-out"
             style={{ top: navVisible ? `${navHeight}px` : '0px' }}
         >
-            <h2 className="font-mono text-xs uppercase tracking-widest text-white/40 mb-2 md:mb-0">
+            <h2 className="font-mono text-xs uppercase tracking-widest text-electric-mint mb-2 md:mb-0">
                 {label}
             </h2>
 

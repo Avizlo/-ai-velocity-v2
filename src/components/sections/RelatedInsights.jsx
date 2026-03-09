@@ -10,8 +10,10 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 // ── Helpers ─────────────────────────────────────────────────────────────────
 const getArticlesByCategory = (category, count = 99) => {
-    return insightsData
-        .filter(a => a.category === category)
+    const filtered = category
+        ? insightsData.filter(a => a.category === category)
+        : insightsData;
+    return filtered
         .sort((a, b) => new Date(b.date) - new Date(a.date))
         .slice(0, count);
 };
@@ -67,10 +69,10 @@ export const RelatedInsights = ({
                         </div>
                         <div className="ri-anim opacity-0">
                             <Link
-                                href={`/news-insights/${category.toLowerCase().replace(/\s+/g, '-')}`}
+                                href={category ? `/news-insights/${category.toLowerCase().replace(/\s+/g, '-')}` : '/news-insights'}
                                 className="inline-block border-b border-charcoal/30 pb-1 text-charcoal transition-colors duration-300 font-sans tracking-widest text-xs uppercase hover:text-charcoal/60 hover:border-charcoal/60"
                             >
-                                More {category} Articles →
+                                {category ? `More ${category} Articles` : 'More Articles'} →
                             </Link>
                         </div>
                     </div>

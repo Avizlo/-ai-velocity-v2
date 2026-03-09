@@ -1,7 +1,7 @@
 export const CTABanner = ({
     title = "Stay current. The future is moving fast.",
     subtitle = "FOLLOW US",
-    buttonText = "x.com/aivelocitydev",
+    buttonText = "Follow us on X",
     buttonLink = "https://x.com/aivelocitydev"
 }) => {
     return (

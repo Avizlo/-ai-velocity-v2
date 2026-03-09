@@ -12,19 +12,15 @@ export const Footer = () => {
                 <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 flex flex-col md:flex-row justify-between items-start gap-16 relative z-10">
                     <div className="flex flex-col gap-6 w-full max-w-lg">
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif text-white/95 tracking-tight leading-[1.1]">
-                            Initialize your sovereign agentic architecture.
+                            The Agentic Network<br />Everywhere. Always on.
                         </h2>
                         <a href="#contact" className="w-fit border-b border-electric-mint/50 pb-1 text-electric-mint hover:text-white transition-colors duration-300 font-sans tracking-widest text-xs uppercase mt-4">
                             Start the dialogue
                         </a>
+
                     </div>
 
                     <div className="flex gap-16 md:gap-24 font-mono text-xs text-white/50 shrink-0">
-                        <div className="flex flex-col gap-3">
-                            <span className="text-white/80 font-sans tracking-widest text-[10px] uppercase mb-2">Location</span>
-                            <p>The Agentic Network</p>
-                            <p>Everywhere. Always on.</p>
-                        </div>
                         <div className="flex flex-col gap-3">
                             <span className="text-white/80 font-sans tracking-widest text-[10px] uppercase mb-2">Connect</span>
                             <a href="https://x.com/aivelocitydev" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">X / Twitter</a>

@@ -16,6 +16,7 @@ export const GsapPageWrapper = ({ children, className }) => {
         const sections = gsap.utils.toArray(container.current.children);
 
         sections.forEach((sec) => {
+            if (sec.hasAttribute('data-no-anim')) return;
             gsap.fromTo(sec,
                 { y: 30, opacity: 0 },
                 {

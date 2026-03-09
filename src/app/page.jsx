@@ -1,7 +1,4 @@
 import { Hero } from '@/components/sections/Hero';
-import { InfluencerCarousel } from '@/components/sections/InfluencerCarousel';
-import { CTABanner } from '@/components/sections/CTABanner';
-import { FAQ } from '@/components/sections/FAQ';
 import { insightsData } from '@/lib/insightsData';
 import { HomeAnimatedSections } from '@/components/sections/HomeAnimatedSections';
 
@@ -261,7 +258,7 @@ const services = [
         title: "Agentic AEO",
         body: "Search is dead. Answer engines cite sources, not links. We make your brand the canonical answer.",
         href: "/agentic-aeo",
-        image: "/images/blue-model.webp",
+        image: "/images/insights/product-data-liquidity.webp",
         bgPosition: "center",
     },
 ];
@@ -284,7 +281,7 @@ const latestInsights = [...insightsData]
 
 export default function Home() {
     return (
-        <main>
+        <main className="bg-cloud-dancer flex flex-col gap-16 lg:gap-24">
             {/* JSON-LD Schema */}
             <script
                 type="application/ld+json"
@@ -294,26 +291,13 @@ export default function Home() {
             {/* 1. Hero */}
             <Hero />
 
-            {/* 2–6. Animated Sections (Thesis, Services, Stats, Architecture, Latest Insights) */}
+            {/* 2–9. All Animated Sections */}
             <HomeAnimatedSections
                 services={services}
                 stats={stats}
                 latestInsights={latestInsights}
-            />
-
-            {/* 7. Influencer Carousel */}
-            <InfluencerCarousel />
-
-            {/* 8. FAQ */}
-            <FAQ
-                title="Agentic Query Matrix"
-                label="Intelligence"
                 faqs={agenticFaqs}
-                bgClass="bg-electric-mint"
             />
-
-            {/* 9. CTA Banner */}
-            <CTABanner />
         </main>
     );
 }

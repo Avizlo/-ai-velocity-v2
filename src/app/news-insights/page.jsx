@@ -264,9 +264,10 @@ function NewsInsightsContent() {
                     <div className="flex justify-center mt-16">
                         <button
                             onClick={() => setShowMore(true)}
-                            className="font-mono text-sm uppercase tracking-widest text-electric-mint border border-electric-mint/40 rounded-card px-10 py-4 hover:bg-electric-mint hover:text-charcoal transition-all duration-300 hover:shadow-[0_0_20px_rgba(133,216,172,0.3)] cursor-pointer"
+                            className="font-mono text-xs uppercase tracking-widest text-electric-mint border-b border-electric-mint/50 pb-1 hover:text-white hover:border-white transition-all duration-300 cursor-pointer flex items-center gap-2"
                         >
                             Load More News & Insights
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
                         </button>
                     </div>
                 )}

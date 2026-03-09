@@ -14,8 +14,6 @@ export const SplitFeature = ({
     title,
     text1 = "Our agentic systems combine sovereign AI intelligence with creative precision to bring exceptional growth velocity to every brand we activate. Specialising in autonomous content generation, digital identity design, and AI-powered campaign execution — we build infrastructure that performs without limits.",
     text2 = "We are dedicated to achieving exceptional revenue outcomes, while maintaining full brand integrity and strategic alignment for our clients and their audiences.",
-    ctaText = "Discover",
-    ctaLink = "#contact",
     reverse = false,
     bgClass = "bg-cloud-dancer",
     theme = "light" // "light" or "dark"
@@ -98,18 +96,6 @@ export const SplitFeature = ({
                                     {text2}
                                 </p>
                             )}
-                        </div>
-
-                        <div className="split-anim opacity-0 translate-y-4">
-                            <a
-                                href={ctaLink}
-                                className={`inline-block border-b pb-1 transition-colors duration-300 font-sans tracking-widest text-xs uppercase ${theme === 'dark'
-                                    ? 'border-electric-mint/50 text-electric-mint hover:text-white hover:border-white/50'
-                                    : 'border-charcoal/30 text-charcoal hover:text-electric-mint hover:border-electric-mint/50'
-                                    }`}
-                            >
-                                {ctaText} →
-                            </a>
                         </div>
                     </div>
 
