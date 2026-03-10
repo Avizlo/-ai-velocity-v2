@@ -40,21 +40,7 @@ export const CookieConsent = () => {
             {/* Accent bar */}
             <div className="absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-electric-mint/40 to-transparent" />
 
-            <p className="text-white/70 font-sans text-sm leading-relaxed mb-5">
-                This site uses essential cookies for functionality. No tracking or advertising cookies are used.{' '}
-                <a href="/privacy" className="text-electric-mint hover:text-white transition-colors duration-200 underline underline-offset-2">
-                    Privacy Policy
-                </a>
-            </p>
-
-            <div className="flex items-center gap-3">
-                <button
-                    onClick={accept}
-                    className="px-5 py-2 bg-electric-mint text-charcoal font-sans text-xs font-medium uppercase tracking-widest rounded-card
-                        hover:shadow-[0_0_15px_rgba(133,216,172,0.3)] transition-all duration-300 cursor-pointer"
-                >
-                    Accept
-                </button>
+            <div className="flex items-center justify-between gap-3 mb-3">
                 <button
                     onClick={decline}
                     className="px-5 py-2 border border-white/20 text-white/50 font-sans text-xs uppercase tracking-widest rounded-card
@@ -62,7 +48,21 @@ export const CookieConsent = () => {
                 >
                     Decline
                 </button>
+                <button
+                    onClick={accept}
+                    className="px-5 py-2 bg-electric-mint text-charcoal font-sans text-xs font-medium uppercase tracking-widest rounded-card
+                        hover:shadow-[0_0_15px_rgba(133,216,172,0.3)] transition-all duration-300 cursor-pointer"
+                >
+                    Accept
+                </button>
             </div>
+
+            <p className="text-white/40 font-sans text-[10px] leading-relaxed">
+                Essential cookies only. No tracking or ads.{' '}
+                <a href="/privacy" className="text-white/50 hover:text-electric-mint transition-colors duration-200 underline underline-offset-2">
+                    Privacy Policy
+                </a>
+            </p>
         </div>
     );
 };
