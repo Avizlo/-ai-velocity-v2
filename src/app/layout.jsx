@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en" className={`${inter.variable} bg-charcoal`}>
             <head>
-                <link rel="preload" href="/fonts/times-italic.ttf" as="font" type="font/ttf" crossOrigin="anonymous" />
+                <link rel="preload" href="/fonts/times-italic.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
             </head>
             <body className="font-sans antialiased bg-cloud-dancer" suppressHydrationWarning>
                 <NavVisibilityProvider>

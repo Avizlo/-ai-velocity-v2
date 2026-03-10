@@ -2,7 +2,7 @@
 /* Local Typography via Next/Font */
 @font-face {
   font-family: 'AgenticTimes';
-  src: url('/fonts/times-italic.ttf') format('truetype');
+  src: url('/fonts/times-italic.woff2') format('woff2');
   font-weight: 400;
   font-style: italic;
   font-display: swap;
@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: 'AgenticTimes';
-  src: url('/fonts/times-italic.ttf') format('truetype');
+  src: url('/fonts/times-italic.woff2') format('woff2');
   font-weight: 700;
   font-style: italic;
   font-display: swap;
