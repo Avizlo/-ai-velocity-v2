@@ -1,5 +1,7 @@
 import { Navbar } from '@/components/sections/Navbar';
 import { Footer } from '@/components/sections/Footer';
+import { CookieConsent } from '@/components/ui/CookieConsent';
+import { ScrollToTop } from '@/components/ui/ScrollToTop';
 import { NavVisibilityProvider } from '@/context/NavVisibilityContext';
 import { Inter } from 'next/font/google';
 import './globals.css';
@@ -29,6 +31,8 @@ export default function RootLayout({ children }) {
                         {children}
                     </div>
                     <Footer />
+                    <CookieConsent />
+                    <ScrollToTop />
                 </NavVisibilityProvider>
             </body>
         </html>
