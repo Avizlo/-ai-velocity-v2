@@ -6,7 +6,7 @@ import { useSearchParams, useRouter } from 'next/navigation';
 import { insightsData } from '@/lib/insightsData';
 import StickyFilterBar from '@/components/ui/StickyFilterBar';
 import { useState, useEffect, useRef, useCallback, Suspense } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+
 
 // --- Default Data fallback ---
 const defaultPosts = [...insightsData].sort((a, b) => new Date(b.date) - new Date(a.date));
@@ -125,13 +125,24 @@ function NewsInsightsContent() {
                     </Link>
 
                     {/* The Image Physics - Forensic Visual Overlay & Subtle Scale */}
-                    <motion.div
-                        initial={{ scale: 1.05, filter: 'brightness(0.7)' }}
-                        animate={{ scale: 1, filter: 'brightness(0.7)' }}
-                        whileHover={{ scale: 1.05, filter: 'brightness(0.85)' }}
-                        transition={{ duration: 1.2, ease: [0.19, 1, 0.22, 1] }}
-                        className="absolute inset-0"
+                    <div
+                        className="absolute inset-0 hero-zoom"
+                        style={{ filter: 'brightness(0.7)' }}
                     >
+                        <style>{`
+                            @keyframes heroZoom {
+                                from { transform: scale(1.05); }
+                                to { transform: scale(1); }
+                            }
+                            .hero-zoom {
+                                animation: heroZoom 1.2s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+                                transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1), filter 0.6s ease;
+                            }
+                            .hero-zoom:hover {
+                                transform: scale(1.05) !important;
+                                filter: brightness(0.85) !important;
+                            }
+                        `}</style>
                         <Image
                             src={heroArticle.image}
                             alt={heroArticle.title}
@@ -140,7 +151,7 @@ function NewsInsightsContent() {
                             priority
                             sizes="100vw"
                         />
-                    </motion.div>
+                    </div>
 
                     {/* Dark gradient mapping to ensure text legibility */}
                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-transparent pointer-events-none"></div>
@@ -183,15 +194,20 @@ function NewsInsightsContent() {
 
                 {/* The Asymmetrical Bento Box Grid */}
                 <section className="min-h-[50vh]">
-                    <AnimatePresence mode="popLayout">
-                        <motion.div
-                            layout
+                    <>
+                        <style>{`
+                            @keyframes fadeSlideUp {
+                                from { opacity: 0; transform: translateY(20px); }
+                                to { opacity: 1; transform: translateY(0); }
+                            }
+                            .article-card-anim {
+                                animation: fadeSlideUp 0.5s cubic-bezier(0.19, 1, 0.22, 1) both;
+                            }
+                        `}</style>
+                        <div
                             className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
                         >
                             {visibleArticles.map((article, index) => {
-                                // Determine grid span logic:
-                                // To create a 'Human Cadence', make every 4th item large, or specifically if marked as 'priority'.
-                                // Here we create a rhythm where some indices span multiple columns.
                                 const isLarge = index === 0 || index === 5;
 
                                 const isLast = index === visibleArticles.length - 1;
@@ -204,14 +220,10 @@ function NewsInsightsContent() {
                                 const shouldExpand = isLast && remainingCols > 0 && !isLarge;
 
                                 return (
-                                    <motion.article
-                                        layout
-                                        initial={{ opacity: 0, y: 20 }}
-                                        animate={{ opacity: 1, y: 0 }}
-                                        exit={{ opacity: 0, scale: 0.95 }}
-                                        transition={{ duration: 0.5, ease: [0.19, 1, 0.22, 1] }}
+                                    <article
                                         key={article.id}
-                                        className={`group relative rounded-card overflow-hidden bg-charcoal border border-white/5 shadow-2xl h-[450px] ${isLarge ? 'md:col-span-2 lg:col-span-2' : shouldExpand ? (remainingCols >= 2 ? 'md:col-span-2 lg:col-span-3' : 'md:col-span-2 lg:col-span-2') : 'col-span-1'}`}
+                                        className={`article-card-anim group relative rounded-card overflow-hidden bg-charcoal border border-white/5 shadow-2xl h-[450px] ${isLarge ? 'md:col-span-2 lg:col-span-2' : shouldExpand ? (remainingCols >= 2 ? 'md:col-span-2 lg:col-span-3' : 'md:col-span-2 lg:col-span-2') : 'col-span-1'}`}
+                                        style={{ animationDelay: `${index * 0.08}s` }}
                                     >
                                         <Link href={`/news-insights/${article.slug}`} className="absolute inset-0 z-10 block">
 
@@ -258,11 +270,11 @@ function NewsInsightsContent() {
 
                                             </div>
                                         </Link>
-                                    </motion.article>
+                                    </article>
                                 );
                             })}
-                        </motion.div>
-                    </AnimatePresence>
+                        </div>
+                    </>
                 </section>
 
                 {/* Load More / Pagination Controls */}
