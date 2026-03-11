@@ -423,13 +423,14 @@ export default function Marketing() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
 
+            <StatementAction
+                title={statementSection.title}
+                subtitle={statementSection.subtitle}
+                statement={statementSection.statement}
+                actionText={statementSection.actionText}
+            />
+
             <GsapPageWrapper className="gap-16 lg:gap-24">
-                <StatementAction
-                    title={statementSection.title}
-                    subtitle={statementSection.subtitle}
-                    statement={statementSection.statement}
-                    actionText={statementSection.actionText}
-                />
 
                 <InfluencerCarousel />
 

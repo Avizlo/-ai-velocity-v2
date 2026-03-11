@@ -256,22 +256,22 @@ const StatementAction = ({ title, subtitle, statement, actionText, watermark = "
                 {(title || subtitle) && (
                     <div className="mb-14 text-left">
                         {title && (
-                            <h1 className="stmt-anim text-6xl md:text-7xl lg:text-8xl font-serif text-white/95 tracking-tighter leading-[0.95] mb-6 opacity-0 translate-y-4">
+                            <h1 className="stmt-anim text-6xl md:text-7xl lg:text-8xl font-serif text-white/95 tracking-tighter leading-[0.95] mb-6">
                                 {title}
                             </h1>
                         )}
                         {subtitle && (
-                            <p className="stmt-anim font-sans text-xs font-bold text-white/60 tracking-[0.2em] uppercase max-w-xl opacity-0 translate-y-4">
+                            <p className="stmt-anim font-sans text-xs font-bold text-white/60 tracking-[0.2em] uppercase max-w-xl">
                                 {subtitle}
                             </p>
                         )}
                     </div>
                 )}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_28rem] gap-12 lg:gap-20 items-end">
-                    <p className="stmt-anim font-serif italic text-[1.5rem] md:text-[2rem] lg:text-[2.2rem] text-white/80 leading-[1.3] tracking-tight lg:-mr-[125px] relative z-10 opacity-0 translate-y-4">
+                    <p className="stmt-anim font-serif italic text-[1.5rem] md:text-[2rem] lg:text-[2.2rem] text-white/80 leading-[1.3] tracking-tight lg:-mr-[125px] relative z-10">
                         {statement}
                     </p>
-                    <div className="stmt-anim w-full flex items-center justify-center md:justify-end opacity-0 translate-y-4">
+                    <div className="stmt-anim w-full flex items-center justify-center md:justify-end">
                         <span className="text-electric-mint font-sans tracking-widest text-xs uppercase border-b border-electric-mint/50 pb-1">
                             {actionText}
                         </span>
@@ -530,14 +530,15 @@ export default function AgenticAEO() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
 
+            <StatementAction
+                title={statementSection.title}
+                subtitle={statementSection.subtitle}
+                statement={statementSection.statement}
+                actionText={statementSection.actionText}
+                watermark={statementSection.watermark}
+            />
+
             <GsapPageWrapper className="gap-16 lg:gap-24">
-                <StatementAction
-                    title={statementSection.title}
-                    subtitle={statementSection.subtitle}
-                    statement={statementSection.statement}
-                    actionText={statementSection.actionText}
-                    watermark={statementSection.watermark}
-                />
 
                 <AeoDiscoveryGrid />
 
