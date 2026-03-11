@@ -68,8 +68,9 @@ export const SplitFeature = ({
                             src={image}
                             alt={imageAlt || "Agentic AI model"}
                             fill
+                            quality={60}
                             sizes="(max-width: 768px) 100vw, 448px"
-                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            className="object-cover will-change-transform transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
 
