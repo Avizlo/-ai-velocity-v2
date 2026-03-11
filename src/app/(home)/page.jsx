@@ -136,7 +136,7 @@ export default function Home() {
 
                     <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
                         <div className="mb-14 text-left">
-                            <span className="block font-sans text-xs font-bold text-white/40 tracking-[0.2em] uppercase mb-6">
+                            <span className="block font-sans text-xs font-bold text-white/60 tracking-[0.2em] uppercase mb-6">
                                 THE AGENTIC ECONOMY
                             </span>
                         </div>
@@ -194,7 +194,7 @@ export default function Home() {
                                         <p className="font-sans text-white/60 text-sm leading-relaxed mt-3 max-w-md">
                                             {service.body}
                                         </p>
-                                        <span className="self-start inline-block border-b border-white/10 pb-1 text-white/40 font-sans tracking-widest text-xs uppercase mt-6 group-hover:text-electric-mint group-hover:border-electric-mint/50 transition-colors duration-200">
+                                        <span className="self-start inline-block border-b border-white/10 pb-1 text-white/60 font-sans tracking-widest text-xs uppercase mt-6 group-hover:text-electric-mint group-hover:border-electric-mint/50 transition-colors duration-200">
                                             Explore →
                                         </span>
                                     </div>

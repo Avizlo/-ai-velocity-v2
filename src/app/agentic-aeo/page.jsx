@@ -261,7 +261,7 @@ const StatementAction = ({ title, subtitle, statement, actionText, watermark = "
                             </h1>
                         )}
                         {subtitle && (
-                            <p className="stmt-anim font-sans text-xs font-bold text-white/40 tracking-[0.2em] uppercase max-w-xl opacity-0 translate-y-4">
+                            <p className="stmt-anim font-sans text-xs font-bold text-white/60 tracking-[0.2em] uppercase max-w-xl opacity-0 translate-y-4">
                                 {subtitle}
                             </p>
                         )}
@@ -350,7 +350,7 @@ const AeoDiscoveryGrid = () => {
                                 </div>
                             </div>
                         </div>
-                        <Link href="/news-insights?category=agentic-aeo" className="relative z-10 mt-auto self-start inline font-sans text-white/40 text-xs tracking-widest uppercase border-b border-white/10 pb-1 hover:text-electric-mint hover:border-electric-mint/50 transition-colors duration-200">
+                        <Link href="/news-insights?category=agentic-aeo" className="relative z-10 mt-auto self-start inline font-sans text-white/60 text-xs tracking-widest uppercase border-b border-white/10 pb-1 hover:text-electric-mint hover:border-electric-mint/50 transition-colors duration-200">
                             Explore AEO Insights →
                         </Link>
                     </div>

@@ -302,7 +302,7 @@ const StatementAction = ({ title, subtitle, statement, actionText }) => {
                             </h1>
                         )}
                         {subtitle && (
-                            <p className="stmt-anim font-sans text-xs font-bold text-white/40 tracking-[0.2em] uppercase max-w-xl opacity-0 translate-y-4">
+                            <p className="stmt-anim font-sans text-xs font-bold text-white/60 tracking-[0.2em] uppercase max-w-xl opacity-0 translate-y-4">
                                 {subtitle}
                             </p>
                         )}
@@ -464,7 +464,7 @@ const BentoGrid2 = ({ data }) => {
                                 The first major on-chain identity layer for autonomous AI agents is now live on mainnet.
                             </p>
                         </div>
-                        <span className="relative z-10 self-start inline-block border-b border-white/10 pb-1 text-white/40 transition-colors duration-300 font-sans tracking-widest text-xs uppercase hover:text-electric-mint hover:border-electric-mint/50">
+                        <span className="relative z-10 self-start inline-block border-b border-white/10 pb-1 text-white/60 transition-colors duration-300 font-sans tracking-widest text-xs uppercase hover:text-electric-mint hover:border-electric-mint/50">
                             Read Article →
                         </span>
                     </Link>
