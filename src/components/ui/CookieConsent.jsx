@@ -43,8 +43,8 @@ export const CookieConsent = () => {
             <div className="flex items-center justify-between gap-3 mb-3">
                 <button
                     onClick={decline}
-                    className="px-5 py-2 border border-white/20 text-white/50 font-sans text-xs uppercase tracking-widest rounded-card
-                        hover:border-white/40 hover:text-white/80 transition-all duration-300 cursor-pointer"
+                    className="px-5 py-2 border border-white/20 text-white/70 font-sans text-xs uppercase tracking-widest rounded-card
+                        hover:border-white/40 hover:text-white/90 transition-all duration-300 cursor-pointer"
                 >
                     Decline
                 </button>
@@ -57,9 +57,9 @@ export const CookieConsent = () => {
                 </button>
             </div>
 
-            <p className="text-white/40 font-sans text-[10px] leading-relaxed">
+            <p className="text-white/60 font-sans text-[10px] leading-relaxed">
                 Essential cookies only. No tracking or ads.{' '}
-                <a href="/privacy" className="text-white/50 hover:text-electric-mint transition-colors duration-200 underline underline-offset-2">
+                <a href="/privacy" className="text-white/70 hover:text-electric-mint transition-colors duration-200 underline underline-offset-2">
                     Privacy Policy
                 </a>
             </p>

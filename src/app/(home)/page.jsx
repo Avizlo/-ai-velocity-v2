@@ -119,7 +119,7 @@ export default function Home() {
                         <h2 className="font-serif italic text-4xl md:text-5xl lg:text-6xl text-charcoal tracking-tight leading-[1.15] mb-8">
                             The world of commerce is changing.
                         </h2>
-                        <p className="font-sans text-charcoal/60 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                        <p className="font-sans text-charcoal/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
                             AI agents will soon find, compare, and buy products without human input. Brands that embrace agentic commerce, sales and marketing will win.
                         </p>
                     </div>
