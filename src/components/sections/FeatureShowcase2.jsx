@@ -96,8 +96,9 @@ export const FeatureShowcase2 = () => {
                             src="/images/agentic-agent-hero.webp"
                             alt="Agentic AI hero"
                             fill
+                            quality={60}
                             sizes="(max-width: 768px) 100vw, 25vw"
-                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            className="object-cover will-change-transform transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
 

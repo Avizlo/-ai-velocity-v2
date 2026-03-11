@@ -63,7 +63,7 @@ export const NextProtocolBridge = ({ currentSlug }) => {
                     <div>
                         <div className="flex flex-col md:flex-row justify-between md:items-end border-b border-white/10 pb-6 mb-12 gap-6">
                             <div>
-                                <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/40 mb-3 block">
+                                <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/60 mb-3 block">
                                     Explore
                                 </span>
                                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif tracking-tight">

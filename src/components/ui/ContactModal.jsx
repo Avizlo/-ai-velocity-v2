@@ -119,7 +119,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
                 {/* Close button */}
                 <button
                     onClick={onClose}
-                    className="absolute top-5 right-5 text-white/40 hover:text-white transition-colors text-lg leading-none cursor-pointer"
+                    className="absolute top-5 right-5 text-white/60 hover:text-white transition-colors text-lg leading-none cursor-pointer"
                     aria-label="Close contact form"
                 >
                     ✕
@@ -130,7 +130,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
                     <div className="text-center py-12">
                         <div className="text-4xl mb-4">✓</div>
                         <h3 className="font-serif italic text-2xl md:text-3xl text-white/90 mb-3">Message sent.</h3>
-                        <p className="font-mono text-xs text-white/40 tracking-wider">We'll be in touch shortly.</p>
+                        <p className="font-mono text-xs text-white/60 tracking-wider">We'll be in touch shortly.</p>
                     </div>
                 ) : (
                     /* ── Form state ── */
@@ -138,7 +138,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
                         <h2 className="font-serif italic text-3xl md:text-4xl text-white/90 tracking-tight leading-tight mb-2">
                             We'd love to hear from you.
                         </h2>
-                        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/40 block mb-10">
+                        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/60 block mb-10">
                             Get in touch
                         </span>
 

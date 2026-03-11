@@ -174,7 +174,7 @@ const StatementAction = ({ title, subtitle, statement, actionText }) => {
                             </h1>
                         )}
                         {subtitle && (
-                            <p className="font-sans text-xs font-bold text-white/40 tracking-[0.2em] uppercase max-w-xl">
+                            <p className="font-sans text-xs font-bold text-white/60 tracking-[0.2em] uppercase max-w-xl">
                                 {subtitle}
                             </p>
                         )}
@@ -301,7 +301,7 @@ const BentoGrid2 = ({ data }) => {
                         </div>
                         <a
                             href={data.cta.buttonLink}
-                            className="relative z-10 self-start inline-block border-b border-white/10 pb-1 text-white/40 transition-colors duration-300 font-sans tracking-widest text-xs uppercase hover:text-electric-mint hover:border-electric-mint/50"
+                            className="relative z-10 self-start inline-block border-b border-white/10 pb-1 text-white/60 transition-colors duration-300 font-sans tracking-widest text-xs uppercase hover:text-electric-mint hover:border-electric-mint/50"
                         >
                             {data.cta.buttonText} →
                         </a>
@@ -423,13 +423,14 @@ export default function Marketing() {
                 dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
             />
 
+            <StatementAction
+                title={statementSection.title}
+                subtitle={statementSection.subtitle}
+                statement={statementSection.statement}
+                actionText={statementSection.actionText}
+            />
+
             <GsapPageWrapper className="gap-16 lg:gap-24">
-                <StatementAction
-                    title={statementSection.title}
-                    subtitle={statementSection.subtitle}
-                    statement={statementSection.statement}
-                    actionText={statementSection.actionText}
-                />
 
                 <InfluencerCarousel />
 

@@ -10,7 +10,7 @@ import { ReadingProgress } from '@/components/ui/ReadingProgress';
 import { ShareButton } from '@/components/ui/ShareButton';
 import { ContextualLinker } from '@/components/ui/ContextualLinker';
 
-const SITE_URL = 'https://example.com';
+const SITE_URL = 'https://aivelocity.dev';
 
 // Generate dynamic metadata for SEO/AEO
 export async function generateMetadata({ params }) {
@@ -23,13 +23,7 @@ export async function generateMetadata({ params }) {
         const categoryName = CATEGORY_SLUGS[slug];
         const categoryUrl = `${SITE_URL}/news-insights/${slug}`;
 
-        // Use the most recent article's image as OG image for the category
-        const heroArticle = [...insightsData]
-            .filter(post => post.category === categoryName)
-            .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
-        const ogImage = heroArticle
-            ? (heroArticle.image.startsWith('http') ? heroArticle.image : `${SITE_URL}${heroArticle.image}`)
-            : `${SITE_URL}/og-default.png`;
+        const ogImage = `${SITE_URL}/og?title=${encodeURIComponent(categoryName)}&subtitle=News%20%26%20Insights`;
 
         return {
             title: meta.title,
@@ -40,8 +34,8 @@ export async function generateMetadata({ params }) {
                 description: meta.description,
                 url: categoryUrl,
                 type: 'website',
-                siteName: 'Your Brand',
-                images: [{ url: ogImage, width: 1200, height: 630, alt: `${categoryName} — Your Brand` }],
+                siteName: 'AI Velocity',
+                images: [{ url: ogImage, width: 1200, height: 630, alt: `${categoryName}, AI Velocity` }],
             },
             twitter: {
                 card: 'summary_large_image',
@@ -55,13 +49,13 @@ export async function generateMetadata({ params }) {
     // Article metadata
     const article = insightsData.find(post => post.slug === slug);
 
-    if (!article) return { title: 'Not Found | Your Brand' };
+    if (!article) return { title: 'Not Found | AI Velocity' };
 
     const articleUrl = `${SITE_URL}/news-insights/${article.slug}`;
-    const imageUrl = article.image.startsWith('http') ? article.image : `${SITE_URL}${article.image}`;
+    const imageUrl = `${SITE_URL}/og?title=${encodeURIComponent(article.title)}&subtitle=News%20%26%20Insights`;
 
     return {
-        title: `${article.title} | Your Brand`,
+        title: `${article.title} | AI Velocity`,
         description: article.excerpt,
         alternates: {
             canonical: articleUrl,
@@ -122,7 +116,7 @@ export default async function ArticlePage({ params }) {
         '@type': article.category === 'News' ? 'NewsArticle' : 'Article',
         headline: article.title,
         description: article.excerpt,
-        image: article.image.startsWith('http') ? article.image : `https://example.com${article.image}`,
+        image: article.image.startsWith('http') ? article.image : `https://aivelocity.dev${article.image}`,
         datePublished: article.date,
         dateModified: article.dateModified || article.date,
         wordCount: wordCount,
@@ -131,20 +125,20 @@ export default async function ArticlePage({ params }) {
         isAccessibleForFree: true,
         mainEntityOfPage: {
             '@type': 'WebPage',
-            '@id': `https://example.com/news-insights/${article.slug}`
+            '@id': `https://aivelocity.dev/news-insights/${article.slug}`
         },
         author: {
             '@type': 'Organization',
             name: article.author,
-            url: 'https://example.com'
+            url: 'https://aivelocity.dev'
         },
         publisher: {
             '@type': 'Organization',
-            name: 'Your Brand',
-            url: 'https://example.com',
+            name: 'AI Velocity',
+            url: 'https://aivelocity.dev',
             logo: {
                 '@type': 'ImageObject',
-                url: 'https://example.com/logo.png'
+                url: 'https://aivelocity.dev/logo.png'
             }
         },
         speakable: {
@@ -154,9 +148,9 @@ export default async function ArticlePage({ params }) {
         ...(article.categoryPage && article.categoryPage !== '/news-insights' ? {
             isPartOf: {
                 '@type': 'WebPage',
-                '@id': `https://example.com${article.categoryPage}`,
+                '@id': `https://aivelocity.dev${article.categoryPage}`,
                 name: article.category,
-                url: `https://example.com${article.categoryPage}`
+                url: `https://aivelocity.dev${article.categoryPage}`
             }
         } : {})
     };
@@ -184,19 +178,19 @@ export default async function ArticlePage({ params }) {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://example.com',
+                item: 'https://aivelocity.dev',
             },
             {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'News & Insights',
-                item: 'https://example.com/news-insights',
+                item: 'https://aivelocity.dev/news-insights',
             },
             {
                 '@type': 'ListItem',
                 position: 3,
                 name: article.title,
-                item: `https://example.com/news-insights/${article.slug}`,
+                item: `https://aivelocity.dev/news-insights/${article.slug}`,
             },
         ],
     };
@@ -240,7 +234,7 @@ export default async function ArticlePage({ params }) {
 
                     {/* Left Column: Metadata & Details */}
                     <aside className="lg:col-span-3 order-2 lg:order-1">
-                        <div className="sticky top-32 flex flex-col gap-8 font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/40">
+                        <div className="sticky top-32 flex flex-col gap-8 font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/60">
 
                             <div>
                                 <span className="block text-white/20 mb-2">Category</span>

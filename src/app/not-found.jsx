@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { insightsData } from '@/lib/insightsData';
 
 export const metadata = {
-    title: 'Page Not Found | Your Brand',
+    title: 'Page Not Found | AI Velocity',
     description: 'The page you are looking for does not exist. Explore our agentic commerce services, latest insights, and more.',
 };
 
@@ -61,7 +61,7 @@ export default function NotFound() {
                                 <h3 className="font-serif text-white text-xl md:text-2xl tracking-tight group-hover:text-electric-mint transition-colors duration-300">
                                     {service.title}
                                 </h3>
-                                <span className="block mt-4 font-mono text-xs text-white/40 tracking-widest uppercase group-hover:text-electric-mint/60 transition-colors duration-200">
+                                <span className="block mt-4 font-mono text-xs text-white/60 tracking-widest uppercase group-hover:text-electric-mint/60 transition-colors duration-200">
                                     Explore →
                                 </span>
                             </Link>
@@ -84,7 +84,7 @@ export default function NotFound() {
                         </div>
                         <Link
                             href="/news-insights"
-                            className="inline-block border-b border-white/10 pb-1 text-white/40 font-sans tracking-widest text-xs uppercase hover:text-electric-mint hover:border-electric-mint/50 transition-colors duration-200"
+                            className="inline-block border-b border-white/10 pb-1 text-white/60 font-sans tracking-widest text-xs uppercase hover:text-electric-mint hover:border-electric-mint/50 transition-colors duration-200"
                         >
                             View All Insights →
                         </Link>

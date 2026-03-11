@@ -47,7 +47,7 @@ export const Hero = () => {
                 {/* Main Heading - Mixed Weight */}
                 <div className="space-y-1 md:space-y-2 mb-10 md:mb-14">
                     {/* "Agentic" - Outlined stroke, no fill */}
-                    <h1 ref={outlineRef} className="opacity-0 text-6xl md:text-[7rem] lg:text-[8rem] font-serif italic leading-[0.9] tracking-tight">
+                    <h1 ref={outlineRef} className="text-6xl md:text-[7rem] lg:text-[8rem] font-serif italic leading-[0.9] tracking-tight">
                         <span
                             className="font-light"
                             style={{
@@ -57,14 +57,14 @@ export const Hero = () => {
                         >
                             Agentic{' '}
                         </span>
-                        <span ref={solidRef} className="font-bold text-electric-mint opacity-0">
+                        <span ref={solidRef} className="font-bold text-electric-mint">
                             Commerce.
                         </span>
                     </h1>
                 </div>
 
                 {/* Subtitle - Clean with accent dots */}
-                <div ref={subRef} className="opacity-0 max-w-xl">
+                <div ref={subRef} className="max-w-xl">
                     <p className="text-sm md:text-base text-white/50 font-mono leading-relaxed tracking-wide">
                         Agentic Commerce. Marketing. Payments. Discovery. Autonomous systems for the AI economy.
                     </p>

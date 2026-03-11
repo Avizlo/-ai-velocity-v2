@@ -68,8 +68,9 @@ export const SplitFeature = ({
                             src={image}
                             alt={imageAlt || "Agentic AI model"}
                             fill
+                            quality={60}
                             sizes="(max-width: 768px) 100vw, 448px"
-                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            className="object-cover will-change-transform transition-transform duration-700 group-hover:scale-105"
                         />
                     </div>
 
@@ -77,7 +78,7 @@ export const SplitFeature = ({
                     <div ref={textRef} className={`flex flex-col justify-between h-full gap-16 ${reverse ? 'md:order-first' : ''}`}>
                         <div>
                             {label && (
-                                <span className={`split-anim block font-mono text-[10px] tracking-[0.25em] uppercase mb-4 opacity-0 translate-y-4 ${theme === 'dark' ? 'text-white/40' : 'text-charcoal/40'}`}>
+                                <span className={`split-anim block font-mono text-[10px] tracking-[0.25em] uppercase mb-4 opacity-0 translate-y-4 ${theme === 'dark' ? 'text-white/60' : 'text-charcoal/40'}`}>
                                     {label}
                                 </span>
                             )}

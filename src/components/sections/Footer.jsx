@@ -30,7 +30,7 @@ export const Footer = () => {
 
                         </div>
 
-                        <div className="flex gap-16 md:gap-24 font-mono text-xs text-white/50 shrink-0">
+                        <div className="flex gap-16 md:gap-24 font-mono text-xs text-white/60 shrink-0">
                             <div className="flex flex-col gap-3">
                                 <span className="text-white/80 font-sans tracking-widest text-[10px] uppercase mb-2">Connect</span>
                                 <a href="https://x.com/yourbrand" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Follow us on X</a>
@@ -52,7 +52,7 @@ export const Footer = () => {
                     </div>
 
                     {/* Bottom Bar - Minimal Row */}
-                    <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-mono text-white/40 tracking-widest relative z-10">
+                    <div className="w-full max-w-screen-2xl mx-auto px-6 md:px-12 border-t border-white/10 pt-6 flex flex-col md:flex-row justify-between items-center gap-6 text-[10px] font-mono text-white/60 tracking-widest relative z-10">
                         <div className="flex flex-wrap gap-6 md:gap-8 justify-center">
                             <Link href="/" className="hover:text-white transition-colors uppercase">Home</Link>
                             <Link href="/agentic-commerce" className="hover:text-white transition-colors uppercase">Commerce</Link>

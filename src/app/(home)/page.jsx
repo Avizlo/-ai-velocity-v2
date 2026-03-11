@@ -119,7 +119,7 @@ export default function Home() {
                         <h2 className="font-serif italic text-4xl md:text-5xl lg:text-6xl text-charcoal tracking-tight leading-[1.15] mb-8">
                             The world of commerce is changing.
                         </h2>
-                        <p className="font-sans text-charcoal/60 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
+                        <p className="font-sans text-charcoal/70 text-base md:text-lg leading-relaxed max-w-2xl mx-auto">
                             AI agents will soon find, compare, and buy products without human input. Brands that embrace agentic commerce, sales and marketing will win.
                         </p>
                     </div>
@@ -136,7 +136,7 @@ export default function Home() {
 
                     <div className="max-w-screen-2xl mx-auto px-6 md:px-12 relative z-10">
                         <div className="mb-14 text-left">
-                            <span className="block font-sans text-xs font-bold text-white/40 tracking-[0.2em] uppercase mb-6">
+                            <span className="block font-sans text-xs font-bold text-white/60 tracking-[0.2em] uppercase mb-6">
                                 THE AGENTIC ECONOMY
                             </span>
                         </div>
@@ -175,8 +175,9 @@ export default function Home() {
                                             src={service.image}
                                             alt={service.title}
                                             fill
+                                            quality={60}
                                             sizes="(max-width: 768px) 100vw, 50vw"
-                                            className="object-cover"
+                                            className="object-cover will-change-transform"
                                             style={{ objectPosition: service.bgPosition || 'center' }}
                                         />
                                     </div>
@@ -185,7 +186,7 @@ export default function Home() {
 
                                     {/* Content */}
                                     <div className="relative z-10 p-8 md:p-10 flex flex-col justify-end h-full">
-                                        <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-white/40 block mb-3">
+                                        <span className="font-mono text-[10px] tracking-[0.25em] uppercase text-white/60 block mb-3">
                                             {service.label}
                                         </span>
                                         <h3 className="font-serif italic text-white text-2xl md:text-3xl leading-tight tracking-tight">
@@ -194,7 +195,7 @@ export default function Home() {
                                         <p className="font-sans text-white/60 text-sm leading-relaxed mt-3 max-w-md">
                                             {service.body}
                                         </p>
-                                        <span className="self-start inline-block border-b border-white/10 pb-1 text-white/40 font-sans tracking-widest text-xs uppercase mt-6 group-hover:text-electric-mint group-hover:border-electric-mint/50 transition-colors duration-200">
+                                        <span className="self-start inline-block border-b border-white/10 pb-1 text-white/60 font-sans tracking-widest text-xs uppercase mt-6 group-hover:text-electric-mint group-hover:border-electric-mint/50 transition-colors duration-200">
                                             Explore →
                                         </span>
                                     </div>
