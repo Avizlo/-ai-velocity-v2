@@ -431,21 +431,21 @@ export default function AgenticAEO() {
         "@graph": [
             {
                 "@type": "Organization",
-                "@id": "https://ai-velocity.com/#organization",
+                "@id": "https://aivelocity.dev/#organization",
                 "name": "AI Velocity",
-                "url": "https://ai-velocity.com",
+                "url": "https://aivelocity.dev",
                 "sameAs": [
                     "https://www.linkedin.com/company/ai-velocity"
                 ]
             },
             {
                 "@type": "WebPage",
-                "@id": "https://ai-velocity.com/agentic-aeo/#webpage",
-                "url": "https://ai-velocity.com/agentic-aeo",
+                "@id": "https://aivelocity.dev/agentic-aeo/#webpage",
+                "url": "https://aivelocity.dev/agentic-aeo",
                 "name": "Agentic AEO — Answer Engine Optimization for AI Agents",
                 "description": "Agentic AEO restructures your digital footprint so autonomous AI agents cite your brand as the canonical answer. Structured schema, semantic knowledge graphs, and entity anchoring.",
-                "isPartOf": { "@id": "https://ai-velocity.com/#website" },
-                "about": { "@id": "https://ai-velocity.com/agentic-aeo/#service" },
+                "isPartOf": { "@id": "https://aivelocity.dev/#website" },
+                "about": { "@id": "https://aivelocity.dev/agentic-aeo/#service" },
                 "speakable": {
                     "@type": "SpeakableSpecification",
                     "cssSelector": ["h1", "h2", ".stmt-anim"]
@@ -458,24 +458,24 @@ export default function AgenticAEO() {
                         "@type": "ListItem",
                         "position": 1,
                         "name": "Home",
-                        "item": "https://ai-velocity.com"
+                        "item": "https://aivelocity.dev"
                     },
                     {
                         "@type": "ListItem",
                         "position": 2,
                         "name": "Agentic AEO",
-                        "item": "https://ai-velocity.com/agentic-aeo"
+                        "item": "https://aivelocity.dev/agentic-aeo"
                     }
                 ]
             },
             {
                 "@type": "Service",
-                "@id": "https://ai-velocity.com/agentic-aeo/#service",
+                "@id": "https://aivelocity.dev/agentic-aeo/#service",
                 "name": "Agentic AEO",
                 "description": "Answer Engine Optimization infrastructure that makes your brand the canonical citation for autonomous AI agents like ChatGPT, Perplexity, and Gemini.",
                 "serviceType": "Answer Engine Optimization",
                 "areaServed": "Worldwide",
-                "provider": { "@id": "https://ai-velocity.com/#organization" },
+                "provider": { "@id": "https://aivelocity.dev/#organization" },
                 "hasOfferCatalog": {
                     "@type": "OfferCatalog",
                     "name": "Agentic AEO Services",

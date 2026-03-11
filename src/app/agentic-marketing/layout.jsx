@@ -5,17 +5,17 @@ export const metadata = {
     title: 'Agentic Marketing — Autonomous AI Campaign Orchestration | AI Velocity',
     description: 'Agentic marketing deploys autonomous AI agents to execute campaign orchestration, content generation, and performance optimisation at machine speed — replacing legacy agency models with goal-driven digital labor.',
     alternates: {
-        canonical: 'https://ai-velocity.com/agentic-marketing',
+        canonical: 'https://aivelocity.dev/agentic-marketing',
     },
     openGraph: {
         title: 'Agentic Marketing — Autonomous AI Campaign Orchestration',
         description: 'Autonomous AI agents that execute campaign orchestration, content generation, and performance marketing at machine speed. The future of brand growth is agent-to-agent.',
-        url: 'https://ai-velocity.com/agentic-marketing',
+        url: 'https://aivelocity.dev/agentic-marketing',
         siteName: 'AI Velocity',
         type: 'website',
         images: [
             {
-                url: 'https://ai-velocity.com/images/ai-model-marketing.webp',
+                url: 'https://aivelocity.dev/og?title=Agentic%20Marketing&subtitle=Service%20Page',
                 width: 1200,
                 height: 630,
                 alt: 'AI Velocity Agentic Marketing — Autonomous AI campaign orchestration',
@@ -26,7 +26,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'Agentic Marketing — Autonomous AI Campaign Orchestration',
         description: 'Autonomous AI agents that execute campaign orchestration, content generation, and performance marketing at machine speed.',
-        images: ['https://ai-velocity.com/images/ai-model-marketing.webp'],
+        images: ['https://aivelocity.dev/og?title=Agentic%20Marketing&subtitle=Service%20Page'],
     },
 };
 
@@ -36,18 +36,18 @@ export default function Layout({ children }) {
         .map(a => ({
             '@type': 'Article',
             headline: a.title,
-            url: `https://ai-velocity.com/news-insights/${a.slug}`,
+            url: `https://aivelocity.dev/news-insights/${a.slug}`,
         }));
 
     const schema = {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        '@id': 'https://ai-velocity.com/agentic-marketing',
+        '@id': 'https://aivelocity.dev/agentic-marketing',
         name: 'Agentic Marketing',
-        url: 'https://ai-velocity.com/agentic-marketing',
+        url: 'https://aivelocity.dev/agentic-marketing',
         description: 'Agentic marketing deploys autonomous AI agents to execute campaign orchestration, content generation, and performance optimisation at machine speed.',
-        isPartOf: { '@id': 'https://ai-velocity.com/#website' },
-        about: { '@id': 'https://ai-velocity.com/#organization' },
+        isPartOf: { '@id': 'https://aivelocity.dev/#website' },
+        about: { '@id': 'https://aivelocity.dev/#organization' },
         hasPart: categoryArticles,
     };
 

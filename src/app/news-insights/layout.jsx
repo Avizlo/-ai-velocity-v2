@@ -5,17 +5,17 @@ export const metadata = {
     title: 'News & Insights | AI Velocity',
     description: 'Expert analysis on agentic commerce, autonomous marketing, AEO strategy, and machine-to-machine payment protocols. Insights from the AI Velocity engineering team.',
     alternates: {
-        canonical: 'https://ai-velocity.com/news-insights',
+        canonical: 'https://aivelocity.dev/news-insights',
     },
     openGraph: {
         title: 'News & Insights | AI Velocity',
         description: 'Expert analysis on agentic commerce, autonomous marketing, AEO strategy, and machine-to-machine payment protocols.',
-        url: 'https://ai-velocity.com/news-insights',
+        url: 'https://aivelocity.dev/news-insights',
         siteName: 'AI Velocity',
         type: 'website',
         images: [
             {
-                url: 'https://ai-velocity.com/images/agentic-agent-hero.webp',
+                url: 'https://aivelocity.dev/og?title=News%20%26%20Insights&subtitle=AI%20Velocity',
                 width: 1200,
                 height: 630,
                 alt: 'AI Velocity News & Insights — Expert analysis on agentic commerce and autonomous AI',
@@ -26,7 +26,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'News & Insights | AI Velocity',
         description: 'Expert analysis on agentic commerce, autonomous marketing, AEO strategy, and machine-to-machine payment protocols.',
-        images: ['https://ai-velocity.com/images/agentic-agent-hero.webp'],
+        images: ['https://aivelocity.dev/og?title=News%20%26%20Insights&subtitle=AI%20Velocity'],
     },
 };
 
@@ -41,13 +41,13 @@ const collectionJsonLd = {
                     '@type': 'ListItem',
                     'position': 1,
                     'name': 'Home',
-                    'item': 'https://ai-velocity.com',
+                    'item': 'https://aivelocity.dev',
                 },
                 {
                     '@type': 'ListItem',
                     'position': 2,
                     'name': 'News & Insights',
-                    'item': 'https://ai-velocity.com/news-insights',
+                    'item': 'https://aivelocity.dev/news-insights',
                 },
             ],
         },
@@ -55,16 +55,16 @@ const collectionJsonLd = {
             '@type': 'CollectionPage',
             'name': 'News & Insights',
             'description': 'Expert analysis on agentic commerce, autonomous marketing, AEO strategy, and machine-to-machine payment protocols.',
-            'url': 'https://ai-velocity.com/news-insights',
+            'url': 'https://aivelocity.dev/news-insights',
             'isPartOf': {
                 '@type': 'WebSite',
                 'name': 'AI Velocity',
-                'url': 'https://ai-velocity.com',
+                'url': 'https://aivelocity.dev',
             },
             'publisher': {
                 '@type': 'Organization',
                 'name': 'AI Velocity',
-                'url': 'https://ai-velocity.com',
+                'url': 'https://aivelocity.dev',
             },
             'speakable': {
                 '@type': 'SpeakableSpecification',
@@ -73,7 +73,7 @@ const collectionJsonLd = {
             'hasPart': insightsData.map(article => ({
                 '@type': article.category === 'News' ? 'NewsArticle' : 'Article',
                 'headline': article.title,
-                'url': `https://ai-velocity.com/news-insights/${article.slug}`,
+                'url': `https://aivelocity.dev/news-insights/${article.slug}`,
                 'datePublished': article.date,
                 'description': article.excerpt,
                 'author': {

@@ -561,21 +561,21 @@ export default function AgenticCommerce() {
         "@graph": [
             {
                 "@type": "Organization",
-                "@id": "https://ai-velocity.com/#organization",
+                "@id": "https://aivelocity.dev/#organization",
                 "name": "AI Velocity",
-                "url": "https://ai-velocity.com",
+                "url": "https://aivelocity.dev",
                 "sameAs": [
                     "https://www.linkedin.com/company/ai-velocity"
                 ]
             },
             {
                 "@type": "WebPage",
-                "@id": "https://ai-velocity.com/agentic-commerce/#webpage",
-                "url": "https://ai-velocity.com/agentic-commerce",
+                "@id": "https://aivelocity.dev/agentic-commerce/#webpage",
+                "url": "https://aivelocity.dev/agentic-commerce",
                 "name": "Agentic Commerce — Autonomous AI Agents for Procurement & Settlement",
                 "description": "Agentic commerce replaces manual storefronts with autonomous AI agents that discover, negotiate, and settle purchases on behalf of your customers — 24/7, in 60+ languages.",
-                "isPartOf": { "@id": "https://ai-velocity.com/#website" },
-                "about": { "@id": "https://ai-velocity.com/agentic-commerce/#service" },
+                "isPartOf": { "@id": "https://aivelocity.dev/#website" },
+                "about": { "@id": "https://aivelocity.dev/agentic-commerce/#service" },
                 "speakable": {
                     "@type": "SpeakableSpecification",
                     "cssSelector": ["h1", "h2", ".stmt-anim"]
@@ -588,24 +588,24 @@ export default function AgenticCommerce() {
                         "@type": "ListItem",
                         "position": 1,
                         "name": "Home",
-                        "item": "https://ai-velocity.com"
+                        "item": "https://aivelocity.dev"
                     },
                     {
                         "@type": "ListItem",
                         "position": 2,
                         "name": "Agentic Commerce",
-                        "item": "https://ai-velocity.com/agentic-commerce"
+                        "item": "https://aivelocity.dev/agentic-commerce"
                     }
                 ]
             },
             {
                 "@type": "Service",
-                "@id": "https://ai-velocity.com/agentic-commerce/#service",
+                "@id": "https://aivelocity.dev/agentic-commerce/#service",
                 "name": "Agentic Commerce",
                 "description": "Autonomous AI agent infrastructure for machine-to-machine procurement, negotiation, and settlement. Replaces manual storefronts with headless architecture optimised for agent-to-agent trade.",
                 "serviceType": "Autonomous Commerce Infrastructure",
                 "areaServed": "Worldwide",
-                "provider": { "@id": "https://ai-velocity.com/#organization" },
+                "provider": { "@id": "https://aivelocity.dev/#organization" },
                 "hasOfferCatalog": {
                     "@type": "OfferCatalog",
                     "name": "Agentic Commerce Services",

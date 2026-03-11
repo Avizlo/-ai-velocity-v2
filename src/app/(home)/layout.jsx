@@ -5,17 +5,17 @@ export const metadata = {
     title: 'Agentic Commerce Infrastructure | AI Velocity',
     description: 'AI Velocity builds agentic commerce infrastructure. Autonomous systems for marketing, payments, and discovery, engineered for AI agents that negotiate, transact, and settle at protocol speed.',
     alternates: {
-        canonical: 'https://ai-velocity.com',
+        canonical: 'https://aivelocity.dev',
     },
     openGraph: {
         title: 'Agentic Commerce Infrastructure | AI Velocity',
         description: 'AI Velocity builds agentic commerce infrastructure. Autonomous systems for marketing, payments, and discovery, engineered for AI agents.',
-        url: 'https://ai-velocity.com',
+        url: 'https://aivelocity.dev',
         siteName: 'AI Velocity',
         type: 'website',
         images: [
             {
-                url: 'https://ai-velocity.com/images/agentic-agent-hero.webp',
+                url: 'https://aivelocity.dev/og?title=Agentic%20Commerce%20Infrastructure&subtitle=AI%20Velocity',
                 width: 1200,
                 height: 630,
                 alt: 'AI Velocity, agentic commerce infrastructure for the autonomous economy',
@@ -26,7 +26,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'Agentic Commerce Infrastructure | AI Velocity',
         description: 'AI Velocity builds agentic commerce infrastructure. Autonomous systems for marketing, payments, and discovery.',
-        images: ['https://ai-velocity.com/images/agentic-agent-hero.webp'],
+        images: ['https://aivelocity.dev/og?title=Agentic%20Commerce%20Infrastructure&subtitle=AI%20Velocity'],
     },
 };
 
@@ -36,15 +36,15 @@ export default function HomeLayout({ children }) {
         "@graph": [
             {
                 "@type": "WebSite",
-                "@id": "https://ai-velocity.com/#website",
+                "@id": "https://aivelocity.dev/#website",
                 "name": "AI Velocity",
-                "url": "https://ai-velocity.com"
+                "url": "https://aivelocity.dev"
             },
             {
                 "@type": "Organization",
-                "@id": "https://ai-velocity.com/#organization",
+                "@id": "https://aivelocity.dev/#organization",
                 "name": "AI Velocity",
-                "url": "https://ai-velocity.com",
+                "url": "https://aivelocity.dev",
                 "description": "AI Velocity builds agentic commerce infrastructure. Autonomous systems for marketing, payments, and discovery, engineered for AI agents that negotiate, transact, and settle at protocol speed.",
                 "knowsAbout": [
                     "agentic commerce",
@@ -62,12 +62,12 @@ export default function HomeLayout({ children }) {
             },
             {
                 "@type": "WebPage",
-                "@id": "https://ai-velocity.com/#webpage",
-                "url": "https://ai-velocity.com",
+                "@id": "https://aivelocity.dev/#webpage",
+                "url": "https://aivelocity.dev",
                 "name": "Agentic Commerce Infrastructure | AI Velocity",
                 "description": "AI Velocity builds agentic commerce infrastructure for the autonomous economy. Commerce, marketing, payments, and discovery systems engineered for AI agents.",
-                "isPartOf": { "@id": "https://ai-velocity.com/#website" },
-                "about": { "@id": "https://ai-velocity.com/#organization" },
+                "isPartOf": { "@id": "https://aivelocity.dev/#website" },
+                "about": { "@id": "https://aivelocity.dev/#organization" },
                 "speakable": {
                     "@type": "SpeakableSpecification",
                     "cssSelector": ["h1", "h2", ".thesis-text"]
@@ -80,7 +80,7 @@ export default function HomeLayout({ children }) {
                         "@type": "ListItem",
                         "position": 1,
                         "name": "Home",
-                        "item": "https://ai-velocity.com"
+                        "item": "https://aivelocity.dev"
                     }
                 ]
             },
@@ -91,27 +91,27 @@ export default function HomeLayout({ children }) {
                     {
                         "@type": "WebPage",
                         "name": "Agentic Commerce",
-                        "url": "https://ai-velocity.com/agentic-commerce"
+                        "url": "https://aivelocity.dev/agentic-commerce"
                     },
                     {
                         "@type": "WebPage",
                         "name": "Agentic Marketing",
-                        "url": "https://ai-velocity.com/agentic-marketing"
+                        "url": "https://aivelocity.dev/agentic-marketing"
                     },
                     {
                         "@type": "WebPage",
                         "name": "Agentic Payments",
-                        "url": "https://ai-velocity.com/agentic-payments"
+                        "url": "https://aivelocity.dev/agentic-payments"
                     },
                     {
                         "@type": "WebPage",
                         "name": "Agentic AEO",
-                        "url": "https://ai-velocity.com/agentic-aeo"
+                        "url": "https://aivelocity.dev/agentic-aeo"
                     },
                     {
                         "@type": "WebPage",
                         "name": "News & Insights",
-                        "url": "https://ai-velocity.com/news-insights"
+                        "url": "https://aivelocity.dev/news-insights"
                     }
                 ]
             },

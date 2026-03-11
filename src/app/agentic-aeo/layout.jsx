@@ -4,17 +4,17 @@ export const metadata = {
     title: 'Agentic AEO — Answer Engine Optimization for AI Agents | AI Velocity',
     description: 'Agentic AEO restructures your digital footprint so autonomous AI agents cite your brand as the canonical answer. Structured schema, semantic knowledge graphs, and entity anchoring that make you the primary source for LLMs, ChatGPT, Perplexity, and Gemini.',
     alternates: {
-        canonical: 'https://ai-velocity.com/agentic-aeo',
+        canonical: 'https://aivelocity.dev/agentic-aeo',
     },
     openGraph: {
         title: 'Agentic AEO — Answer Engine Optimization for AI Agents',
         description: 'Make your brand the canonical answer for autonomous AI search agents. Entity anchoring, knowledge graphs, and structured schema that dominate the generative search layer.',
-        url: 'https://ai-velocity.com/agentic-aeo',
+        url: 'https://aivelocity.dev/agentic-aeo',
         siteName: 'AI Velocity',
         type: 'website',
         images: [
             {
-                url: 'https://ai-velocity.com/images/agentic-agent-hero.webp',
+                url: 'https://aivelocity.dev/og?title=Agentic%20AEO&subtitle=Service%20Page',
                 width: 1200,
                 height: 630,
                 alt: 'AI Velocity Agentic AEO — Answer Engine Optimization for AI agents',
@@ -25,7 +25,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'Agentic AEO — Answer Engine Optimization for AI Agents',
         description: 'Make your brand the canonical answer for autonomous AI search agents. Entity anchoring, knowledge graphs, and structured schema.',
-        images: ['https://ai-velocity.com/images/agentic-agent-hero.webp'],
+        images: ['https://aivelocity.dev/og?title=Agentic%20AEO&subtitle=Service%20Page'],
     },
 };
 
@@ -35,18 +35,18 @@ export default function AgenticAEOLayout({ children }) {
         .map(a => ({
             '@type': 'Article',
             headline: a.title,
-            url: `https://ai-velocity.com/news-insights/${a.slug}`,
+            url: `https://aivelocity.dev/news-insights/${a.slug}`,
         }));
 
     const schema = {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        '@id': 'https://ai-velocity.com/agentic-aeo',
+        '@id': 'https://aivelocity.dev/agentic-aeo',
         name: 'Agentic AEO',
-        url: 'https://ai-velocity.com/agentic-aeo',
+        url: 'https://aivelocity.dev/agentic-aeo',
         description: 'Agentic AEO restructures your digital footprint so autonomous AI agents cite your brand as the canonical answer.',
-        isPartOf: { '@id': 'https://ai-velocity.com/#website' },
-        about: { '@id': 'https://ai-velocity.com/#organization' },
+        isPartOf: { '@id': 'https://aivelocity.dev/#website' },
+        about: { '@id': 'https://aivelocity.dev/#organization' },
         hasPart: categoryArticles,
     };
 

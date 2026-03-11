@@ -4,17 +4,17 @@ export const metadata = {
     title: 'Agentic Payments | Autonomous Settlement Infrastructure | AI Velocity',
     description: 'Agentic payments orchestrate instant, machine-to-machine settlements via autonomous software delegates. Explore the v402 handshake, sovereign settlement protocols, and the financial infrastructure powering agent-to-agent commerce.',
     alternates: {
-        canonical: 'https://ai-velocity.com/agentic-payments',
+        canonical: 'https://aivelocity.dev/agentic-payments',
     },
     openGraph: {
         title: 'Agentic Payments — Autonomous Settlement Infrastructure',
         description: 'Instant machine-to-machine settlements via autonomous AI delegates. The v402 handshake protocol enables sovereign, cryptographically verified settlement at global scale.',
-        url: 'https://ai-velocity.com/agentic-payments',
+        url: 'https://aivelocity.dev/agentic-payments',
         siteName: 'AI Velocity',
         type: 'website',
         images: [
             {
-                url: 'https://ai-velocity.com/images/agentic-agent-hero.webp',
+                url: 'https://aivelocity.dev/og?title=Agentic%20Payments&subtitle=Service%20Page',
                 width: 1200,
                 height: 630,
                 alt: 'AI Velocity Agentic Payments — Autonomous settlement infrastructure',
@@ -25,7 +25,7 @@ export const metadata = {
         card: 'summary_large_image',
         title: 'Agentic Payments — Autonomous Settlement Infrastructure',
         description: 'Instant machine-to-machine settlements via autonomous AI delegates. The financial infrastructure powering agent-to-agent commerce.',
-        images: ['https://ai-velocity.com/images/agentic-agent-hero.webp'],
+        images: ['https://aivelocity.dev/og?title=Agentic%20Payments&subtitle=Service%20Page'],
     },
 };
 
@@ -35,18 +35,18 @@ export default function AgenticPaymentsLayout({ children }) {
         .map(a => ({
             '@type': 'Article',
             headline: a.title,
-            url: `https://ai-velocity.com/news-insights/${a.slug}`,
+            url: `https://aivelocity.dev/news-insights/${a.slug}`,
         }));
 
     const schema = {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
-        '@id': 'https://ai-velocity.com/agentic-payments',
+        '@id': 'https://aivelocity.dev/agentic-payments',
         name: 'Agentic Payments',
-        url: 'https://ai-velocity.com/agentic-payments',
+        url: 'https://aivelocity.dev/agentic-payments',
         description: 'Agentic payments orchestrate instant, machine-to-machine settlements via autonomous software delegates.',
-        isPartOf: { '@id': 'https://ai-velocity.com/#website' },
-        about: { '@id': 'https://ai-velocity.com/#organization' },
+        isPartOf: { '@id': 'https://aivelocity.dev/#website' },
+        about: { '@id': 'https://aivelocity.dev/#organization' },
         hasPart: categoryArticles,
     };
 

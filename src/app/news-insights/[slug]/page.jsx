@@ -10,7 +10,7 @@ import { ReadingProgress } from '@/components/ui/ReadingProgress';
 import { ShareButton } from '@/components/ui/ShareButton';
 import { ContextualLinker } from '@/components/ui/ContextualLinker';
 
-const SITE_URL = 'https://ai-velocity.com';
+const SITE_URL = 'https://aivelocity.dev';
 
 // Generate dynamic metadata for SEO/AEO
 export async function generateMetadata({ params }) {
@@ -23,13 +23,7 @@ export async function generateMetadata({ params }) {
         const categoryName = CATEGORY_SLUGS[slug];
         const categoryUrl = `${SITE_URL}/news-insights/${slug}`;
 
-        // Use the most recent article's image as OG image for the category
-        const heroArticle = [...insightsData]
-            .filter(post => post.category === categoryName)
-            .sort((a, b) => new Date(b.date) - new Date(a.date))[0];
-        const ogImage = heroArticle
-            ? (heroArticle.image.startsWith('http') ? heroArticle.image : `${SITE_URL}${heroArticle.image}`)
-            : `${SITE_URL}/og-default.png`;
+        const ogImage = `${SITE_URL}/og?title=${encodeURIComponent(categoryName)}&subtitle=News%20%26%20Insights`;
 
         return {
             title: meta.title,
@@ -58,7 +52,7 @@ export async function generateMetadata({ params }) {
     if (!article) return { title: 'Not Found | AI Velocity' };
 
     const articleUrl = `${SITE_URL}/news-insights/${article.slug}`;
-    const imageUrl = article.image.startsWith('http') ? article.image : `${SITE_URL}${article.image}`;
+    const imageUrl = `${SITE_URL}/og?title=${encodeURIComponent(article.title)}&subtitle=News%20%26%20Insights`;
 
     return {
         title: `${article.title} | AI Velocity`,
@@ -122,7 +116,7 @@ export default async function ArticlePage({ params }) {
         '@type': article.category === 'News' ? 'NewsArticle' : 'Article',
         headline: article.title,
         description: article.excerpt,
-        image: article.image.startsWith('http') ? article.image : `https://ai-velocity.com${article.image}`,
+        image: article.image.startsWith('http') ? article.image : `https://aivelocity.dev${article.image}`,
         datePublished: article.date,
         dateModified: article.dateModified || article.date,
         wordCount: wordCount,
@@ -131,20 +125,20 @@ export default async function ArticlePage({ params }) {
         isAccessibleForFree: true,
         mainEntityOfPage: {
             '@type': 'WebPage',
-            '@id': `https://ai-velocity.com/news-insights/${article.slug}`
+            '@id': `https://aivelocity.dev/news-insights/${article.slug}`
         },
         author: {
             '@type': 'Organization',
             name: article.author,
-            url: 'https://ai-velocity.com'
+            url: 'https://aivelocity.dev'
         },
         publisher: {
             '@type': 'Organization',
             name: 'AI Velocity',
-            url: 'https://ai-velocity.com',
+            url: 'https://aivelocity.dev',
             logo: {
                 '@type': 'ImageObject',
-                url: 'https://ai-velocity.com/logo.png'
+                url: 'https://aivelocity.dev/logo.png'
             }
         },
         speakable: {
@@ -154,9 +148,9 @@ export default async function ArticlePage({ params }) {
         ...(article.categoryPage && article.categoryPage !== '/news-insights' ? {
             isPartOf: {
                 '@type': 'WebPage',
-                '@id': `https://ai-velocity.com${article.categoryPage}`,
+                '@id': `https://aivelocity.dev${article.categoryPage}`,
                 name: article.category,
-                url: `https://ai-velocity.com${article.categoryPage}`
+                url: `https://aivelocity.dev${article.categoryPage}`
             }
         } : {})
     };
@@ -184,19 +178,19 @@ export default async function ArticlePage({ params }) {
                 '@type': 'ListItem',
                 position: 1,
                 name: 'Home',
-                item: 'https://ai-velocity.com',
+                item: 'https://aivelocity.dev',
             },
             {
                 '@type': 'ListItem',
                 position: 2,
                 name: 'News & Insights',
-                item: 'https://ai-velocity.com/news-insights',
+                item: 'https://aivelocity.dev/news-insights',
             },
             {
                 '@type': 'ListItem',
                 position: 3,
                 name: article.title,
-                item: `https://ai-velocity.com/news-insights/${article.slug}`,
+                item: `https://aivelocity.dev/news-insights/${article.slug}`,
             },
         ],
     };
