@@ -5,7 +5,16 @@ import { ScrollToTop } from '@/components/ui/ScrollToTop';
 import { GoogleAnalytics } from '@/components/ui/GoogleAnalytics';
 import { NavVisibilityProvider } from '@/context/NavVisibilityContext';
 import { Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
+
+const agenticTimes = localFont({
+    src: '../../public/fonts/times-italic.woff2',
+    variable: '--font-agentic-times',
+    display: 'swap',
+    style: 'italic',
+    weight: '400 700',
+});
 
 const inter = Inter({
     subsets: ['latin'],
@@ -25,12 +34,10 @@ export const metadata = createMetadata({
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" className={`${inter.variable} bg-charcoal`}>
+        <html lang="en" className={`${inter.variable} ${agenticTimes.variable} bg-charcoal`}>
             <head>
                 <link rel="preconnect" href="https://www.googletagmanager.com" />
                 <link rel="preconnect" href="https://challenges.cloudflare.com" />
-                <link rel="preload" href="/fonts/times-italic.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
-
             </head>
             <body className="font-sans antialiased bg-cloud-dancer" suppressHydrationWarning>
                 <NavVisibilityProvider>
