@@ -51,7 +51,7 @@ export const BentoGrid = () => {
                             src="/images/agentic-agent-hero.webp"
                             alt="Agentic AI systems"
                             fill
-                            quality={60}
+                            quality={40}
                             sizes="(max-width: 768px) 100vw, 33vw"
                             className="object-cover will-change-transform transition-transform duration-700 group-hover:scale-105"
                         />
