@@ -10,25 +10,29 @@ export const FeatureShowcase = () => {
     const gridRef = useRef(null);
 
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
+        let ctx;
+        const frameId = requestAnimationFrame(() => {
+            ctx = gsap.context(() => {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
 
-        const ctx = gsap.context(() => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    toggleActions: "play none none reverse"
-                }
-            });
+                tl.fromTo(gridRef.current.children,
+                    { y: 50, opacity: 0, scale: 0.95 },
+                    { y: 0, opacity: 1, scale: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out' }
+                );
+            }, containerRef);
+        });
 
-            tl.fromTo(gridRef.current.children,
-                { y: 50, opacity: 0, scale: 0.95 },
-                { y: 0, opacity: 1, scale: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out' }
-            );
-        }, containerRef);
-
-        return () => ctx.revert();
+        return () => {
+            cancelAnimationFrame(frameId);
+            ctx?.revert();
+        };
     }, []);
 
     return (

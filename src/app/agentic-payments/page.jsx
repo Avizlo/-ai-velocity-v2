@@ -138,30 +138,34 @@ const SplitFeature = ({
     const imageRef = useRef(null);
 
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
+        let ctx;
+        const frameId = requestAnimationFrame(() => {
+            ctx = gsap.context(() => {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse",
+                    }
+                });
 
-        const ctx = gsap.context(() => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    toggleActions: "play none none reverse",
-                }
-            });
+                tl.fromTo(imageRef.current,
+                    { y: 50, opacity: 0, scale: 0.95 },
+                    { y: 0, opacity: 1, scale: 1, duration: 1, ease: 'power3.out' }
+                )
+                    .fromTo(containerRef.current.querySelectorAll(".split-anim"),
+                        { y: 30, opacity: 0 },
+                        { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' },
+                        "-=0.6"
+                    );
+            }, containerRef);
+        });
 
-            tl.fromTo(imageRef.current,
-                { y: 50, opacity: 0, scale: 0.95 },
-                { y: 0, opacity: 1, scale: 1, duration: 1, ease: 'power3.out' }
-            )
-                .fromTo(containerRef.current.querySelectorAll(".split-anim"),
-                    { y: 30, opacity: 0 },
-                    { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' },
-                    "-=0.6"
-                );
-        }, containerRef);
-
-        return () => ctx.revert();
+        return () => {
+            cancelAnimationFrame(frameId);
+            ctx?.revert();
+        };
     }, []);
 
     return (
@@ -222,23 +226,27 @@ const StatementAction = ({ title, subtitle, statement, actionText }) => {
     const sectionRef = useRef(null);
 
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-
-        const ctx = gsap.context(() => {
-            gsap.fromTo(sectionRef.current.querySelectorAll('.stmt-anim'),
-                { y: 40, opacity: 0 },
-                {
-                    y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: 'top 80%',
-                        toggleActions: 'play none none reverse'
+        let ctx;
+        const frameId = requestAnimationFrame(() => {
+            ctx = gsap.context(() => {
+                gsap.fromTo(sectionRef.current.querySelectorAll('.stmt-anim'),
+                    { y: 40, opacity: 0 },
+                    {
+                        y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: sectionRef.current,
+                            start: 'top 80%',
+                            toggleActions: 'play none none reverse'
+                        }
                     }
-                }
-            );
-        }, sectionRef);
+                );
+            }, sectionRef);
+        });
 
-        return () => ctx.revert();
+        return () => {
+            cancelAnimationFrame(frameId);
+            ctx?.revert();
+        };
     }, []);
 
     return (
@@ -284,23 +292,27 @@ const PaymentsSettlementGrid = () => {
     const gridRef = useRef(null);
 
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-
-        const ctx = gsap.context(() => {
-            gsap.fromTo(gridRef.current.querySelectorAll('.bento-anim'),
-                { y: 40, opacity: 0 },
-                {
-                    y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out',
-                    scrollTrigger: {
-                        trigger: gridRef.current,
-                        start: 'top 80%',
-                        toggleActions: 'play none none reverse'
+        let ctx;
+        const frameId = requestAnimationFrame(() => {
+            ctx = gsap.context(() => {
+                gsap.fromTo(gridRef.current.querySelectorAll('.bento-anim'),
+                    { y: 40, opacity: 0 },
+                    {
+                        y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out',
+                        scrollTrigger: {
+                            trigger: gridRef.current,
+                            start: 'top 80%',
+                            toggleActions: 'play none none reverse'
+                        }
                     }
-                }
-            );
-        }, gridRef);
+                );
+            }, gridRef);
+        });
 
-        return () => ctx.revert();
+        return () => {
+            cancelAnimationFrame(frameId);
+            ctx?.revert();
+        };
     }, []);
 
     return (

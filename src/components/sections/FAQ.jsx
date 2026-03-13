@@ -109,8 +109,6 @@ export const FAQ = ({ title = "FAQ's", label, faqs = defaultFaqs, bgClass = "bg-
     };
 
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-
         const ctx = gsap.context(() => {
             // Organic mesh gradient — 4 blobs drifting on infinite loops
             const blobs = [blob1Ref.current, blob2Ref.current, blob3Ref.current, blob4Ref.current];

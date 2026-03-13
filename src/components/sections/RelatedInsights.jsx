@@ -35,17 +35,22 @@ export const RelatedInsights = ({
     const posts = getArticlesByCategory(category, 2);
 
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
-        const ctx = gsap.context(() => {
-            gsap.fromTo(ref.current.querySelectorAll('.ri-anim'),
-                { y: 20, opacity: 0 },
-                {
-                    y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out',
-                    scrollTrigger: { trigger: ref.current, start: 'top 80%', toggleActions: 'play none none reverse' }
-                }
-            );
-        }, ref);
-        return () => ctx.revert();
+        let ctx;
+        const frameId = requestAnimationFrame(() => {
+            ctx = gsap.context(() => {
+                gsap.fromTo(ref.current.querySelectorAll('.ri-anim'),
+                    { y: 20, opacity: 0 },
+                    {
+                        y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out',
+                        scrollTrigger: { trigger: ref.current, start: 'top 80%', toggleActions: 'play none none reverse' }
+                    }
+                );
+            }, ref);
+        });
+        return () => {
+            cancelAnimationFrame(frameId);
+            ctx?.revert();
+        };
     }, []);
 
     if (posts.length === 0) return null;

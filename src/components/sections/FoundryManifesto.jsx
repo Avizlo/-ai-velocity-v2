@@ -55,25 +55,29 @@ export const FoundryManifesto = ({ title = defaultTitle, leadIn = defaultLeadIn,
     };
 
     useEffect(() => {
-        gsap.registerPlugin(ScrollTrigger);
+        let ctx;
+        const frameId = requestAnimationFrame(() => {
+            ctx = gsap.context(() => {
+                const tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: containerRef.current,
+                        start: "top 80%",
+                        end: "bottom 20%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
 
-        const ctx = gsap.context(() => {
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top 80%",
-                    end: "bottom 20%",
-                    toggleActions: "play none none reverse"
-                }
-            });
+                tl.fromTo(contentRef.current.children,
+                    { y: 40, opacity: 0 },
+                    { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' }
+                );
+            }, containerRef);
+        });
 
-            tl.fromTo(contentRef.current.children,
-                { y: 40, opacity: 0 },
-                { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' }
-            );
-        }, containerRef);
-
-        return () => ctx.revert();
+        return () => {
+            cancelAnimationFrame(frameId);
+            ctx?.revert();
+        };
     }, []);
 
     return (
