@@ -1,5 +1,20 @@
 /* AgenticTimes is loaded via next/font/local in layout.jsx */
 
+/* Hero fade-in: opacity only, no translate to prevent CLS bounce */
+@keyframes heroFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.hero-fade {
+  animation: heroFadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+.hero-fade:nth-child(1) { animation-delay: 0s; }
+.hero-fade:nth-child(2) { animation-delay: 0.12s; }
+.hero-fade:nth-child(3) { animation-delay: 0.24s; }
+.hero-fade:nth-child(4) { animation-delay: 0.36s; }
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
