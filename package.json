@@ -16,11 +16,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@fontsource/instrument-sans": "^5.2.8",
-    "@fontsource/instrument-serif": "^5.2.8",
-    "@fontsource/inter": "^5.2.8",
-    "@fontsource/playfair-display": "^5.2.8",
-    "@fontsource/source-serif-4": "^5.2.9",
     "@gsap/react": "^2.1.2",
     "@marsidev/react-turnstile": "^1.4.2",
     "gsap": "^3.14.2",
