@@ -4,7 +4,7 @@ description: How to create a new blog article with gold-standard SEO, LLM schema
 
 # Blog Article Creation Standard
 
-Follow this guide when adding new articles to the Your Brand blog. All articles are stored in `src/lib/insightsData.js` and rendered via the `src/app/news-insights/[slug]/page.jsx` template, which auto-generates all JSON-LD schema markup.
+Follow this guide when adding new articles to the AI Velocity blog. All articles are stored in `src/lib/insightsData.js` and rendered via the `src/app/news-insights/[slug]/page.jsx` template, which auto-generates all JSON-LD schema markup.
 
 ---
 
@@ -14,17 +14,22 @@ Every article in the `insightsData` array must include these fields:
 
 ```javascript
 {
-    id: "4",
-    slug: "your-article-slug",
-    title: "Your Article Title",
-    category: "Agentic Commerce",
-    date: "2026-04-01T08:00:00Z",
-    author: "Your Brand Engineering",
-    readTime: "8 min read",
-    image: "/images/insights/your-slug.webp",
-    excerpt: "...",
-    content: `...`,
-    faqs: [{ question: "...", answer: "..." }]
+    id: "4",                          // Unique numeric string
+    slug: "your-article-slug",        // URL-safe, lowercase, hyphenated
+    title: "Your Article Title",      // 50-65 characters ideal for SERPs
+    category: "Agentic Commerce",     // See allowed categories below
+    date: "2026-04-01T08:00:00Z",     // ISO 8601 format
+    author: "AI Velocity Engineering",// Or specific author name
+    readTime: "8 min read",           // Calculate: wordCount / 250
+    image: "/images/insights/your-slug.webp",  // Local WebP in public/images/insights/ (see Image Requirements)
+    excerpt: "...",                   // 150-160 characters, compelling summary
+    content: `...`,                   // Markdown content (see Section 3)
+    faqs: [                           // Optional but STRONGLY recommended for Insight articles
+        {
+            question: "...",
+            answer: "..."
+        }
+    ]
 }
 ```
 
@@ -118,24 +123,13 @@ Explanation of the key term.
 - `Agentic AEO`
 - `News`
 
-### URL Convention for Categories
-
-Each category has a dedicated, SEO-indexed page at `/news-insights/{category-slug}`. The category slug registry lives in `src/lib/categoryRegistry.js`.
-
-**Rules:**
-- Category slugs are **always lowercase kebab-case** (e.g., `agentic-commerce`, not `Agentic Commerce`)
-- Category slugs must **NEVER** match an existing article slug (article slugs are long descriptive titles, so this should never happen naturally)
-- Adding a new category requires **two changes**: (1) add an entry in `CATEGORY_SLUGS` and `CATEGORY_META` in `src/lib/categoryRegistry.js`, (2) add the display name to the `getCategories()` array in `src/app/news-insights/page.jsx`
-- The sitemap (`src/app/sitemap.js`) auto-generates entries from `CATEGORY_SLUGS`
-- URL format: `/news-insights/{category-slug}` (no `/category/` prefix)
-
 ### Content Styles
 
 Every Insight article should use one of the two approved content styles. Choose the style that best fits the subject matter. News articles follow standard announcement formatting and do not use either style.
 
 **Style A: Thought Leadership Insight**
 - Written from a first-person expertise perspective ("we recommend", "we have observed", "the approach we advocate")
-- Positions Your Brand as a knowledgeable guide helping readers understand a topic
+- Positions AI Velocity as a knowledgeable guide helping readers understand a topic
 - Can reference industry data, observations, and general experience
 - Example framing: "Why Every Enterprise Needs an Agentic Readiness Framework"
 - Tone: authoritative, advisory, educational
@@ -151,12 +145,12 @@ Every Insight article should use one of the two approved content styles. Choose 
 
 These rules are non-negotiable and apply to all article styles:
 
-1. **Never claim Your Brand has built, deployed, launched, or shipped products, platforms, protocols, or services** unless they genuinely exist and are live
+1. **Never claim AI Velocity has built, deployed, launched, or shipped products, platforms, protocols, or services** unless they genuinely exist and are live
 2. **Never use announcement framing** ("we are launching", "we have deployed", "now available") for things that do not exist
 3. **News articles must describe real events only.** If it has not happened, it is not news
 4. **Thought Leadership articles may say** "we recommend" or "we have observed" but must NOT claim "we built" or "we deployed"
-5. **Industry Analysis articles must not attribute industry developments to Your Brand** unless Your Brand genuinely contributed to them
-6. **When referencing data or statistics**, frame as industry observations ("industry benchmarking data shows", "analysis across enterprise deployments reveals") rather than proprietary claims ("our platform processed") unless the data genuinely comes from Your Brand systems
+5. **Industry Analysis articles must not attribute industry developments to AI Velocity** unless AI Velocity genuinely contributed to them
+6. **When referencing data or statistics**, frame as industry observations ("industry benchmarking data shows", "analysis across enterprise deployments reveals") rather than proprietary claims ("our platform processed") unless the data genuinely comes from AI Velocity systems
 
 ---
 
@@ -215,8 +209,6 @@ Insight articles should include 3–5 FAQ items in the `faqs` array. This is the
 - [ ] `readTime` is calculated correctly (wordCount ÷ 250)
 - [ ] `date` is in ISO 8601 format
 - [ ] `slug` is URL-safe (lowercase, hyphens, no special characters)
-- [ ] `slug` does NOT match any category slug in `src/lib/categoryRegistry.js`
-- [ ] Category exists in `CATEGORY_SLUGS` in `src/lib/categoryRegistry.js`
 - [ ] No em dashes (—) used anywhere in the content
 - [ ] Content uses proper H2/H3 hierarchy (no H1)
 - [ ] Key terms are bolded for scan-legibility

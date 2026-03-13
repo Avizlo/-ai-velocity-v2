@@ -25,3 +25,7 @@ dist-ssr
 .next
 *.tar.gz
 AI_Velocity_V3_backup_2026-03-07/
+
+# PROTECTED: Project guidelines and workflows — DO NOT DELETE
+# These files contain critical content creation standards (blog workflow, typography, layout)
+!.agents/

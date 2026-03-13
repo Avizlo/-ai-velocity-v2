@@ -105,4 +105,7 @@ src/
 See the `.agents/` directory for comprehensive design rules:
 - `.agents/guidelines.md` — Layout, container widths, padding
 - `.agents/typography-guide.md` — Type scale, colors, card patterns, spacing
+- `.agents/workflows/new-blog-article.md` — Blog creation workflow (image sourcing, content standards, SEO checklist)
 - `.cursorrules` — Corner radius, hover effects, hierarchy rules
+
+> ⚠️ **CRITICAL:** The `.agents/` directory contains essential project guidelines. It is protected by a `!.agents/` rule in `.gitignore`. Do not delete these files — they are required for consistent content creation and design quality.
