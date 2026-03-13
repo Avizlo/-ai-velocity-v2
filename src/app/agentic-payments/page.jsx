@@ -3,8 +3,6 @@
 import { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { CTABanner } from '@/components/sections/CTABanner';
 import { GsapPageWrapper } from '@/components/ui/GsapPageWrapper';
 import { FAQ } from '@/components/sections/FAQ';
@@ -139,29 +137,33 @@ const SplitFeature = ({
 
     useEffect(() => {
         let ctx;
-        const frameId = requestAnimationFrame(() => {
-            ctx = gsap.context(() => {
-                const tl = gsap.timeline({
-                    scrollTrigger: {
-                        trigger: containerRef.current,
-                        start: "top 80%",
-                        end: "bottom 20%",
-                        once: true,
-                    }
-                });
-
-                tl.fromTo(imageRef.current,
-                    { y: 50, opacity: 0, scale: 0.95 },
-                    { y: 0, opacity: 1, scale: 1, duration: 1, ease: 'power3.out' }
-                )
-                    .fromTo(containerRef.current.querySelectorAll(".split-anim"),
-                        { y: 30, opacity: 0 },
-                        { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' },
-                        "-=0.6"
-                    );
-            }, containerRef);
-        });
-
+        let frameId;
+        (async () => {
+            const { gsap } = await import('gsap');
+            const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+            gsap.registerPlugin(ScrollTrigger);
+            frameId = requestAnimationFrame(() => {
+                ctx = gsap.context(() => {
+                    const tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: containerRef.current,
+                            start: "top 80%",
+                            end: "bottom 20%",
+                            once: true,
+                        }
+                    });
+                    tl.fromTo(imageRef.current,
+                        { y: 50, opacity: 0, scale: 0.95 },
+                        { y: 0, opacity: 1, scale: 1, duration: 1, ease: 'power3.out' }
+                    )
+                        .fromTo(containerRef.current.querySelectorAll(".split-anim"),
+                            { y: 30, opacity: 0 },
+                            { y: 0, opacity: 1, duration: 0.8, stagger: 0.15, ease: 'power3.out' },
+                            "-=0.6"
+                        );
+                }, containerRef);
+            });
+        })();
         return () => {
             cancelAnimationFrame(frameId);
             ctx?.revert();
@@ -269,22 +271,27 @@ const PaymentsSettlementGrid = () => {
 
     useEffect(() => {
         let ctx;
-        const frameId = requestAnimationFrame(() => {
-            ctx = gsap.context(() => {
-                gsap.fromTo(gridRef.current.querySelectorAll('.bento-anim'),
-                    { y: 40, opacity: 0 },
-                    {
-                        y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out',
-                        scrollTrigger: {
-                            trigger: gridRef.current,
-                            start: 'top 80%',
-                            once: true
+        let frameId;
+        (async () => {
+            const { gsap } = await import('gsap');
+            const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+            gsap.registerPlugin(ScrollTrigger);
+            frameId = requestAnimationFrame(() => {
+                ctx = gsap.context(() => {
+                    gsap.fromTo(gridRef.current.querySelectorAll('.bento-anim'),
+                        { y: 40, opacity: 0 },
+                        {
+                            y: 0, opacity: 1, duration: 0.8, stagger: 0.1, ease: 'power3.out',
+                            scrollTrigger: {
+                                trigger: gridRef.current,
+                                start: 'top 80%',
+                                once: true
+                            }
                         }
-                    }
-                );
-            }, gridRef);
-        });
-
+                    );
+                }, gridRef);
+            });
+        })();
         return () => {
             cancelAnimationFrame(frameId);
             ctx?.revert();
