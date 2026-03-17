@@ -4,6 +4,7 @@ User-agent: *
 Allow: /
 Disallow: /_next/
 Disallow: /api/
+Disallow: /media-kit
 
 # LLM Crawlers — Explicitly welcomed to the machine-readable catalog
 User-agent: GPTBot
