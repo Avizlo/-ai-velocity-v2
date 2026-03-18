@@ -3,10 +3,10 @@ import { insightsData } from '@/lib/insightsData';
 import { createMetadata } from '@/lib/metadata';
 
 export const metadata = createMetadata({
-    pageTitle: 'Agentic Commerce, Autonomous AI Agents for Procurement & Settlement | AI Velocity',
-    title: 'Agentic Commerce, Autonomous AI Procurement & Settlement',
-    description: 'Agentic commerce replaces manual storefronts with autonomous AI agents that discover, negotiate, and settle purchases on behalf of your customers, 24/7, in 60+ languages. Learn how AI Velocity builds this infrastructure.',
-    ogDescription: 'Autonomous AI agents that discover, negotiate, and settle purchases on behalf of your customers, 24/7, in 60+ languages. The future of commerce is agent-to-agent.',
+    pageTitle: 'What Is Agentic Commerce? AI-Driven Shopping Revolution | AI Velocity',
+    title: 'What Is Agentic Commerce? AI-Driven Shopping Revolution',
+    description: 'Agentic commerce is the shift from human-driven online shopping to autonomous AI agents that find, negotiate, and settle transactions at protocol speed. Here is how it works.',
+    ogDescription: 'Agentic commerce is the shift from human-driven online shopping to autonomous AI agents that find, negotiate, and settle transactions at protocol speed. Here is how it works.',
     path: '/agentic-commerce',
     ogSubtitle: 'Service Page',
 });
@@ -26,7 +26,7 @@ export default function Layout({ children }) {
         '@id': 'https://aivelocity.dev/agentic-commerce',
         name: 'Agentic Commerce',
         url: 'https://aivelocity.dev/agentic-commerce',
-        description: 'Agentic commerce replaces manual storefronts with autonomous AI agents that discover, negotiate, and settle purchases on behalf of your customers.',
+        description: 'Agentic commerce is the shift from human-driven online shopping to autonomous AI agents that find, negotiate, and settle transactions at protocol speed. Here is how it works.',
         isPartOf: { '@id': 'https://aivelocity.dev/#website' },
         about: { '@id': 'https://aivelocity.dev/#organization' },
         hasPart: categoryArticles,

@@ -107,8 +107,10 @@ export const FoundryManifesto = ({ title = defaultTitle, leadIn = defaultLeadIn,
                     <div className="overflow-hidden space-y-10 font-sans text-charcoal/80">
                         {sections.map((section, idx) => (
                             <div key={idx} className={idx === 0 ? "pt-4" : ""}>
-                                <h3 className="text-xl font-bold text-charcoal mb-3">{section.title}</h3>
-                                <p>{section.content}</p>
+                                {section.title && <h3 className="text-xl font-bold text-charcoal mb-3">{section.title}</h3>}
+                                {Array.isArray(section.content)
+                                    ? section.content.map((para, pIdx) => <p key={pIdx} className={pIdx > 0 ? "mt-4" : ""}>{para}</p>)
+                                    : <p>{section.content}</p>}
                             </div>
                         ))}
                     </div>
