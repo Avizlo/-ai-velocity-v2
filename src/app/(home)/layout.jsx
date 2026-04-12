@@ -3,9 +3,9 @@ import { insightsData } from '@/lib/insightsData';
 import { createMetadata } from '@/lib/metadata';
 
 export const metadata = createMetadata({
-    pageTitle: 'Agentic Commerce Infrastructure | AI Velocity',
+    pageTitle: 'Agentic Commerce & AI Economy News | AI Velocity',
     title: 'AI Velocity | Agentic Economy Intelligence',
-    description: 'AI Velocity builds agentic commerce infrastructure. Autonomous systems for marketing, payments, and discovery, engineered for AI agents that negotiate, transact, and settle at protocol speed.',
+    description: 'AI Velocity covers agentic commerce, autonomous marketing, AI-native payments, and the emerging machine economy. Independent news, analysis and intelligence for the AI transition.',
     ogDescription: 'Original research and strategic analysis on agentic commerce, AEO, and the autonomous economy.',
 });
 
@@ -24,7 +24,7 @@ export default function HomeLayout({ children }) {
                 "@id": "https://aivelocity.dev/#organization",
                 "name": "AI Velocity",
                 "url": "https://aivelocity.dev",
-                "description": "AI Velocity builds agentic commerce infrastructure. Autonomous systems for marketing, payments, and discovery, engineered for AI agents that negotiate, transact, and settle at protocol speed.",
+                "description": "AI Velocity is an independent editorial resource covering agentic commerce, autonomous marketing, AI-native payments, and the emerging machine economy.",
                 "knowsAbout": [
                     "agentic commerce",
                     "autonomous AI agents",
@@ -43,8 +43,8 @@ export default function HomeLayout({ children }) {
                 "@type": "WebPage",
                 "@id": "https://aivelocity.dev/#webpage",
                 "url": "https://aivelocity.dev",
-                "name": "Agentic Commerce Infrastructure | AI Velocity",
-                "description": "AI Velocity builds agentic commerce infrastructure for the autonomous economy. Commerce, marketing, payments, and discovery systems engineered for AI agents.",
+                "name": "Agentic Commerce & AI Economy News | AI Velocity",
+                "description": "AI Velocity covers agentic commerce, autonomous marketing, AI-native payments, and machine-to-machine settlement. News, analysis and intelligence on the autonomous economy.",
                 "isPartOf": { "@id": "https://aivelocity.dev/#website" },
                 "about": { "@id": "https://aivelocity.dev/#organization" },
                 "speakable": {
