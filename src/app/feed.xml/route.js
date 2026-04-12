@@ -36,6 +36,7 @@ export async function GET() {
     <description>Independent news, analysis and intelligence on agentic commerce, autonomous marketing, AI-native payments, and the emerging machine economy.</description>
     <language>en-gb</language>
     <atom:link href="${baseUrl}/feed.xml" rel="self" type="application/rss+xml"/>
+    <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
     <image>
       <url>${baseUrl}/og-image.png</url>
       <title>AI Velocity</title>
