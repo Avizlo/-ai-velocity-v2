@@ -223,7 +223,7 @@ export const ContactModal = ({ isOpen, onClose }) => {
                                 </button>
                             </div>
 
-                            <p className="font-mono text-[9px] text-white/20 tracking-wider pt-2">
+                            <p className="font-mono text-[9px] text-white/70 tracking-wider pt-2">
                                 Protected by Cloudflare Turnstile
                             </p>
                         </form>

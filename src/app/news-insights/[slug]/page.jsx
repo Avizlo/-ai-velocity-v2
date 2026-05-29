@@ -241,7 +241,7 @@ export default async function ArticlePage({ params }) {
                         <div className="sticky top-32 flex flex-col gap-8 font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/60">
 
                             <div>
-                                <span className="block text-white/20 mb-2">Category</span>
+                                <span className="block text-white/70 mb-2">Category</span>
                                 {article.categoryPage ? (
                                     <Link href={article.categoryPage} className="text-electric-mint hover:text-white transition-colors duration-200 hover:underline">
                                         {article.category}
@@ -254,19 +254,19 @@ export default async function ArticlePage({ params }) {
                             </div>
 
                             <div>
-                                <span className="block text-white/20 mb-2">Published</span>
+                                <span className="block text-white/70 mb-2">Published</span>
                                 <time dateTime={article.date} className="text-white/80">
                                     {new Date(article.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
                                 </time>
                             </div>
 
                             <div>
-                                <span className="block text-white/20 mb-2">Author</span>
+                                <span className="block text-white/70 mb-2">Author</span>
                                 <span className="text-white/80">{article.author}</span>
                             </div>
 
                             <div>
-                                <span className="block text-white/20 mb-2">Reading Time</span>
+                                <span className="block text-white/70 mb-2">Reading Time</span>
                                 <span className="text-white/80">{article.readTime}</span>
                             </div>
 
@@ -321,13 +321,13 @@ export default async function ArticlePage({ params }) {
                             if (relatedArticles.length === 0) return null;
                             return (
                                 <div className="max-w-prose mt-16 pt-12 border-t border-white/10">
-                                    <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/30 block mb-6">Further Reading</span>
+                                    <span className="font-mono text-[10px] md:text-xs uppercase tracking-widest text-white/70 block mb-6">Further Reading</span>
                                     <div className="flex flex-col gap-4">
                                         {relatedArticles.map(related => (
                                             <Link key={related.slug} href={`/news-insights/${related.slug}`} className="group flex items-start gap-4 p-4 -mx-4 rounded-xl hover:bg-white/[0.03] transition-colors duration-200">
                                                 <div className="shrink-0 w-2 h-2 mt-2.5 rounded-full bg-electric-mint/50 group-hover:bg-electric-mint transition-colors duration-200" />
                                                 <div>
-                                                    <span className="font-mono text-[9px] uppercase tracking-widest text-white/30">{related.category} · {related.readTime}</span>
+                                                    <span className="font-mono text-[9px] uppercase tracking-widest text-white/70">{related.category} · {related.readTime}</span>
                                                     <p className="font-serif text-white/80 text-lg leading-snug mt-1 group-hover:text-electric-mint transition-colors duration-200">{related.title}</p>
                                                 </div>
                                             </Link>

@@ -165,7 +165,7 @@ function NewsInsightsContent() {
                             <time dateTime={heroArticle.date} className="font-mono text-white/50 text-[10px] md:text-xs tracking-widest uppercase">
                                 {new Date(heroArticle.date).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit' })}
                             </time>
-                            <span className="font-mono text-white/30 text-[10px] uppercase tracking-widest hidden sm:inline-block">
+                            <span className="font-mono text-white/70 text-[10px] uppercase tracking-widest hidden sm:inline-block">
                                 {heroArticle.readTime}
                             </span>
                         </div>
